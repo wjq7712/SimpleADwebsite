@@ -1,0 +1,884 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Diagnosis_Layout.cshtml";
+}
+@{
+    var items = new SelectList(new[]
+        { 
+           new SelectListItem {Text = "无", Value = "无"},
+            new SelectListItem {Text = "曾患", Value = "曾患"},
+            new SelectListItem {Text = "现患", Value = "现患"},
+        }, "Text", "Value");
+}
+@{
+    var scores = new SelectList(new[]
+    {
+    new SelectListItem { Text="", Value=""},
+    new SelectListItem { Text="0", Value="0"},
+    new SelectListItem { Text="1", Value="1"},
+    new SelectListItem { Text="2", Value="2"},
+    }, "Text", "Value");
+}
+@{
+    var actions = new SelectList(new[]
+        {
+        new SelectListItem { Text="4", Value="独立完成"},
+        new SelectListItem { Text="3", Value="有些困难"},
+        new SelectListItem { Text="2", Value="需要帮助"},
+        new SelectListItem { Text="1", Value="无法完成"},
+        new SelectListItem { Text="0", Value="不知道/不适用"},
+        }, "Text", "Value");
+}
+<head>
+    <meta charset="UTF-8">
+    <title>Hover Tabs - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/easyui.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/icon.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/demo.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/question_menu.css")"/>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.tabs.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/question_menu.js")"></script>
+</head>
+<body>
+    <div style="margin: 0 0;">
+    </div>
+    <div id="tt" class="easyui-tabs" style="width: 962px; height: 750px;">
+        <div title="基本情况" style="height: 31px; padding: 20px;">
+            <div title="体格检查" class="basicinfor">
+                <b class="b1"></b><b class="b2 d1"></b><b class="b3 d1"></b><b class="b4 d1"></b>
+                <div class="b d1 k">
+                    <a class="stitle">体格检查</a>
+                    <form class="info">
+                    身高:<input id="height" type="text" name="height" />体重:<input id="weight" type="text" name="weight" />腰围:<input
+                        type="text" name="waistline" />
+                    臀围:<input type="text" name="hipline" /><br />
+                    SBP:<input id="SBP" type="text" name="SBP" />DBP:<input id="DBP" type="text" name="DBP" /></form>
+                </div>
+                <b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b">
+                </b>
+            </div>
+            <div title="既往/目前所患疾病" class="basicinfor">
+                <b class="b1"></b><b class="b2 d1"></b><b class="b3 d1"></b><b class="b4 d1"></b>
+                <div class="b d1 k">
+                    <a class="stitle">既往/目前所患疾病</a>
+                    <div class="info">
+                        <ul>
+                            <li><span>脑血管病</span>
+                                @Html.DropDownList("脑血管病", @items)</li>
+                            <li><span>硬膜下水肿</span>
+                                @Html.DropDownList("硬膜下水肿", @items)</li>
+                            <li><span>甲低</span>
+                                @Html.DropDownList("甲低", @items)</li>
+                            <li><span>焦虑/抑郁</span>
+                                @Html.DropDownList("焦虑/抑郁", @items)</li>
+                            <li><span>帕金森病</span>
+                                @Html.DropDownList("帕金森病", @items)</li>
+                            <li><span>老年性震颤</span>
+                                @Html.DropDownList("老年性震颤", @items)</li>
+                            <li><span>甲亢</span>
+                                @Html.DropDownList("甲亢", @items)</li>
+                            <li><span>高血脂症&nbsp;</span>
+                                @Html.DropDownList("高血脂症", @items)</li>
+                            <li><span>正常颅压脑积水</span>
+                                @Html.DropDownList("正常颅压脑积水", @items)</li>
+                        </ul>
+                    </div>
+                </div>
+                <b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b">
+                </b>
+            </div>
+            <div title="用药情况" class="basicinfor">
+                <b class="b1"></b><b class="b2 d1"></b><b class="b3 d1"></b><b class="b4 d1"></b>
+                <div class="b d1 k">
+                    <a class="stitle">用药情况</a>
+                    <form class="info">
+                    </form>
+                </div>
+                <b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b">
+                </b>
+            </div>
+            <div title="病史描述" class="basicinfor">
+                <b class="b1"></b><b class="b2 d1"></b><b class="b3 d1"></b><b class="b4 d1"></b>
+                <div class="b d1 k">
+                    <a class="stitle">病史描述</a>
+                    <form class="info">
+                    </form>
+                </div>
+                <b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b">
+                </b>
+            </div>
+        </div>
+        <div title="认知检查" style="height: 31px; padding: 20px">
+            <div id="mainmenu">
+                <a class="pre" style="display: block;"></a>
+                <div id="querybox">
+                    <div class="menubox">
+                        <ul class="qeslist">
+                            <li>
+                                <p class="parttitle">
+                                    第一题</p>
+                            </li>
+                            <li><a class="guide">指导语 </a></li>
+                            <li>
+                                <p class="question">
+                                    现在我给您一张纸，请您用右手拿起这张纸，用双手把它对折，然后放到您的左腿上。（不要重复说明，也不要示范）</p>
+                            </li>
+                            <li class="score">
+                                  <span>右手拿起这张纸<input id ="step1" type="checkbox" name="step" /></span> 
+                                  <span>双手对折<input id="step2" type="checkbox" name="step" /></span> 
+                                  <span>放到左腿上<input id="step3" type="checkbox" name="step" /></span>
+                            </li>
+                        </ul>
+                        <ul class="qeslist" id="VocabularyLearning">
+                            <li>
+                                <p class="parttitle">
+                                    第二题<span>--词表学习</span></p>
+                            </li>
+                            <li>
+                                <p class="tips">
+                                    C2A:第一次 Score:<span >上一次得分（X）分</span></p>
+                            </li>
+                            <li id="time1">
+                                <table  >
+                                    <tr>
+                                        <th>
+                                            声音
+                                        </th>
+                                        <th>
+                                            上学
+                                        </th>
+                                        <th>
+                                            财产
+                                        </th>
+                                        <th>
+                                            形状
+                                        </th>
+                                        <th>
+                                            天气
+                                        </th>
+                                        <th>
+                                            游戏
+                                        </th>
+                                        <th>
+                                            服务
+                                        </th>
+                                        <th>
+                                            道理
+                                        </th>
+                                        <th>
+                                            消息
+                                        </th>
+                                        <th>
+                                            力量
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time1" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li >
+                                <p class="tips">
+                                   C2B:第二次 Score: <span>上一次得分（X）分</span></p>
+                            </li>
+                            <li id="time2">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            游戏
+                                        </th>
+                                        <th>
+                                            天气
+                                        </th>
+                                        <th>
+                                            服务
+                                        </th>
+                                        <th>
+                                            形状
+                                        </th>
+                                        <th>
+                                            力量
+                                        </th>
+                                        <th>
+                                            声音
+                                        </th>
+                                        <th>
+                                            消息
+                                        </th>
+                                        <th>
+                                            上学
+                                        </th>
+                                        <th>
+                                            道理
+                                        </th>
+                                        <th>
+                                            财产
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li>
+                                <p class="tips">
+                                    C2C:第三次 Score:<span>上一次得分（X）分</span></p>
+                            </li>
+                            <li id="time3">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            上学
+                                        </th>
+                                        <th>
+                                            天气
+                                        </th>
+                                        <th>
+                                            道理
+                                        </th>
+                                        <th>
+                                            财产
+                                        </th>
+                                        <th>
+                                            游戏
+                                        </th>
+                                        <th>
+                                            消息
+                                        </th>
+                                        <th>
+                                            力量
+                                        </th>
+                                        <th>
+                                            声音
+                                        </th>
+                                        <th>
+                                            形状
+                                        </th>
+                                        <th>
+                                            服务
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                        <ul class="qeslist" id="PhotographicMemory">
+                            <li>
+                                <p class="parttitle">
+                                    第三题<span>--图形记忆</span></p>
+                            </li>
+                            <li>
+                                <table border="1">
+                                    <tr>
+                                        <th>
+                                            &nbsp
+                                        </th>
+                                        <th>
+                                            C3A图形复制
+                                        </th>
+                                        <th>
+                                            C3B即刻回忆
+                                        </th>
+                                        <th>
+                                            C3C延迟回忆
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            完整的大正方形
+                                        </th>
+                                        <td class="C3A">@Html.DropDownList("0", @scores)
+                                        </td>
+                                        <td class="C3B">@Html.DropDownList("1", @scores)
+                                        </td>
+                                        <td class="C3C">@Html.DropDownList("2", @scores)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            2条交叉的对角线
+                                        </th>
+                                        <td class="C3A">@Html.DropDownList("0", @scores)
+                                        </td>
+                                        <td  class="C3B">@Html.DropDownList("1", @scores)
+                                        </td>
+                                        <td class="C3C">@Html.DropDownList("2", @scores)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            右侧三角形
+                                        </th>
+                                        <td class="C3A">@Html.DropDownList("0", @scores)
+                                        </td>
+                                        <td class="C3B">@Html.DropDownList("1", @scores)
+                                        </td>
+                                        <td class="C3C">@Html.DropDownList("2", @scores)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            折向上的箭头
+                                        </th>
+                                        <td class="C3A">@Html.DropDownList("0", @scores)
+                                        </td>
+                                        <td class="C3B">@Html.DropDownList("1", @scores)
+                                        </td>
+                                        <td class="C3C" >@Html.DropDownList("2", @scores)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            夹角为90度的倒挂菱形
+                                        </th>
+                                        <td class="C3A">@Html.DropDownList("0", @scores)
+                                        </td>
+                                        <td class="C3B">@Html.DropDownList("1", @scores)
+                                        </td>
+                                        <td class="C3C">@Html.DropDownList("2", @scores)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            小长方形
+                                        </th>
+                                        <td class="C3A" >@Html.DropDownList("0", @scores)
+                                        </td>
+                                        <td class="C3B">@Html.DropDownList("1", @scores)
+                                        </td>
+                                        <td class="C3C">@Html.DropDownList("2", @scores)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            小圆形
+                                        </th>
+                                        <td class="C3A">@Html.DropDownList("0", @scores)
+                                        </td>
+                                        <td class="C3B">@Html.DropDownList("1", @scores)
+                                        </td>
+                                        <td class="C3C">@Html.DropDownList("2", @scores)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            正十字
+                                        </th>
+                                        <td class="C3A">@Html.DropDownList("0", @scores)
+                                        </td >
+                                        <td class="C3B">@Html.DropDownList("1", @scores)
+                                        </td>
+                                        <td class="C3C">@Html.DropDownList("2", @scores)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            总分
+                                        </th>
+                                        <td>
+                                        <input id="C3A" type="text" />
+                                        </td>
+                                        <td>
+                                          <input id="C3B" type="text" />
+                                        </td>
+                                        <td>
+                                          <input id="C3C" type="text" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            上一次得分
+                                        </th>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                        <ul class="qeslist" id="IADL">
+                            <li>
+                                 <p class="parttitle">
+                                    第四题<span>--IADL</span></p>
+                            </li>
+                            <li >
+                                <div class="IADL">
+                                    <table id="iadl" border="0">
+                                        <tr>
+                                            <td>
+                                                A:自己发搭公车
+                                            </td>
+                                            <td>@Html.DropDownList("A", @actions)
+                                            </td>
+                                            <td>
+                                                B:逛街、购物
+                                            </td>
+                                            <td>@Html.DropDownList("B", @actions)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                C:自己生火做饭
+                                            </td>
+                                            <td>@Html.DropDownList("C", @actions)
+                                            </td>
+                                            <td>
+                                                D:打电话
+                                            </td>
+                                            <td>@Html.DropDownList("D", @actions)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                E:做家务
+                                            </td>
+                                            <td>@Html.DropDownList("E", @actions)
+                                            </td>
+                                            <td>
+                                                F:处理自己的钱财
+                                            </td>
+                                            <td>@Html.DropDownList("F", @actions)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                G:吃药
+                                            </td>
+                                            <td>@Html.DropDownList("G", @actions)
+                                            </td>
+                                            <td>
+                                                H:提水煮饭、准备洗澡水
+                                            </td>
+                                            <td>@Html.DropDownList("H", @actions)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                I:洗衣服
+                                            </td>
+                                            <td>@Html.DropDownList("I", @actions)
+                                            </td>
+                                            <td>
+                                                J:剪脚趾甲
+                                            </td>
+                                            <td>@Html.DropDownList("J", @actions)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="qeslist"id="mtl0">
+                            <li>
+                                <p class="parttitle">
+                                   第五题 <span>--视空间与执行能力</span></p>
+                            </li>
+                            <li>
+                                <div class="guideline">
+                                    <a>指导语：</a>
+                                    <p>
+                                        “我们有时会用‘123......’或者汉语的‘甲乙丙......’来表示顺序”。请您按照从数字到汉字并逐步升高的顺序画一条连线。从这里开始【指向数字（1）】，从1连向甲，再连向2，并一直下去，到这里结束【指向汉字（戊）】。</p>
+                                </div>
+                                <div class="photo"><img src="../../Content/images/连线彩色.png" alt="连线"/></div>
+                                <div class="grade">
+                                  
+                                    <p><span>评分：</span>当患者完全按照“1-甲-2-乙-3-丙-4-丁-5-戊”的顺序进行连线且没有任何交叉线时给1分。当患者出现任何错误且没有立即自我纠正时，给0分。</p>  
+                                </div>
+                                  <div class="gradebox">
+                                        <a>连线<span><input id="mt1" type="checkbox" name="" /></span></a></div>
+                            </li>
+                            @*         <li><span><input type="button" name="preqes" /></span><input type="button" name ="nextqes" /></li>
+*@
+                        </ul>
+                        <ul class="qeslist"id="mtl1">
+                            <li>
+                                <p class="parttitle" >
+                                    第六题<span>--视空间与执行能力</span></p>
+                            </li>
+                            <li>
+                                <div class="guideline">
+                                    <a>指导语（检查者指着立方体）：</a>
+                                    <p>
+                                        “请您按照这幅图下面的空白处在画一遍，并尽可能精确”。</p>
+                                </div>
+                                <div class="grade">
+                                    <p>
+                                        <span>评分：</span>完全符合下列标准时，给1分：</p>
+                                    <ul style="list-style-type: decimal">
+                                        <li>图形为三维结构</li>
+                                        <li>所有的线都存在</li>
+                                        <li>无多余的线</li>
+                                        <li>相对的边基本平行，长度基本一致（长方体或者棱柱体也算对）</li>
+                                    </ul>
+                                    <p>
+                                        上述标准中，只要违反其中任何一条，即为0分。</p>                              
+                                </div>
+                                <div class="photo">
+                                <img src="../../Content/images/立方体彩色.png" alt="立方体"/>
+                                </div>
+                                <div class="gradebox">
+                                   
+                                        <a>复制立方体<span><input id="mt2"type="checkbox" name="" /></span></a></div>
+                            </li>
+                        </ul>
+                        <ul class="qeslist" id="mtl2">
+                            <li>
+                                <p class="parttitle">
+                                    第七题<span>--视空间与执行能力</span></p>
+                            </li>
+                            <li>
+                                <div class="guideline">
+                                    <a>指导语：</a>
+                                    <p>
+                                        “请您在此处话一个钟表，填上所有的数字并指示出11点10分”。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="grade">
+                                    <p>
+                                       <span>评分：</span>符合下列三个标准时，分别给1分：</p>
+                                    <ul style="list-style-type: decimal">
+                                        <li>轮廓：表面必须是个圆，允许有轻微的缺陷（如，圆没有闭合）。</li>
+                                        <li>数字：所有的数字必须完整且没无多余的数字；数字顺序必须正确且在所属的象限内；可以是罗马数字；数字可以放在圆圈之外。</li>
+                                        <li>指针：必须要有两个指针且一起指向正确的时间；时针必须明显短于分针；指针的中心必须在表内且接近于钟表的中心。</li>
+                                    </ul>
+                                    <div class="gradebox">
+                                        <ul>
+                                            <li><span>轮廓</span><input type="checkbox" name="clock" /></li><li><span>数字</span><input
+                                                type="checkbox" name="clock" /></li><li><span>指针</span><input type="checkbox" name="clock" /></li></ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="qeslist" id="mtl3">
+                            <li>
+                                <p class="parttitle">
+                                    第八题<span>--命名</span></p>
+                            </li>
+                            <li>
+                                <div class="guideline">
+                                    <a>指导语：</a>
+                                    <p>
+                                        自左向右指着图片问患者：“请您告诉我这个动物的名字”。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="grade">
+                                    <p>
+                                        <span>评分：</span>每答对一个给1分。正确的回答是：（1）狮子；（2）犀牛（3）骆驼或者单峰骆驼。</p>
+                                        <img src="../../Content/images/命名.png" alt="命名"/>
+                                    <div class="gradebox">
+                                        <ul>
+                                            <li><span>狮子</span><input type="checkbox" name="animal" /></li><li><span>犀牛</span><input
+                                                type="checkbox" name="animal" /></li><li><span>骆驼或者单峰骆驼</span><input type="checkbox" name="animal" /></li></ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="qeslist" id="mtl4">
+                            <li>
+                                <p class="parttitle">
+                                    第九题<span>--注意</span></p>
+                            </li>
+                            <li>
+                                <div class="guideline">
+                                    <a>（一）数字顺背广度：指导语：</a>
+                                    <p>
+                                        “下面我说一些数字，您仔细听，当我说完事您就跟着照样背出来”。按照每秒钟1个的速度读出这5个数字。</p>
+                                    <a>（二）数字倒背广度：指导语：</a>
+                                    <p>
+                                        “下面我再说一些数字，您仔细听，但是当我说完时您必须按照袁术倒着背出来”。按照每秒钟1个数字的速度读出这3个数字。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="grade">
+                                    <p>
+                                        <span>评分：</span>复述正确，每一个数列分别给一分（注：倒背的正确回答是2-4-7）。</p>
+                                    <div class="gradebox">
+                                        <ul>
+                                            <li><span>顺背：21854</span><input type="checkbox" name="columns" /></li><li><span>倒背：742</span><input
+                                                type="checkbox" name="columns" /></li></ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="qeslist" id="mtl5">
+                            <li>
+                                <p class="parttitle">
+                                    第十题<span>--注意</span></p>
+                            </li>
+                            <li>
+                                <div class="guideline">
+                                    <a>指导语：</a>
+                                    <p>
+                                        检查者以每秒1个的速度读出数字串，并向患者说明：“下面我要读出一系列数字，请注意听。每当我读到1的时候，您就拍一下手。当我读到其他数字时不要拍手”。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="grade">
+                                    <p>
+                                        <span>评分：</span>如果完全正确或者只有一次错误则给1分，否则不给分。（错误是指当读到1时没有拍手，或者读到其他数字时拍手）</p>
+                                    <div class="gradebox">
+                                      <p><span>  5213 9411 8062 1519 4511 1905 112</span><input id="mt6" type="checkbox" name="" /></p></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="qeslist" id="mtl6">
+                            <li>
+                                <p class="parttitle">
+                                    第十一题<span>--注意</span></p>
+                            </li>
+                            <li>
+                                <div class="guideline">
+                                    <a>指导语：</a>
+                                    <p>
+                                        “现在请您做一道计算题，从100中减去一个7，而后从得数中再减去一个7，一直减下去，直到我让您停下为止”。如果需要可以再向患者讲一遍。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="grade">
+                                    <p>
+                                       <span>评分：</span> 本条目总分3分。全部记错记0分，一个正确给1分，两到三个正确给2分，四到五个正确给3分。从100开始计算正确的减数，每个减数都单独评定，也就是说，如果患者减错了一次，而从这一个减数开始后续的减7都正确，则后续的正确减数都要给分。例如，如果患者给出的回答是93-85-78-71-64，只有85是错误的，而其他结果的正确，因此给3分。</p>
+                                    <div class="gradebox">
+                                        <ul>
+                                        <li>1分<input id="calculate1" type="checkbox" name="calculate" /></li>
+                                        <li>2分<input id="calculate2" type="checkbox" name="calculate" /></li>
+                                        <li>3分<input id="calculate3" type="checkbox" name="calculate" /></li>
+                                        </ul>
+                                   </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="next" style="display: block;"></a>
+                <div class="nav">
+                    <a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a>
+                </div>
+            </div>
+        </div>
+        <div title="辅助诊断" style="height: 31px; padding: 20px">
+        @model LNCDCDSS.Models.SimpleADdata
+        @using (Html.BeginForm())
+        {
+           
+            <div class="resultlayout">
+            <ul>
+             <li><span>第一题得分：</span>@Html.TextBoxFor(model => model.SAD1, new {disable="disable",@readonly="readonly"}) </li>
+             <li><span>IADL得分：</span>@Html.TextBoxFor(model => model.SAD2, new { disable = "disable", @readonly = "readonly" })</li>
+             <li><span>命名得分：</span>@Html.TextBoxFor(model => model.SAD10, new { disable = "disable", @readonly = "readonly" })</li> 
+            <li><span>注意1得分：</span>@Html.TextBoxFor(model => model.SAD11, new { disable = "disable", @readonly = "readonly" })</li> 
+            <li><span>注意2得分：</span>@Html.TextBoxFor(model => model.SAD12, new { disable = "disable", @readonly = "readonly" })</li> 
+            <li><span>注意3得分：</span>@Html.TextBoxFor(model => model.SAD13, new { disable = "disable", @readonly = "readonly" })</li> 
+             <li><span>词表学习1得分：</span>@Html.TextBoxFor(model => model.SAD3, new { disable = "disable", @readonly = "readonly" })</li>
+              <li><span>词表学习2得分：</span>@Html.TextBoxFor(model => model.SAD4, new { disable = "disable", @readonly = "readonly" })</li>
+               <li><span>词表学习3得分：</span>@Html.TextBoxFor(model => model.SAD5, new { disable = "disable", @readonly = "readonly" })</li>
+                <li><span>C3A图形复制得分：</span>@Html.TextBoxFor(model => model.SAD61, new { disable = "disable", @readonly = "readonly" })</li>
+                <li><span>C3B即刻回忆得分：</span>@Html.TextBoxFor(model => model.SAD62, new { disable = "disable", @readonly = "readonly" })</li>
+                <li><span>C3C延迟回忆得分：</span>@Html.TextBoxFor(model => model.SAD63, new { disable = "disable", @readonly = "readonly" })</li>                   
+                    <li><span>视空间与执行能力1得分：</span>@Html.TextBoxFor(model => model.SAD7, new { disable = "disable", @readonly = "readonly" })</li> 
+                     <li><span>视空间与执行能力2得分：</span>@Html.TextBoxFor(model => model.SAD8, new { disable = "disable", @readonly = "readonly" })</li> 
+                       <li><span>视空间与执行能力3得分：</span>@Html.TextBoxFor(model => model.SAD9, new { disable = "disable", @readonly = "readonly" })</li> 
+                           
+                          
+                       </ul>
+            </div>
+            <div class="sysDiagnosis">
+            <p>系统建议：</p> 
+             @Html.TextAreaFor(Model => Model.SysDia, new { @rows=7 ,@cols=45})
+         </div>
+            <div class="docDiagnosis">
+             <p>医生诊断结果：</p> 
+             @Html.TextAreaFor(Model => Model.DocDia, new { @rows = 7, @cols =45 })
+             
+            </div>
+           <input id="save" type="submit" value="保存并提交"/>
+            }
+        </div>
+            
+           
+    <script type="text/javascript">
+        $(function () {
+            var tabs = $('#tt').tabs().tabs('tabs');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].panel('options').tab.unbind().bind('mouseenter', { index: i }, function (e) {
+                    $('#tt').tabs('select', e.data.index);
+                    var mmseval = ($("input[name='step']:checked").length);
+                    $("#SAD1").attr("value", mmseval);
+                    //词表学习
+                    var vl1 = $("#time1 input:checked").length;
+                    $("#SAD3").attr("value", vl1);
+                    var vl2 = $("#time2 input:checked").length;
+                    $("#SAD4").attr("value", vl2);
+                    var vl3 = $("#time3 input:checked").length;
+                    $("#SAD5").attr("value", vl3);
+                    //图形记忆
+                    var pmall1 = 0;
+                    var pmall2 = 0;
+                    var pmall3 = 0;
+                    $.each($('.C3A select option:selected'), function () {
+                        pm = $(this).text();
+                        if (pm == "")
+                        { pm = "0"; }
+                        pmint = parseInt(pm);
+                        pmall1 += pmint;
+                    });
+                    $("#PM1").attr("value", pmall1);
+                    $("#SAD61").attr("value", pmall1);
+                    $.each($('.C3B select option:selected'), function () {
+                        pm = $(this).text();
+                        if (pm == "")
+                        { pm = "0"; }
+                        pmint = parseInt(pm);
+                        pmall2 += pmint;
+                    });
+                    $("#PM2").attr("value", pmall2);
+                    $("#SAD62").attr("value", pmall2);
+                    $.each($('.C3C select option:selected'), function () {
+                        pm = $(this).text();
+                        if (pm == "")
+                        { pm = "0"; }
+                        pmint = parseInt(pm);
+                        pmall3 += pmint;
+                    });
+                    $("#PM3").attr("value", pmall3);
+                    $("#SAD63").attr("value", pmall3);
+
+                    //IADL
+                    var IADL = 0;
+                    var count = 0;
+                    $.each($('#iadl select option:selected'), function () {
+                        pm = $(this).val();
+                        count = parseInt(pm);
+                        IADL += count;
+                    });
+                    $("#SAD2").attr("value", IADL);
+
+                    //视空间与执行能力、注意、命名等量表的结果
+                    if ($("#mt1").prop("checked"))
+                    { $("#SAD7").attr("value", "1"); }
+                    else $("#SAD7").attr("value", "0");
+                    if ($("#mt2").prop("checked"))
+                    { $("#SAD8").attr("value", "1"); }
+                    else $("#SAD8").attr("value", "0");
+                    var mt3 = ($("input[name='clock']:checked").length);
+                    $("#SAD9").attr("value", mt3);
+                    var mt4 = ($("input[name='animal']:checked").length);
+                    $("#SAD10").attr("value", mt4);
+                    var mt5 = ($("input[name='columns']:checked").length);
+                    $("#SAD11").attr("value", mt5);
+                    if ($("#mt6").prop("checked"))
+                    { $("#SAD12").attr("value", "1"); }
+                    else $("#SAD12").attr("value", "0");
+                    //只能单选
+                    var mt7 = 0;
+                    if ($("#calculate1").prop("checked"))
+                    { mt7 = 1; }
+                    else if ($("#calculate2").prop("checked"))
+                    { mt7 = 2; }
+                    else if ($("#calculate3").prop("checked"))
+                    { mt7 = 3; }
+                    else { mt7 = 0; }
+                    $("#SAD13").attr("value", mt7);
+                });
+            }
+        });
+  
+    </script>
+</body>

@@ -1,0 +1,1528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LNCDDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="LNCDDataModelStoreContainer">
+    <EntitySet Name="DoctorAccountSet" EntityType="LNCDDataModel.Store.DoctorAccountSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatBasicInforSet" EntityType="LNCDDataModel.Store.PatBasicInforSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatMMSESet" EntityType="LNCDDataModel.Store.PatMMSESet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatMoCASet" EntityType="LNCDDataModel.Store.PatMoCASet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatADLSet" EntityType="LNCDDataModel.Store.PatADLSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatOtherTestSet" EntityType="LNCDDataModel.Store.PatOtherTestSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatDiseaseSet" EntityType="LNCDDataModel.Store.PatDiseaseSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VisitRecordSet" EntityType="LNCDDataModel.Store.VisitRecordSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatLabExamSet" EntityType="LNCDDataModel.Store.PatLabExamSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatRecentDrugSet" EntityType="LNCDDataModel.Store.PatRecentDrugSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DrugSet" EntityType="LNCDDataModel.Store.DrugSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatPhysicalExamSet" EntityType="LNCDDataModel.Store.PatPhysicalExamSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SimpleADdataSet" EntityType="LNCDDataModel.Store.SimpleADdataSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="VisitRecordPatADL" Association="LNCDDataModel.Store.VisitRecordPatADL">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="PatADL" EntitySet="PatADLSet" />
+    </AssociationSet>
+    <AssociationSet Name="VisitRecordPatMoCA" Association="LNCDDataModel.Store.VisitRecordPatMoCA">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="PatMoCA" EntitySet="PatMoCASet" />
+    </AssociationSet>
+    <AssociationSet Name="VisitRecordPatOtherTest" Association="LNCDDataModel.Store.VisitRecordPatOtherTest">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="PatOtherTest" EntitySet="PatOtherTestSet" />
+    </AssociationSet>
+    <AssociationSet Name="VisitRecordPatMMSE" Association="LNCDDataModel.Store.VisitRecordPatMMSE">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="PatMMSE" EntitySet="PatMMSESet" />
+    </AssociationSet>
+    <AssociationSet Name="PatBasicInforPatDisease" Association="LNCDDataModel.Store.PatBasicInforPatDisease">
+      <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+      <End Role="PatDisease" EntitySet="PatDiseaseSet" />
+    </AssociationSet>
+    <AssociationSet Name="DoctorAccountPatBasicInfor" Association="LNCDDataModel.Store.DoctorAccountPatBasicInfor">
+      <End Role="DoctorAccount" EntitySet="DoctorAccountSet" />
+      <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+    </AssociationSet>
+    <AssociationSet Name="PatBasicInforVisitRecord" Association="LNCDDataModel.Store.PatBasicInforVisitRecord">
+      <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+    </AssociationSet>
+    <AssociationSet Name="VisitRecordPatLabExam" Association="LNCDDataModel.Store.VisitRecordPatLabExam">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="PatLabExam" EntitySet="PatLabExamSet" />
+    </AssociationSet>
+    <AssociationSet Name="VisitRecordPatRecentDrug" Association="LNCDDataModel.Store.VisitRecordPatRecentDrug">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="PatRecentDrug" EntitySet="PatRecentDrugSet" />
+    </AssociationSet>
+    <AssociationSet Name="PatRecentDrugDrug" Association="LNCDDataModel.Store.PatRecentDrugDrug">
+      <End Role="PatRecentDrug" EntitySet="PatRecentDrugSet" />
+      <End Role="Drug" EntitySet="DrugSet" />
+    </AssociationSet>
+    <AssociationSet Name="PatBasicInforPatPhysicalExam" Association="LNCDDataModel.Store.PatBasicInforPatPhysicalExam">
+      <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+      <End Role="PatPhysicalExam" EntitySet="PatPhysicalExamSet" />
+    </AssociationSet>
+    <AssociationSet Name="SimpleADdataPatBasicInfor" Association="LNCDDataModel.Store.SimpleADdataPatBasicInfor">
+      <End Role="SimpleADdata" EntitySet="SimpleADdataSet" />
+      <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DoctorAccountSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Hospital" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatBasicInforSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="DoctorAccountId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Age" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Education" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Job" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FamilyMember" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ChiefDoctor" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PatDisease_Id" Type="int" Nullable="false" />
+    <Property Name="PatPhysicalExam_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatMMSESet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="M1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M4" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M5" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M6" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M7" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M8" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M9" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M10" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="M11" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Total" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VisitRecord_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatMoCASet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MC1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MC2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MC3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MC4" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MC5" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MC6" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MC7" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MC8" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MC9" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Total" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VisitRecord_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatADLSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="A1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A4" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A5" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A6" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A7" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A8" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A9" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A10" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A11" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A12" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A13" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A14" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A15" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A16" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A17" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A18" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A19" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="A20" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Total" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VisitRecord_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatOtherTestSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vocabulary1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Vocabulary2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Vocabulary3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Picture1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Picture2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ConnectNumber1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ConnectNumber2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Vocabulary4" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VocabularyAnalyse1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Picture3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VocabularyAnalyse2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PatCDR" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PatGDS" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VisitRecord_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatDiseaseSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatBasicInforId" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="D1_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D1_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D2_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D2_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D3_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D3_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D4_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D4_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D5_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D5_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D6_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D6_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D7_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D7_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D8_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D8_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D9_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D9_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D10_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D10_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D11_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D11_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D12_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D12_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D13_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D13_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D14_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D14_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D15_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D15_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D16_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D16_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D17_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D17_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D18_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D18_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D19_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D19_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D20_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D20_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D21_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="D21_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ImportantD_Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ImportantD_Situation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="VisitRecordSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatBasicInforId" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="VisitRecordID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DiagnosisiResult" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CDSSDiagnosis" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RecordNote" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="OutpatientID" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="HospitalID" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VisitDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatLabExamSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FT3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FT4" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TT3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TT4" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TSH" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Folacin" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TBG" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EmptyG" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="GAfter" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="HbAlc" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UricAcid" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Cholesterol" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="GanEster" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="HDLC" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LDLC" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="GOT" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="GPT" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BUN" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CR" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Albumin" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RBC" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="HB" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PLT" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="WBC" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ApoE" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Protein" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Electrocardiogram_Date" Type="datetime" Nullable="true" />
+    <Property Name="Electrocardiogram_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Electrocardiogram_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Echocardiagraphy_Date" Type="datetime" Nullable="true" />
+    <Property Name="Echocardiagraphy_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Echocardiagraphy_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EEG_Date" Type="datetime" Nullable="true" />
+    <Property Name="EEG_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EEG_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CT_Date" Type="datetime" Nullable="true" />
+    <Property Name="CT_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CT_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="VisitRecord_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatRecentDrugSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Drugcatogary" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="VisitRecordId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DrugSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PatRecentDrugId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatPhysicalExamSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Height" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Weight" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Hipline" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BloodPressureH" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BloodPressureL" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B1_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B1_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B2_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B2_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B3_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B3_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B4_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B4_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B5_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B5_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B6_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B6_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B7_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B7_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B8_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B8_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B9_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B9_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B10_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B10_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B11_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B11_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12a_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12a_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12b_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12b_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12c_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12c_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12d_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12d_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12e_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12e_Note" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12f_Result" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="B12f_Note" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SimpleADdataSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatBasicInforId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD4" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD5" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD61" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD7" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD8" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD9" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD10" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD11" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD62" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD63" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD12" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD13" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DocDia" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SysDia" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PatBasicInfor_Id" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="VisitRecordPatADL">
+    <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="1" />
+    <End Role="PatADL" Type="LNCDDataModel.Store.PatADLSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatADL">
+        <PropertyRef Name="VisitRecord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VisitRecordPatMoCA">
+    <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="1" />
+    <End Role="PatMoCA" Type="LNCDDataModel.Store.PatMoCASet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatMoCA">
+        <PropertyRef Name="VisitRecord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VisitRecordPatOtherTest">
+    <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="1" />
+    <End Role="PatOtherTest" Type="LNCDDataModel.Store.PatOtherTestSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatOtherTest">
+        <PropertyRef Name="VisitRecord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VisitRecordPatMMSE">
+    <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="1" />
+    <End Role="PatMMSE" Type="LNCDDataModel.Store.PatMMSESet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatMMSE">
+        <PropertyRef Name="VisitRecord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PatBasicInforPatDisease">
+    <End Role="PatBasicInfor" Type="LNCDDataModel.Store.PatBasicInforSet" Multiplicity="*" />
+    <End Role="PatDisease" Type="LNCDDataModel.Store.PatDiseaseSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PatDisease">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatBasicInfor">
+        <PropertyRef Name="PatDisease_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DoctorAccountPatBasicInfor">
+    <End Role="DoctorAccount" Type="LNCDDataModel.Store.DoctorAccountSet" Multiplicity="1" />
+    <End Role="PatBasicInfor" Type="LNCDDataModel.Store.PatBasicInforSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatBasicInfor">
+        <PropertyRef Name="DoctorAccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PatBasicInforVisitRecord">
+    <End Role="PatBasicInfor" Type="LNCDDataModel.Store.PatBasicInforSet" Multiplicity="1" />
+    <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatBasicInfor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VisitRecord">
+        <PropertyRef Name="PatBasicInforId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VisitRecordPatLabExam">
+    <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="1" />
+    <End Role="PatLabExam" Type="LNCDDataModel.Store.PatLabExamSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatLabExam">
+        <PropertyRef Name="VisitRecord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VisitRecordPatRecentDrug">
+    <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="1" />
+    <End Role="PatRecentDrug" Type="LNCDDataModel.Store.PatRecentDrugSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatRecentDrug">
+        <PropertyRef Name="VisitRecordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PatRecentDrugDrug">
+    <End Role="PatRecentDrug" Type="LNCDDataModel.Store.PatRecentDrugSet" Multiplicity="1" />
+    <End Role="Drug" Type="LNCDDataModel.Store.DrugSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatRecentDrug">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Drug">
+        <PropertyRef Name="PatRecentDrugId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PatBasicInforPatPhysicalExam">
+    <End Role="PatBasicInfor" Type="LNCDDataModel.Store.PatBasicInforSet" Multiplicity="*" />
+    <End Role="PatPhysicalExam" Type="LNCDDataModel.Store.PatPhysicalExamSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PatPhysicalExam">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatBasicInfor">
+        <PropertyRef Name="PatPhysicalExam_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SimpleADdataPatBasicInfor">
+    <End Role="SimpleADdata" Type="LNCDDataModel.Store.SimpleADdataSet" Multiplicity="*" />
+    <End Role="PatBasicInfor" Type="LNCDDataModel.Store.PatBasicInforSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PatBasicInfor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SimpleADdata">
+        <PropertyRef Name="PatBasicInfor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LNCDDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="LNCDDataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DoctorAccountSet" EntityType="LNCDDataModel.DoctorAccount" />
+          <EntitySet Name="PatBasicInforSet" EntityType="LNCDDataModel.PatBasicInfor" />
+          <EntitySet Name="PatMMSESet" EntityType="LNCDDataModel.PatMMSE" />
+          <EntitySet Name="PatMoCASet" EntityType="LNCDDataModel.PatMoCA" />
+          <EntitySet Name="PatADLSet" EntityType="LNCDDataModel.PatADL" />
+          <EntitySet Name="PatOtherTestSet" EntityType="LNCDDataModel.PatOtherTest" />
+          <EntitySet Name="PatDiseaseSet" EntityType="LNCDDataModel.PatDisease" />
+          <EntitySet Name="VisitRecordSet" EntityType="LNCDDataModel.VisitRecord" />
+          <AssociationSet Name="VisitRecordPatADL" Association="LNCDDataModel.VisitRecordPatADL">
+            <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+            <End Role="PatADL" EntitySet="PatADLSet" />
+          </AssociationSet>
+          <AssociationSet Name="VisitRecordPatMoCA" Association="LNCDDataModel.VisitRecordPatMoCA">
+            <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+            <End Role="PatMoCA" EntitySet="PatMoCASet" />
+          </AssociationSet>
+          <AssociationSet Name="VisitRecordPatOtherTest" Association="LNCDDataModel.VisitRecordPatOtherTest">
+            <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+            <End Role="PatOtherTest" EntitySet="PatOtherTestSet" />
+          </AssociationSet>
+          <AssociationSet Name="VisitRecordPatMMSE" Association="LNCDDataModel.VisitRecordPatMMSE">
+            <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+            <End Role="PatMMSE" EntitySet="PatMMSESet" />
+          </AssociationSet>
+          <AssociationSet Name="PatBasicInforPatDisease" Association="LNCDDataModel.PatBasicInforPatDisease">
+            <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+            <End Role="PatDisease" EntitySet="PatDiseaseSet" />
+          </AssociationSet>
+          <AssociationSet Name="DoctorAccountPatBasicInfor" Association="LNCDDataModel.DoctorAccountPatBasicInfor">
+            <End Role="DoctorAccount" EntitySet="DoctorAccountSet" />
+            <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+          </AssociationSet>
+          <AssociationSet Name="PatBasicInforVisitRecord" Association="LNCDDataModel.PatBasicInforVisitRecord">
+            <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+            <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+          </AssociationSet>
+          <EntitySet Name="PatLabExamSet" EntityType="LNCDDataModel.PatLabExam" />
+          <AssociationSet Name="VisitRecordPatLabExam" Association="LNCDDataModel.VisitRecordPatLabExam">
+            <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+            <End Role="PatLabExam" EntitySet="PatLabExamSet" />
+          </AssociationSet>
+          <EntitySet Name="PatRecentDrugSet" EntityType="LNCDDataModel.PatRecentDrug" />
+          <AssociationSet Name="VisitRecordPatRecentDrug" Association="LNCDDataModel.VisitRecordPatRecentDrug">
+            <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+            <End Role="PatRecentDrug" EntitySet="PatRecentDrugSet" />
+          </AssociationSet>
+          <EntitySet Name="DrugSet" EntityType="LNCDDataModel.Drug" />
+          <AssociationSet Name="PatRecentDrugDrug" Association="LNCDDataModel.PatRecentDrugDrug">
+            <End Role="PatRecentDrug" EntitySet="PatRecentDrugSet" />
+            <End Role="Drug" EntitySet="DrugSet" />
+          </AssociationSet>
+          <EntitySet Name="PatPhysicalExamSet" EntityType="LNCDDataModel.PatPhysicalExam" />
+          <AssociationSet Name="PatBasicInforPatPhysicalExam" Association="LNCDDataModel.PatBasicInforPatPhysicalExam">
+            <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+            <End Role="PatPhysicalExam" EntitySet="PatPhysicalExamSet" />
+          </AssociationSet>
+          <EntitySet Name="SimpleADdataSet" EntityType="LNCDDataModel.SimpleADdata" />
+          <AssociationSet Name="SimpleADdataPatBasicInfor" Association="LNCDDataModel.SimpleADdataPatBasicInfor">
+            <End Role="SimpleADdata" EntitySet="SimpleADdataSet" />
+            <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DoctorAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PatBasicInfor" Relationship="LNCDDataModel.DoctorAccountPatBasicInfor" FromRole="DoctorAccount" ToRole="PatBasicInfor" />
+          <Property Type="String" Name="UserName" Nullable="false" />
+          <Property Type="String" Name="PassWord" Nullable="false" />
+          <Property Type="String" Name="Hospital" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PatBasicInfor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="255" />
+          <NavigationProperty Name="PatDisease" Relationship="LNCDDataModel.PatBasicInforPatDisease" FromRole="PatBasicInfor" ToRole="PatDisease" />
+          <NavigationProperty Name="DoctorAccount" Relationship="LNCDDataModel.DoctorAccountPatBasicInfor" FromRole="PatBasicInfor" ToRole="DoctorAccount" />
+          <Property Type="Int32" Name="DoctorAccountId" Nullable="false" />
+          <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.PatBasicInforVisitRecord" FromRole="PatBasicInfor" ToRole="VisitRecord" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Sex" Nullable="false" />
+          <Property Type="String" Name="Age" Nullable="false" />
+          <Property Type="String" Name="Education" Nullable="false" />
+          <Property Type="String" Name="Job" Nullable="false" />
+          <Property Type="String" Name="Phone" Nullable="false" />
+          <Property Type="String" Name="FamilyMember" Nullable="true" />
+          <Property Type="String" Name="ChiefDoctor" Nullable="true" />
+          <NavigationProperty Name="PatPhysicalExam" Relationship="LNCDDataModel.PatBasicInforPatPhysicalExam" FromRole="PatBasicInfor" ToRole="PatPhysicalExam" />
+          <NavigationProperty Name="SimpleADdata" Relationship="LNCDDataModel.SimpleADdataPatBasicInfor" FromRole="PatBasicInfor" ToRole="SimpleADdata" />
+        </EntityType>
+        <EntityType Name="PatMMSE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.VisitRecordPatMMSE" FromRole="PatMMSE" ToRole="VisitRecord" />
+          <Property Type="String" Name="M1" Nullable="true" />
+          <Property Type="String" Name="M2" Nullable="true" />
+          <Property Type="String" Name="M3" Nullable="true" />
+          <Property Type="String" Name="M4" Nullable="true" />
+          <Property Type="String" Name="M5" Nullable="true" />
+          <Property Type="String" Name="M6" Nullable="true" />
+          <Property Type="String" Name="M7" Nullable="true" />
+          <Property Type="String" Name="M8" Nullable="true" />
+          <Property Type="String" Name="M9" Nullable="true" />
+          <Property Type="String" Name="M10" Nullable="true" />
+          <Property Type="String" Name="M11" Nullable="true" />
+          <Property Type="String" Name="Total" Nullable="true" />
+        </EntityType>
+        <EntityType Name="PatMoCA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.VisitRecordPatMoCA" FromRole="PatMoCA" ToRole="VisitRecord" />
+          <Property Type="String" Name="MC1" Nullable="true" />
+          <Property Type="String" Name="MC2" Nullable="true" />
+          <Property Type="String" Name="MC3" Nullable="true" />
+          <Property Type="String" Name="MC4" Nullable="true" />
+          <Property Type="String" Name="MC5" Nullable="true" />
+          <Property Type="String" Name="MC6" Nullable="true" />
+          <Property Type="String" Name="MC7" Nullable="true" />
+          <Property Type="String" Name="MC8" Nullable="true" />
+          <Property Type="String" Name="MC9" Nullable="true" />
+          <Property Type="String" Name="Total" Nullable="true" />
+        </EntityType>
+        <EntityType Name="PatADL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.VisitRecordPatADL" FromRole="PatADL" ToRole="VisitRecord" />
+          <Property Type="String" Name="A1" Nullable="true" />
+          <Property Type="String" Name="A2" Nullable="true" />
+          <Property Type="String" Name="A3" Nullable="true" />
+          <Property Type="String" Name="A4" Nullable="true" />
+          <Property Type="String" Name="A5" Nullable="true" />
+          <Property Type="String" Name="A6" Nullable="true" />
+          <Property Type="String" Name="A7" Nullable="true" />
+          <Property Type="String" Name="A8" Nullable="true" />
+          <Property Type="String" Name="A9" Nullable="true" />
+          <Property Type="String" Name="A10" Nullable="true" />
+          <Property Type="String" Name="A11" Nullable="true" />
+          <Property Type="String" Name="A12" Nullable="true" />
+          <Property Type="String" Name="A13" Nullable="true" />
+          <Property Type="String" Name="A14" Nullable="true" />
+          <Property Type="String" Name="A15" Nullable="true" />
+          <Property Type="String" Name="A16" Nullable="true" />
+          <Property Type="String" Name="A17" Nullable="true" />
+          <Property Type="String" Name="A18" Nullable="true" />
+          <Property Type="String" Name="A19" Nullable="true" />
+          <Property Type="String" Name="A20" Nullable="true" />
+          <Property Type="String" Name="Total" Nullable="true" />
+        </EntityType>
+        <EntityType Name="PatOtherTest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.VisitRecordPatOtherTest" FromRole="PatOtherTest" ToRole="VisitRecord" />
+          <Property Type="String" Name="Vocabulary1" Nullable="true" />
+          <Property Type="String" Name="Vocabulary2" Nullable="true" />
+          <Property Type="String" Name="Vocabulary3" Nullable="true" />
+          <Property Type="String" Name="Picture1" Nullable="true" />
+          <Property Type="String" Name="Picture2" Nullable="true" />
+          <Property Type="String" Name="ConnectNumber1" Nullable="true" />
+          <Property Type="String" Name="ConnectNumber2" Nullable="true" />
+          <Property Type="String" Name="Vocabulary4" Nullable="true" />
+          <Property Type="String" Name="VocabularyAnalyse1" Nullable="true" />
+          <Property Type="String" Name="Picture3" Nullable="true" />
+          <Property Type="String" Name="VocabularyAnalyse2" Nullable="true" />
+          <Property Type="String" Name="PatCDR" Nullable="true" />
+          <Property Type="String" Name="PatGDS" Nullable="true" />
+        </EntityType>
+        <EntityType Name="PatDisease">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
+          <NavigationProperty Name="PatBasicInfor" Relationship="LNCDDataModel.PatBasicInforPatDisease" FromRole="PatDisease" ToRole="PatBasicInfor" />
+          <Property Name="D1" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D2" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D3" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D4" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D5" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D6" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D7" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D8" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D9" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D10" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D11" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D12" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D13" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D14" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D15" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D16" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D17" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D18" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D19" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D20" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="D21" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Name="ImportantD" Type="LNCDDataModel.Disease" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" />
+        </EntityType>
+        <EntityType Name="VisitRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <NavigationProperty Name="PatADL" Relationship="LNCDDataModel.VisitRecordPatADL" FromRole="VisitRecord" ToRole="PatADL" />
+          <NavigationProperty Name="PatMoCA" Relationship="LNCDDataModel.VisitRecordPatMoCA" FromRole="VisitRecord" ToRole="PatMoCA" />
+          <NavigationProperty Name="PatOtherTest" Relationship="LNCDDataModel.VisitRecordPatOtherTest" FromRole="VisitRecord" ToRole="PatOtherTest" />
+          <NavigationProperty Name="PatMMSE" Relationship="LNCDDataModel.VisitRecordPatMMSE" FromRole="VisitRecord" ToRole="PatMMSE" />
+          <NavigationProperty Name="PatBasicInfor" Relationship="LNCDDataModel.PatBasicInforVisitRecord" FromRole="VisitRecord" ToRole="PatBasicInfor" />
+          <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="VisitRecordID" Nullable="false" />
+          <Property Type="String" Name="DiagnosisiResult" Nullable="true" />
+          <Property Type="String" Name="CDSSDiagnosis" Nullable="true" />
+          <Property Type="String" Name="RecordNote" Nullable="true" />
+          <NavigationProperty Name="PatLabExam" Relationship="LNCDDataModel.VisitRecordPatLabExam" FromRole="VisitRecord" ToRole="PatLabExam" />
+          <Property Type="String" Name="OutpatientID" Nullable="true" />
+          <Property Type="String" Name="HospitalID" Nullable="true" />
+          <Property Type="DateTime" Name="VisitDate" Nullable="false" />
+          <NavigationProperty Name="PatRecentDrug" Relationship="LNCDDataModel.VisitRecordPatRecentDrug" FromRole="VisitRecord" ToRole="PatRecentDrug" />
+        </EntityType>
+        <Association Name="VisitRecordPatADL">
+          <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatADL" Role="PatADL" Multiplicity="0..1" />
+        </Association>
+        <Association Name="VisitRecordPatMoCA">
+          <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatMoCA" Role="PatMoCA" Multiplicity="0..1" />
+        </Association>
+        <Association Name="VisitRecordPatOtherTest">
+          <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatOtherTest" Role="PatOtherTest" Multiplicity="0..1" />
+        </Association>
+        <Association Name="VisitRecordPatMMSE">
+          <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatMMSE" Role="PatMMSE" Multiplicity="0..1" />
+        </Association>
+        <Association Name="PatBasicInforPatDisease">
+          <End Type="LNCDDataModel.PatBasicInfor" Role="PatBasicInfor" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatDisease" Role="PatDisease" Multiplicity="1" />
+        </Association>
+        <Association Name="DoctorAccountPatBasicInfor">
+          <End Type="LNCDDataModel.DoctorAccount" Role="DoctorAccount" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatBasicInfor" Role="PatBasicInfor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DoctorAccount">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PatBasicInfor">
+              <PropertyRef Name="DoctorAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PatBasicInforVisitRecord">
+          <End Type="LNCDDataModel.PatBasicInfor" Role="PatBasicInfor" Multiplicity="1" />
+          <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="PatBasicInfor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VisitRecord">
+              <PropertyRef Name="PatBasicInforId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PatLabExam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FT3" Nullable="true" />
+          <Property Type="String" Name="FT4" Nullable="true" />
+          <Property Type="String" Name="TT3" Nullable="true" />
+          <Property Type="String" Name="TT4" Nullable="true" />
+          <Property Type="String" Name="TSH" Nullable="true" />
+          <Property Type="String" Name="Folacin" Nullable="true" />
+          <Property Type="String" Name="B12" Nullable="true" />
+          <Property Type="String" Name="TBG" Nullable="true" />
+          <Property Type="String" Name="EmptyG" Nullable="true" />
+          <Property Type="String" Name="GAfter" Nullable="true" />
+          <Property Type="String" Name="HbAlc" Nullable="true" />
+          <Property Type="String" Name="UricAcid" Nullable="true" />
+          <Property Type="String" Name="Cholesterol" Nullable="true" />
+          <Property Type="String" Name="GanEster" Nullable="true" />
+          <Property Type="String" Name="HDLC" Nullable="true" />
+          <Property Type="String" Name="LDLC" Nullable="true" />
+          <Property Type="String" Name="GOT" Nullable="true" />
+          <Property Type="String" Name="GPT" Nullable="true" />
+          <Property Type="String" Name="BUN" Nullable="true" />
+          <Property Type="String" Name="CR" Nullable="true" />
+          <Property Type="String" Name="Albumin" Nullable="true" />
+          <Property Type="String" Name="RBC" Nullable="true" />
+          <Property Type="String" Name="HB" Nullable="true" />
+          <Property Type="String" Name="PLT" Nullable="true" />
+          <Property Type="String" Name="WBC" Nullable="true" />
+          <Property Type="String" Name="ApoE" Nullable="true" />
+          <Property Type="String" Name="Protein" Nullable="true" />
+          <Property Name="Electrocardiogram" Type="LNCDDataModel.Exam" Nullable="false" />
+          <Property Name="Echocardiagraphy" Type="LNCDDataModel.Exam" Nullable="false" />
+          <Property Name="EEG" Type="LNCDDataModel.Exam" Nullable="false" />
+          <Property Name="CT" Type="LNCDDataModel.Exam" Nullable="false" />
+          <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.VisitRecordPatLabExam" FromRole="PatLabExam" ToRole="VisitRecord" />
+        </EntityType>
+        <ComplexType Name="Exam" >
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="Result" Nullable="true" />
+          <Property Type="String" Name="Note" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="BodyExam" >
+          <Property Type="String" Name="Result" Nullable="true" />
+          <Property Type="String" Name="Note" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Disease" >
+          <Property Type="String" Name="Name" Nullable="true" />
+          <Property Type="String" Name="Situation" Nullable="true" />
+        </ComplexType>
+        <Association Name="VisitRecordPatLabExam">
+          <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatLabExam" Role="PatLabExam" Multiplicity="0..1" />
+        </Association>
+        <ComplexType Name="ComplexType1" />
+        <EntityType Name="PatRecentDrug">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Drugcatogary" Nullable="false" />
+          <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.VisitRecordPatRecentDrug" FromRole="PatRecentDrug" ToRole="VisitRecord" />
+          <Property Type="Int32" Name="VisitRecordId" Nullable="false" />
+          <NavigationProperty Name="Drug" Relationship="LNCDDataModel.PatRecentDrugDrug" FromRole="PatRecentDrug" ToRole="Drug" />
+        </EntityType>
+        <Association Name="VisitRecordPatRecentDrug">
+          <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatRecentDrug" Role="PatRecentDrug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VisitRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PatRecentDrug">
+              <PropertyRef Name="VisitRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Drug">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="PatRecentDrug" Relationship="LNCDDataModel.PatRecentDrugDrug" FromRole="Drug" ToRole="PatRecentDrug" />
+          <Property Type="Int32" Name="PatRecentDrugId" Nullable="false" />
+        </EntityType>
+        <Association Name="PatRecentDrugDrug">
+          <End Type="LNCDDataModel.PatRecentDrug" Role="PatRecentDrug" Multiplicity="1" />
+          <End Type="LNCDDataModel.Drug" Role="Drug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatRecentDrug">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Drug">
+              <PropertyRef Name="PatRecentDrugId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PatPhysicalExam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Height" Nullable="true" />
+          <Property Type="String" Name="Weight" Nullable="true" />
+          <Property Type="String" Name="Hipline" Nullable="true" />
+          <Property Type="String" Name="BloodPressureH" Nullable="true" />
+          <Property Type="String" Name="BloodPressureL" Nullable="true" />
+          <Property Name="B1" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B2" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B3" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B4" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B5" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B6" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B7" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B8" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B9" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B10" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B11" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B12" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B12a" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B12b" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B12c" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B12d" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B12e" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <Property Name="B12f" Type="LNCDDataModel.BodyExam" Nullable="false" />
+          <NavigationProperty Name="PatBasicInfor" Relationship="LNCDDataModel.PatBasicInforPatPhysicalExam" FromRole="PatPhysicalExam" ToRole="PatBasicInfor" />
+        </EntityType>
+        <Association Name="PatBasicInforPatPhysicalExam">
+          <End Type="LNCDDataModel.PatBasicInfor" Role="PatBasicInfor" Multiplicity="1" />
+          <End Type="LNCDDataModel.PatPhysicalExam" Role="PatPhysicalExam" Multiplicity="1" />
+        </Association>
+        <EntityType Name="SimpleADdata">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PatBasicInforId" Nullable="false" />
+          <Property Type="String" Name="SAD1" Nullable="false" />
+          <Property Type="String" Name="SAD2" Nullable="false" />
+          <Property Type="String" Name="SAD3" Nullable="false" />
+          <Property Type="String" Name="SAD4" Nullable="false" />
+          <Property Type="String" Name="SAD5" Nullable="false" />
+          <Property Type="String" Name="SAD61" Nullable="false" />
+          <Property Type="String" Name="SAD7" Nullable="false" />
+          <Property Type="String" Name="SAD8" Nullable="false" />
+          <Property Type="String" Name="SAD9" Nullable="false" />
+          <Property Type="String" Name="SAD10" Nullable="false" />
+          <Property Type="String" Name="SAD11" Nullable="false" />
+          <Property Type="String" Name="SAD62" Nullable="false" />
+          <Property Type="String" Name="SAD63" Nullable="false" />
+          <NavigationProperty Name="PatBasicInfor" Relationship="LNCDDataModel.SimpleADdataPatBasicInfor" FromRole="SimpleADdata" ToRole="PatBasicInfor" />
+          <Property Type="String" Name="SAD12" Nullable="false" />
+          <Property Type="String" Name="SAD13" Nullable="false" />
+          <Property Type="String" Name="DocDia" Nullable="true" />
+          <Property Type="String" Name="SysDia" Nullable="false" />
+        </EntityType>
+        <Association Name="SimpleADdataPatBasicInfor">
+          <End Type="LNCDDataModel.SimpleADdata" Role="SimpleADdata" Multiplicity="*" />
+          <End Type="LNCDDataModel.PatBasicInfor" Role="PatBasicInfor" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LNCDDataModelStoreContainer" CdmEntityContainer="LNCDDataModelContainer">
+    <EntitySetMapping Name="DoctorAccountSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.DoctorAccount)">
+        <MappingFragment StoreEntitySet="DoctorAccountSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Hospital" ColumnName="Hospital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatBasicInforSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatBasicInfor)">
+        <MappingFragment StoreEntitySet="PatBasicInforSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DoctorAccountId" ColumnName="DoctorAccountId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="FamilyMember" ColumnName="FamilyMember" />
+          <ScalarProperty Name="ChiefDoctor" ColumnName="ChiefDoctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatMMSESet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatMMSE)">
+        <MappingFragment StoreEntitySet="PatMMSESet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="M1" ColumnName="M1" />
+          <ScalarProperty Name="M2" ColumnName="M2" />
+          <ScalarProperty Name="M3" ColumnName="M3" />
+          <ScalarProperty Name="M4" ColumnName="M4" />
+          <ScalarProperty Name="M5" ColumnName="M5" />
+          <ScalarProperty Name="M6" ColumnName="M6" />
+          <ScalarProperty Name="M7" ColumnName="M7" />
+          <ScalarProperty Name="M8" ColumnName="M8" />
+          <ScalarProperty Name="M9" ColumnName="M9" />
+          <ScalarProperty Name="M10" ColumnName="M10" />
+          <ScalarProperty Name="M11" ColumnName="M11" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatMoCASet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatMoCA)">
+        <MappingFragment StoreEntitySet="PatMoCASet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MC1" ColumnName="MC1" />
+          <ScalarProperty Name="MC2" ColumnName="MC2" />
+          <ScalarProperty Name="MC3" ColumnName="MC3" />
+          <ScalarProperty Name="MC4" ColumnName="MC4" />
+          <ScalarProperty Name="MC5" ColumnName="MC5" />
+          <ScalarProperty Name="MC6" ColumnName="MC6" />
+          <ScalarProperty Name="MC7" ColumnName="MC7" />
+          <ScalarProperty Name="MC8" ColumnName="MC8" />
+          <ScalarProperty Name="MC9" ColumnName="MC9" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatADLSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatADL)">
+        <MappingFragment StoreEntitySet="PatADLSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="A1" ColumnName="A1" />
+          <ScalarProperty Name="A2" ColumnName="A2" />
+          <ScalarProperty Name="A3" ColumnName="A3" />
+          <ScalarProperty Name="A4" ColumnName="A4" />
+          <ScalarProperty Name="A5" ColumnName="A5" />
+          <ScalarProperty Name="A6" ColumnName="A6" />
+          <ScalarProperty Name="A7" ColumnName="A7" />
+          <ScalarProperty Name="A8" ColumnName="A8" />
+          <ScalarProperty Name="A9" ColumnName="A9" />
+          <ScalarProperty Name="A10" ColumnName="A10" />
+          <ScalarProperty Name="A11" ColumnName="A11" />
+          <ScalarProperty Name="A12" ColumnName="A12" />
+          <ScalarProperty Name="A13" ColumnName="A13" />
+          <ScalarProperty Name="A14" ColumnName="A14" />
+          <ScalarProperty Name="A15" ColumnName="A15" />
+          <ScalarProperty Name="A16" ColumnName="A16" />
+          <ScalarProperty Name="A17" ColumnName="A17" />
+          <ScalarProperty Name="A18" ColumnName="A18" />
+          <ScalarProperty Name="A19" ColumnName="A19" />
+          <ScalarProperty Name="A20" ColumnName="A20" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatOtherTestSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatOtherTest)">
+        <MappingFragment StoreEntitySet="PatOtherTestSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Vocabulary1" ColumnName="Vocabulary1" />
+          <ScalarProperty Name="Vocabulary2" ColumnName="Vocabulary2" />
+          <ScalarProperty Name="Vocabulary3" ColumnName="Vocabulary3" />
+          <ScalarProperty Name="Picture1" ColumnName="Picture1" />
+          <ScalarProperty Name="Picture2" ColumnName="Picture2" />
+          <ScalarProperty Name="ConnectNumber1" ColumnName="ConnectNumber1" />
+          <ScalarProperty Name="ConnectNumber2" ColumnName="ConnectNumber2" />
+          <ScalarProperty Name="Vocabulary4" ColumnName="Vocabulary4" />
+          <ScalarProperty Name="VocabularyAnalyse1" ColumnName="VocabularyAnalyse1" />
+          <ScalarProperty Name="Picture3" ColumnName="Picture3" />
+          <ScalarProperty Name="VocabularyAnalyse2" ColumnName="VocabularyAnalyse2" />
+          <ScalarProperty Name="PatCDR" ColumnName="PatCDR" />
+          <ScalarProperty Name="PatGDS" ColumnName="PatGDS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatDiseaseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatDisease)">
+        <MappingFragment StoreEntitySet="PatDiseaseSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
+          <ComplexProperty Name="D1" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D1_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D1_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D2" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D2_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D2_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D3" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D3_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D3_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D4" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D4_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D4_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D5" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D5_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D5_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D6" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D6_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D6_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D7" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D7_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D7_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D8" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D8_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D8_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D9" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D9_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D9_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D10" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D10_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D10_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D11" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D11_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D11_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D12" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D12_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D12_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D13" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D13_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D13_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D14" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D14_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D14_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D15" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D15_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D15_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D16" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D16_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D16_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D17" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D17_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D17_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D18" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D18_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D18_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D19" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D19_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D19_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D20" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D20_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D20_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="D21" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="D21_Name" />
+            <ScalarProperty Name="Situation" ColumnName="D21_Situation" />
+          </ComplexProperty>
+          <ComplexProperty Name="ImportantD" TypeName="LNCDDataModel.Disease">
+            <ScalarProperty Name="Name" ColumnName="ImportantD_Name" />
+            <ScalarProperty Name="Situation" ColumnName="ImportantD_Situation" />
+          </ComplexProperty>
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitRecordSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.VisitRecord)">
+        <MappingFragment StoreEntitySet="VisitRecordSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
+          <ScalarProperty Name="VisitRecordID" ColumnName="VisitRecordID" />
+          <ScalarProperty Name="DiagnosisiResult" ColumnName="DiagnosisiResult" />
+          <ScalarProperty Name="CDSSDiagnosis" ColumnName="CDSSDiagnosis" />
+          <ScalarProperty Name="RecordNote" ColumnName="RecordNote" />
+          <ScalarProperty Name="OutpatientID" ColumnName="OutpatientID" />
+          <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+          <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatLabExamSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatLabExam)">
+        <MappingFragment StoreEntitySet="PatLabExamSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FT3" ColumnName="FT3" />
+          <ScalarProperty Name="FT4" ColumnName="FT4" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TSH" ColumnName="TSH" />
+          <ScalarProperty Name="Folacin" ColumnName="Folacin" />
+          <ScalarProperty Name="B12" ColumnName="B12" />
+          <ScalarProperty Name="TBG" ColumnName="TBG" />
+          <ScalarProperty Name="EmptyG" ColumnName="EmptyG" />
+          <ScalarProperty Name="GAfter" ColumnName="GAfter" />
+          <ScalarProperty Name="HbAlc" ColumnName="HbAlc" />
+          <ScalarProperty Name="UricAcid" ColumnName="UricAcid" />
+          <ScalarProperty Name="Cholesterol" ColumnName="Cholesterol" />
+          <ScalarProperty Name="GanEster" ColumnName="GanEster" />
+          <ScalarProperty Name="HDLC" ColumnName="HDLC" />
+          <ScalarProperty Name="LDLC" ColumnName="LDLC" />
+          <ScalarProperty Name="GOT" ColumnName="GOT" />
+          <ScalarProperty Name="GPT" ColumnName="GPT" />
+          <ScalarProperty Name="BUN" ColumnName="BUN" />
+          <ScalarProperty Name="CR" ColumnName="CR" />
+          <ScalarProperty Name="Albumin" ColumnName="Albumin" />
+          <ScalarProperty Name="RBC" ColumnName="RBC" />
+          <ScalarProperty Name="HB" ColumnName="HB" />
+          <ScalarProperty Name="PLT" ColumnName="PLT" />
+          <ScalarProperty Name="WBC" ColumnName="WBC" />
+          <ScalarProperty Name="ApoE" ColumnName="ApoE" />
+          <ScalarProperty Name="Protein" ColumnName="Protein" />
+          <ComplexProperty Name="Electrocardiogram" TypeName="LNCDDataModel.Exam">
+            <ScalarProperty Name="Date" ColumnName="Electrocardiogram_Date" />
+            <ScalarProperty Name="Result" ColumnName="Electrocardiogram_Result" />
+            <ScalarProperty Name="Note" ColumnName="Electrocardiogram_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="Echocardiagraphy" TypeName="LNCDDataModel.Exam">
+            <ScalarProperty Name="Date" ColumnName="Echocardiagraphy_Date" />
+            <ScalarProperty Name="Result" ColumnName="Echocardiagraphy_Result" />
+            <ScalarProperty Name="Note" ColumnName="Echocardiagraphy_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="EEG" TypeName="LNCDDataModel.Exam">
+            <ScalarProperty Name="Date" ColumnName="EEG_Date" />
+            <ScalarProperty Name="Result" ColumnName="EEG_Result" />
+            <ScalarProperty Name="Note" ColumnName="EEG_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="CT" TypeName="LNCDDataModel.Exam">
+            <ScalarProperty Name="Date" ColumnName="CT_Date" />
+            <ScalarProperty Name="Result" ColumnName="CT_Result" />
+            <ScalarProperty Name="Note" ColumnName="CT_Note" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatRecentDrugSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatRecentDrug)">
+        <MappingFragment StoreEntitySet="PatRecentDrugSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Drugcatogary" ColumnName="Drugcatogary" />
+          <ScalarProperty Name="VisitRecordId" ColumnName="VisitRecordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DrugSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.Drug)">
+        <MappingFragment StoreEntitySet="DrugSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PatRecentDrugId" ColumnName="PatRecentDrugId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatPhysicalExamSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.PatPhysicalExam)">
+        <MappingFragment StoreEntitySet="PatPhysicalExamSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Hipline" ColumnName="Hipline" />
+          <ScalarProperty Name="BloodPressureH" ColumnName="BloodPressureH" />
+          <ScalarProperty Name="BloodPressureL" ColumnName="BloodPressureL" />
+          <ComplexProperty Name="B1" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B1_Result" />
+            <ScalarProperty Name="Note" ColumnName="B1_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B2" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B2_Result" />
+            <ScalarProperty Name="Note" ColumnName="B2_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B3" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B3_Result" />
+            <ScalarProperty Name="Note" ColumnName="B3_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B4" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B4_Result" />
+            <ScalarProperty Name="Note" ColumnName="B4_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B5" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B5_Result" />
+            <ScalarProperty Name="Note" ColumnName="B5_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B6" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B6_Result" />
+            <ScalarProperty Name="Note" ColumnName="B6_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B7" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B7_Result" />
+            <ScalarProperty Name="Note" ColumnName="B7_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B8" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B8_Result" />
+            <ScalarProperty Name="Note" ColumnName="B8_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B9" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B9_Result" />
+            <ScalarProperty Name="Note" ColumnName="B9_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B10" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B10_Result" />
+            <ScalarProperty Name="Note" ColumnName="B10_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B11" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B11_Result" />
+            <ScalarProperty Name="Note" ColumnName="B11_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B12" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B12_Result" />
+            <ScalarProperty Name="Note" ColumnName="B12_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B12a" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B12a_Result" />
+            <ScalarProperty Name="Note" ColumnName="B12a_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B12b" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B12b_Result" />
+            <ScalarProperty Name="Note" ColumnName="B12b_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B12c" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B12c_Result" />
+            <ScalarProperty Name="Note" ColumnName="B12c_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B12d" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B12d_Result" />
+            <ScalarProperty Name="Note" ColumnName="B12d_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B12e" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B12e_Result" />
+            <ScalarProperty Name="Note" ColumnName="B12e_Note" />
+          </ComplexProperty>
+          <ComplexProperty Name="B12f" TypeName="LNCDDataModel.BodyExam">
+            <ScalarProperty Name="Result" ColumnName="B12f_Result" />
+            <ScalarProperty Name="Note" ColumnName="B12f_Note" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SimpleADdataSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.SimpleADdata)">
+        <MappingFragment StoreEntitySet="SimpleADdataSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
+          <ScalarProperty Name="SAD1" ColumnName="SAD1" />
+          <ScalarProperty Name="SAD2" ColumnName="SAD2" />
+          <ScalarProperty Name="SAD3" ColumnName="SAD3" />
+          <ScalarProperty Name="SAD4" ColumnName="SAD4" />
+          <ScalarProperty Name="SAD5" ColumnName="SAD5" />
+          <ScalarProperty Name="SAD61" ColumnName="SAD61" />
+          <ScalarProperty Name="SAD7" ColumnName="SAD7" />
+          <ScalarProperty Name="SAD8" ColumnName="SAD8" />
+          <ScalarProperty Name="SAD9" ColumnName="SAD9" />
+          <ScalarProperty Name="SAD10" ColumnName="SAD10" />
+          <ScalarProperty Name="SAD11" ColumnName="SAD11" />
+          <ScalarProperty Name="SAD62" ColumnName="SAD62" />
+          <ScalarProperty Name="SAD63" ColumnName="SAD63" />
+          <ScalarProperty Name="SAD12" ColumnName="SAD12" />
+          <ScalarProperty Name="SAD13" ColumnName="SAD13" />
+          <ScalarProperty Name="DocDia" ColumnName="DocDia" />
+          <ScalarProperty Name="SysDia" ColumnName="SysDia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="VisitRecordPatADL" TypeName="LNCDDataModel.VisitRecordPatADL" StoreEntitySet="PatADLSet">
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="PatADL">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VisitRecordPatMoCA" TypeName="LNCDDataModel.VisitRecordPatMoCA" StoreEntitySet="PatMoCASet">
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="PatMoCA">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VisitRecordPatOtherTest" TypeName="LNCDDataModel.VisitRecordPatOtherTest" StoreEntitySet="PatOtherTestSet">
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="PatOtherTest">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VisitRecordPatMMSE" TypeName="LNCDDataModel.VisitRecordPatMMSE" StoreEntitySet="PatMMSESet">
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="PatMMSE">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PatBasicInforPatDisease" TypeName="LNCDDataModel.PatBasicInforPatDisease" StoreEntitySet="PatBasicInforSet">
+      <EndProperty Name="PatDisease">
+        <ScalarProperty Name="Id" ColumnName="PatDisease_Id" />
+      </EndProperty>
+      <EndProperty Name="PatBasicInfor">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VisitRecordPatLabExam" TypeName="LNCDDataModel.VisitRecordPatLabExam" StoreEntitySet="PatLabExamSet">
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="PatLabExam">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PatBasicInforPatPhysicalExam" TypeName="LNCDDataModel.PatBasicInforPatPhysicalExam" StoreEntitySet="PatBasicInforSet">
+      <EndProperty Name="PatPhysicalExam">
+        <ScalarProperty Name="Id" ColumnName="PatPhysicalExam_Id" />
+      </EndProperty>
+      <EndProperty Name="PatBasicInfor">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SimpleADdataPatBasicInfor" TypeName="LNCDDataModel.SimpleADdataPatBasicInfor" StoreEntitySet="SimpleADdataSet">
+      <EndProperty Name="PatBasicInfor">
+        <ScalarProperty Name="Id" ColumnName="PatBasicInfor_Id" />
+      </EndProperty>
+      <EndProperty Name="SimpleADdata">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="LNCDDataModel" >
+        <EntityTypeShape EntityType="LNCDDataModel.DoctorAccount" Width="1.5" PointX="1" PointY="0.625" Height="1.9700325520833339" />
+        <EntityTypeShape EntityType="LNCDDataModel.PatBasicInfor" Width="2" PointX="3.25" PointY="0.625" Height="3.6892097981770826" />
+        <EntityTypeShape EntityType="LNCDDataModel.PatMMSE" Width="1.5" PointX="10.25" PointY="5.375" Height="3.6892097981770817" />
+        <EntityTypeShape EntityType="LNCDDataModel.PatMoCA" Width="1.5" PointX="1" PointY="2.875" Height="3.3071704101562496" />
+        <EntityTypeShape EntityType="LNCDDataModel.PatADL" Width="1.5" PointX="1.625" PointY="6.5" Height="5.4083870442708335" />
+        <EntityTypeShape EntityType="LNCDDataModel.PatOtherTest" Width="1.875" PointX="4.125" PointY="9.75" Height="3.8802294921874996" />
+        <EntityTypeShape EntityType="LNCDDataModel.PatDisease" Width="1.5" PointX="6.125" PointY="1" Height="5.9814461263020826" />
+        <EntityTypeShape EntityType="LNCDDataModel.VisitRecord" Width="1.5" PointX="3.625" PointY="5" Height="2.7341113281249996" />
+        <AssociationConnector Association="LNCDDataModel.VisitRecordPatADL">
+          <ConnectorPoint PointX="3.625" PointY="7.1170556640625" />
+          <ConnectorPoint PointX="3.125" PointY="7.1170556640625" />
+        </AssociationConnector>
+        <AssociationConnector Association="LNCDDataModel.VisitRecordPatMoCA">
+          <ConnectorPoint PointX="3.625" PointY="5.5910852050781248" />
+          <ConnectorPoint PointX="2.5" PointY="5.5910852050781248" />
+        </AssociationConnector>
+        <AssociationConnector Association="LNCDDataModel.VisitRecordPatOtherTest">
+          <ConnectorPoint PointX="4.5937475" PointY="7.734111328125" />
+          <ConnectorPoint PointX="4.5937475" PointY="9.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="LNCDDataModel.VisitRecordPatMMSE">
+          <ConnectorPoint PointX="5.125" PointY="7.3784622171020491" />
+          <ConnectorPoint PointX="5.885416666666667" PointY="7.3784622171020482" />
+          <ConnectorPoint PointX="6.052083333333333" PointY="7.3784622171020491" />
+          <ConnectorPoint PointX="10.25" PointY="7.3784622171020491" />
+        </AssociationConnector>
+        <AssociationConnector Association="LNCDDataModel.PatBasicInforPatDisease">
+          <ConnectorPoint PointX="5.25" PointY="2.6571048990885413" />
+          <ConnectorPoint PointX="6.125" PointY="2.6571048990885413" />
+        </AssociationConnector>
+        <AssociationConnector Association="LNCDDataModel.DoctorAccountPatBasicInfor">
+          <ConnectorPoint PointX="2.5" PointY="1.6100162760416672" />
+          <ConnectorPoint PointX="3.25" PointY="1.6100162760416672" />
+        </AssociationConnector>
+        <AssociationConnector Association="LNCDDataModel.PatBasicInforVisitRecord">
+          <ConnectorPoint PointX="4.375" PointY="4.3142097981770826" />
+          <ConnectorPoint PointX="4.375" PointY="5" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LNCDDataModel.PatLabExam" Width="1.5" PointX="6.875" PointY="9.625" Height="7.3185839843750031" />
+        <AssociationConnector Association="LNCDDataModel.VisitRecordPatLabExam" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.84375" PointY="7.734111328125" />
+          <ConnectorPoint PointX="3.84375" PointY="15.318156738281251" />
+          <ConnectorPoint PointX="6.875" PointY="15.318156738281251" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LNCDDataModel.PatRecentDrug" Width="1.5" PointX="5.875" PointY="7.5" Height="1.9700325520833335" />
+        <AssociationConnector Association="LNCDDataModel.VisitRecordPatRecentDrug">
+          <ConnectorPoint PointX="5.125" PointY="7.1799516717020646" />
+          <ConnectorPoint PointX="5.96875" PointY="7.1799516717020646" />
+          <ConnectorPoint PointX="5.96875" PointY="7.5" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LNCDDataModel.Drug" Width="1.5" PointX="8.125" PointY="7.625" Height="1.7790128580729157" />
+        <AssociationConnector Association="LNCDDataModel.PatRecentDrugDrug">
+          <ConnectorPoint PointX="7.375" PointY="8.5145064290364587" />
+          <ConnectorPoint PointX="8.125" PointY="8.5145064290364587" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LNCDDataModel.PatPhysicalExam" Width="1.5" PointX="8.375" PointY="0.75" Height="5.59940673828125" />
+        <AssociationConnector Association="LNCDDataModel.PatBasicInforPatPhysicalExam">
+          <ConnectorPoint PointX="5.25" PointY="0.84375" />
+          <ConnectorPoint PointX="8.375" PointY="0.84375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LNCDDataModel.SimpleADdata" Width="1.5" PointX="12" PointY="3.25" Height="4.8353279622395835" />
+        <AssociationConnector Association="LNCDDataModel.SimpleADdataPatBasicInfor">
+          <ConnectorPoint PointX="12.75" PointY="3.25" />
+          <ConnectorPoint PointX="12.75" PointY="0.65625000000000011" />
+          <ConnectorPoint PointX="5.25" PointY="0.65625000000000011" />
+        </AssociationConnector>
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
