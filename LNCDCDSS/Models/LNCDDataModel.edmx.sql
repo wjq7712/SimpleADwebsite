@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/24/2014 15:49:50
+-- Date Created: 03/27/2014 09:26:12
 -- Generated from EDMX file: E:\可变动程序(77)\Web\LNCDCDSS\LNCDCDSS\Models\LNCDDataModel.edmx
 -- --------------------------------------------------
 
@@ -17,32 +17,8 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_DoctorAccountPatBasicInfor]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_DoctorAccountPatBasicInfor];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PatBasicInforPatDisease]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforPatDisease];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PatBasicInforPatPhysicalExam]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforPatPhysicalExam];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PatBasicInforVisitRecord]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[VisitRecordSet] DROP CONSTRAINT [FK_PatBasicInforVisitRecord];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PatRecentDrugDrug]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[DrugSet] DROP CONSTRAINT [FK_PatRecentDrugDrug];
-GO
-IF OBJECT_ID(N'[dbo].[FK_SimpleADdataPatBasicInfor]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SimpleADdataSet] DROP CONSTRAINT [FK_SimpleADdataPatBasicInfor];
-GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordPatADL]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PatADLSet] DROP CONSTRAINT [FK_VisitRecordPatADL];
-GO
-IF OBJECT_ID(N'[dbo].[FK_VisitRecordPatLabExam]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PatLabExamSet] DROP CONSTRAINT [FK_VisitRecordPatLabExam];
-GO
-IF OBJECT_ID(N'[dbo].[FK_VisitRecordPatMMSE]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PatMMSESet] DROP CONSTRAINT [FK_VisitRecordPatMMSE];
 GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordPatMoCA]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PatMoCASet] DROP CONSTRAINT [FK_VisitRecordPatMoCA];
@@ -50,8 +26,35 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordPatOtherTest]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PatOtherTestSet] DROP CONSTRAINT [FK_VisitRecordPatOtherTest];
 GO
+IF OBJECT_ID(N'[dbo].[FK_VisitRecordPatMMSE]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PatMMSESet] DROP CONSTRAINT [FK_VisitRecordPatMMSE];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforPatDisease]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforPatDisease];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DoctorAccountPatBasicInfor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_DoctorAccountPatBasicInfor];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforVisitRecord]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VisitRecordSet] DROP CONSTRAINT [FK_PatBasicInforVisitRecord];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VisitRecordPatLabExam]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PatLabExamSet] DROP CONSTRAINT [FK_VisitRecordPatLabExam];
+GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordPatRecentDrug]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PatRecentDrugSet] DROP CONSTRAINT [FK_VisitRecordPatRecentDrug];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatRecentDrugDrug]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DrugSet] DROP CONSTRAINT [FK_PatRecentDrugDrug];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforPatPhysicalExam]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforPatPhysicalExam];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SimpleADdataPatBasicInfor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SimpleADdataSet] DROP CONSTRAINT [FK_SimpleADdataPatBasicInfor];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VisitRecordSimpleADdata]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SimpleADdataSet] DROP CONSTRAINT [FK_VisitRecordSimpleADdata];
 GO
 
 -- --------------------------------------------------
@@ -61,20 +64,8 @@ GO
 IF OBJECT_ID(N'[dbo].[DoctorAccountSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[DoctorAccountSet];
 GO
-IF OBJECT_ID(N'[dbo].[DrugSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DrugSet];
-GO
-IF OBJECT_ID(N'[dbo].[PatADLSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PatADLSet];
-GO
 IF OBJECT_ID(N'[dbo].[PatBasicInforSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PatBasicInforSet];
-GO
-IF OBJECT_ID(N'[dbo].[PatDiseaseSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PatDiseaseSet];
-GO
-IF OBJECT_ID(N'[dbo].[PatLabExamSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PatLabExamSet];
 GO
 IF OBJECT_ID(N'[dbo].[PatMMSESet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PatMMSESet];
@@ -82,20 +73,32 @@ GO
 IF OBJECT_ID(N'[dbo].[PatMoCASet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PatMoCASet];
 GO
+IF OBJECT_ID(N'[dbo].[PatADLSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PatADLSet];
+GO
 IF OBJECT_ID(N'[dbo].[PatOtherTestSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PatOtherTestSet];
 GO
-IF OBJECT_ID(N'[dbo].[PatPhysicalExamSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PatPhysicalExamSet];
+IF OBJECT_ID(N'[dbo].[PatDiseaseSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PatDiseaseSet];
+GO
+IF OBJECT_ID(N'[dbo].[VisitRecordSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VisitRecordSet];
+GO
+IF OBJECT_ID(N'[dbo].[PatLabExamSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PatLabExamSet];
 GO
 IF OBJECT_ID(N'[dbo].[PatRecentDrugSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PatRecentDrugSet];
 GO
+IF OBJECT_ID(N'[dbo].[DrugSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DrugSet];
+GO
+IF OBJECT_ID(N'[dbo].[PatPhysicalExamSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PatPhysicalExamSet];
+GO
 IF OBJECT_ID(N'[dbo].[SimpleADdataSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SimpleADdataSet];
-GO
-IF OBJECT_ID(N'[dbo].[VisitRecordSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[VisitRecordSet];
 GO
 
 -- --------------------------------------------------
@@ -390,7 +393,6 @@ GO
 -- Creating table 'SimpleADdataSet'
 CREATE TABLE [dbo].[SimpleADdataSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [PatBasicInforId] nvarchar(max)  NOT NULL,
     [SAD1] nvarchar(max)  NOT NULL,
     [SAD2] nvarchar(max)  NOT NULL,
     [SAD3] nvarchar(max)  NOT NULL,
@@ -408,7 +410,8 @@ CREATE TABLE [dbo].[SimpleADdataSet] (
     [SAD13] nvarchar(max)  NOT NULL,
     [DocDia] nvarchar(max)  NULL,
     [SysDia] nvarchar(max)  NOT NULL,
-    [PatBasicInfor_Id] nvarchar(255)  NOT NULL
+    [PatBasicInfor_Id] nvarchar(255)  NOT NULL,
+    [VisitRecord_Id] int  NOT NULL
 );
 GO
 
@@ -664,6 +667,20 @@ ADD CONSTRAINT [FK_SimpleADdataPatBasicInfor]
 CREATE INDEX [IX_FK_SimpleADdataPatBasicInfor]
 ON [dbo].[SimpleADdataSet]
     ([PatBasicInfor_Id]);
+GO
+
+-- Creating foreign key on [VisitRecord_Id] in table 'SimpleADdataSet'
+ALTER TABLE [dbo].[SimpleADdataSet]
+ADD CONSTRAINT [FK_VisitRecordSimpleADdata]
+    FOREIGN KEY ([VisitRecord_Id])
+    REFERENCES [dbo].[VisitRecordSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordSimpleADdata'
+CREATE INDEX [IX_FK_VisitRecordSimpleADdata]
+ON [dbo].[SimpleADdataSet]
+    ([VisitRecord_Id]);
 GO
 
 -- --------------------------------------------------

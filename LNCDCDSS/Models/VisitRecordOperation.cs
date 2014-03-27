@@ -143,79 +143,49 @@ namespace LNCDCDSS.Models
         {
             int recordId = int.Parse(RecordID);
             VisitRecord vd = context.VisitRecordSet.Find(recordId);
+            var patID = vd.PatBasicInforId;
+           // SimpleADdata sa=conte
             List<string> conttext = new List<string>();
             // string test = vd.PatADL.Total + vd.PatMMSE.Total;
 
             try
             {
                 string test = "";
-                if (vd.PatMMSE != null)
+                if (vd.SimpleADdata != null)
                 {
-                    test += "MMSE=" + vd.PatMMSE.Total;
+                    test += "折纸=" + vd.SimpleADdata.SAD1;
+                    test += ";IADL=" + vd.SimpleADdata.SAD2;
+                    test += ";命名=" + vd.SimpleADdata.SAD10;
+                    test += ";注意1=" + vd.SimpleADdata.SAD11;
+                    test += ";注意2=" + vd.SimpleADdata.SAD12;
+                    test += ";注意3=" + vd.SimpleADdata.SAD13;
+                    test += ";词表学习1=" + vd.SimpleADdata.SAD3;
+                    test += ";词表学习2=" + vd.SimpleADdata.SAD4;
+                    test += ";词表学习3=" + vd.SimpleADdata.SAD5;
+                    test += ";C3A图形复制=" + vd.SimpleADdata.SAD61;
+                    test += ";C3B即刻回忆=" + vd.SimpleADdata.SAD62;
+                    test += ";C3C延迟回忆=" + vd.SimpleADdata.SAD63;
+                    test += ";视空间与执行能力1=" + vd.SimpleADdata.SAD7;
+                    test += ";视空间与执行能力2=" + vd.SimpleADdata.SAD8;
+                    test += ";视空间与执行能力3=" + vd.SimpleADdata.SAD9;
                 }
                 else
                 {
-                    test += "MMSE=";
-                }
-                if (vd.PatMoCA != null)
-                {
-                    test += ";MoCA= " + vd.PatMoCA.Total;
-                }
-                else
-                {
-                    test += ";MoCA= ";
-                }
-                if (vd.PatOtherTest != null)
-                {
-                    test += ";CDR= " + vd.PatOtherTest.PatCDR;
-                }
-                else
-                {
-                    test += ";CDR= ";
-                }
-                if (vd.PatOtherTest != null)
-                {
-                    test += ";GDS= " + vd.PatOtherTest.PatGDS;
-                }
-                else
-                {
-                    test += ";GDS= ";
-                }
-                if (vd.PatADL != null)
-                {
-                    test += ";ADL= " + vd.PatADL.Total;
-                }
-                else
-                {
-                    test += ";ADL= ";
-                }
-                if (vd.PatOtherTest != null)
-                {
-                    test += ";词语学习1= " + vd.PatOtherTest.Vocabulary1;
-                    test += ";词语学习2= " + vd.PatOtherTest.Vocabulary2;
-                    test += ";词语学习3= " + vd.PatOtherTest.Vocabulary3;
-                    test += ";延迟记忆= " + vd.PatOtherTest.Vocabulary4;
-                    test += ";原词辨认 =" + vd.PatOtherTest.VocabularyAnalyse1;
-                    test += ";新词辨认 =" + vd.PatOtherTest.VocabularyAnalyse2;
-                    test += ";图形复制 =" + vd.PatOtherTest.Picture1;
-                    test += ";即刻回忆 =" + vd.PatOtherTest.Picture2;
-                    test += ";延迟回忆 =" + vd.PatOtherTest.Picture3;
-                    test += ";连线A =" + vd.PatOtherTest.ConnectNumber1;
-                    test += ";连线B =" + vd.PatOtherTest.ConnectNumber2;
-                }
-                else
-                {
-                    test += ";词语学习1= ";
-                    test += ";词语学习2= ";
-                    test += ";词语学习3= ";
-                    test += ";延迟记忆= ";
-                    test += ";原词辨认 =";
-                    test += ";新词辨认 =";
-                    test += ";图形复制 =";
-                    test += ";即刻回忆 =";
-                    test += ";延迟回忆 =";
-                    test += ";连线A =";
-                    test += ";连线B =";
+                    test += "折纸=";
+                    test += ";IADL=";
+                    test += ";命名=" ;
+                    test += ";注意1=";
+                    test += ";注意2=";
+                    test += ";注意3=";
+                    test += ";词表学习1=" ;
+                    test += ";词表学习2=";
+                    test += ";词表学习3=";
+                    test += ";C3A图形复制=";
+                    test += ";C3B即刻回忆=";
+                    test += ";C3C延迟回忆=" ;
+                    test += ";视空间与执行能力1=" ;
+                    test += ";视空间与执行能力2=";
+                    test += ";视空间与执行能力3=";
                 }
                 conttext.Add(test);
                 conttext.Add(vd.RecordNote);

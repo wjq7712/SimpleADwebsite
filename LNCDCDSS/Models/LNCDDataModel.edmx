@@ -67,6 +67,10 @@
       <End Role="SimpleADdata" EntitySet="SimpleADdataSet" />
       <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
     </AssociationSet>
+    <AssociationSet Name="VisitRecordSimpleADdata" Association="LNCDDataModel.Store.VisitRecordSimpleADdata">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="SimpleADdata" EntitySet="SimpleADdataSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="DoctorAccountSet">
     <Key>
@@ -358,7 +362,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PatBasicInforId" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SAD1" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SAD2" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SAD3" Type="nvarchar(max)" Nullable="false" />
@@ -377,6 +380,7 @@
     <Property Name="DocDia" Type="nvarchar(max)" Nullable="true" />
     <Property Name="SysDia" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PatBasicInfor_Id" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="VisitRecord_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="VisitRecordPatADL">
     <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="1" />
@@ -522,6 +526,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="VisitRecordSimpleADdata">
+    <End Role="VisitRecord" Type="LNCDDataModel.Store.VisitRecordSet" Multiplicity="1" />
+    <End Role="SimpleADdata" Type="LNCDDataModel.Store.SimpleADdataSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SimpleADdata">
+        <PropertyRef Name="VisitRecord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -587,6 +603,10 @@
           <AssociationSet Name="SimpleADdataPatBasicInfor" Association="LNCDDataModel.SimpleADdataPatBasicInfor">
             <End Role="SimpleADdata" EntitySet="SimpleADdataSet" />
             <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
+          </AssociationSet>
+          <AssociationSet Name="VisitRecordSimpleADdata" Association="LNCDDataModel.VisitRecordSimpleADdata">
+            <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+            <End Role="SimpleADdata" EntitySet="SimpleADdataSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="DoctorAccount">
@@ -754,6 +774,7 @@
           <Property Type="String" Name="HospitalID" Nullable="true" />
           <Property Type="DateTime" Name="VisitDate" Nullable="false" />
           <NavigationProperty Name="PatRecentDrug" Relationship="LNCDDataModel.VisitRecordPatRecentDrug" FromRole="VisitRecord" ToRole="PatRecentDrug" />
+          <NavigationProperty Name="SimpleADdata" Relationship="LNCDDataModel.VisitRecordSimpleADdata" FromRole="VisitRecord" ToRole="SimpleADdata" />
         </EntityType>
         <Association Name="VisitRecordPatADL">
           <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
@@ -938,7 +959,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="PatBasicInforId" Nullable="false" />
           <Property Type="String" Name="SAD1" Nullable="false" />
           <Property Type="String" Name="SAD2" Nullable="false" />
           <Property Type="String" Name="SAD3" Nullable="false" />
@@ -957,10 +977,15 @@
           <Property Type="String" Name="SAD13" Nullable="false" />
           <Property Type="String" Name="DocDia" Nullable="true" />
           <Property Type="String" Name="SysDia" Nullable="false" />
+          <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.VisitRecordSimpleADdata" FromRole="SimpleADdata" ToRole="VisitRecord" />
         </EntityType>
         <Association Name="SimpleADdataPatBasicInfor">
           <End Type="LNCDDataModel.SimpleADdata" Role="SimpleADdata" Multiplicity="*" />
           <End Type="LNCDDataModel.PatBasicInfor" Role="PatBasicInfor" Multiplicity="1" />
+        </Association>
+        <Association Name="VisitRecordSimpleADdata">
+          <End Type="LNCDDataModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+          <End Type="LNCDDataModel.SimpleADdata" Role="SimpleADdata" Multiplicity="0..1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1350,7 +1375,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(LNCDDataModel.SimpleADdata)">
         <MappingFragment StoreEntitySet="SimpleADdataSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
           <ScalarProperty Name="SAD1" ColumnName="SAD1" />
           <ScalarProperty Name="SAD2" ColumnName="SAD2" />
           <ScalarProperty Name="SAD3" ColumnName="SAD3" />
@@ -1435,6 +1459,14 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <AssociationSetMapping Name="VisitRecordSimpleADdata" TypeName="LNCDDataModel.VisitRecordSimpleADdata" StoreEntitySet="SimpleADdataSet">
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="SimpleADdata">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -1477,10 +1509,12 @@
           <ConnectorPoint PointX="4.5937475" PointY="9.75" />
         </AssociationConnector>
         <AssociationConnector Association="LNCDDataModel.VisitRecordPatMMSE">
-          <ConnectorPoint PointX="5.125" PointY="7.3784622171020491" />
-          <ConnectorPoint PointX="5.885416666666667" PointY="7.3784622171020482" />
-          <ConnectorPoint PointX="6.052083333333333" PointY="7.3784622171020491" />
-          <ConnectorPoint PointX="10.25" PointY="7.3784622171020491" />
+          <ConnectorPoint PointX="5.125" PointY="7.3969730631510409" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="7.39697306315104" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="7.3969730631510409" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="7.39697306315104" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="7.3969730631510409" />
+          <ConnectorPoint PointX="10.25" PointY="7.3969730631510409" />
         </AssociationConnector>
         <AssociationConnector Association="LNCDDataModel.PatBasicInforPatDisease">
           <ConnectorPoint PointX="5.25" PointY="2.6571048990885413" />
@@ -1496,9 +1530,9 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="LNCDDataModel.PatLabExam" Width="1.5" PointX="6.875" PointY="9.625" Height="7.3185839843750031" />
         <AssociationConnector Association="LNCDDataModel.VisitRecordPatLabExam" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.84375" PointY="7.734111328125" />
-          <ConnectorPoint PointX="3.84375" PointY="15.318156738281251" />
-          <ConnectorPoint PointX="6.875" PointY="15.318156738281251" />
+          <ConnectorPoint PointX="5.125" PointY="7.1376961263020817" />
+          <ConnectorPoint PointX="7.875" PointY="7.1376961263020817" />
+          <ConnectorPoint PointX="7.875" PointY="9.625" />
         </AssociationConnector>
         <EntityTypeShape EntityType="LNCDDataModel.PatRecentDrug" Width="1.5" PointX="5.875" PointY="7.5" Height="1.9700325520833335" />
         <AssociationConnector Association="LNCDDataModel.VisitRecordPatRecentDrug">
@@ -1521,6 +1555,15 @@
           <ConnectorPoint PointX="12.75" PointY="3.25" />
           <ConnectorPoint PointX="12.75" PointY="0.65625000000000011" />
           <ConnectorPoint PointX="5.25" PointY="0.65625000000000011" />
+        </AssociationConnector>
+        <AssociationConnector Association="LNCDDataModel.VisitRecordSimpleADdata">
+          <ConnectorPoint PointX="5.125" PointY="7.2673345947265613" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="7.26733459472656" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="7.2673345947265613" />
+          <ConnectorPoint PointX="10" PointY="7.2673345947265613" />
+          <ConnectorPoint PointX="10" PointY="9.3142097981770817" />
+          <ConnectorPoint PointX="12.75" PointY="9.3142097981770817" />
+          <ConnectorPoint PointX="12.75" PointY="8.0853279622395835" />
         </AssociationConnector>
         </Diagram>
     </edmx:Diagrams>

@@ -85,12 +85,13 @@ namespace LNCDCDSS.Controllers
             return PartialView("PatList", pts);
         }
         [OutputCache(Location = System.Web.UI.OutputCacheLocation.None)]
+
         public ActionResult ViewRecord(string ID)
         {
             string t = ID;
             List<VisitRecord> vrecord = visitop.GetVistRecord(t);
          
-              this.TempData["PatID"] = ID;
+            this.TempData["PatID"] = ID;
             this.ViewBag.patId = ID;
             return View(vrecord);
            

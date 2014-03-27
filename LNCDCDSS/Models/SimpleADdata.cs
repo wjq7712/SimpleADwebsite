@@ -15,7 +15,6 @@ namespace LNCDCDSS.Models
     public partial class SimpleADdata
     {
         public int Id { get; set; }
-        public string PatBasicInforId { get; set; }
         public string SAD1 { get; set; }
         public string SAD2 { get; set; }
         public string SAD3 { get; set; }
@@ -35,5 +34,6 @@ namespace LNCDCDSS.Models
         public string SysDia { get; set; }
     
         public virtual PatBasicInfor PatBasicInfor { get; set; }
+        public virtual VisitRecord VisitRecord { get; set; }
     }
 }

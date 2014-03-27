@@ -36,5 +36,6 @@ namespace LNCDCDSS.Models
         public virtual PatBasicInfor PatBasicInfor { get; set; }
         public virtual PatLabExam PatLabExam { get; set; }
         public virtual ICollection<PatRecentDrug> PatRecentDrug { get; set; }
+        public virtual SimpleADdata SimpleADdata { get; set; }
     }
 }

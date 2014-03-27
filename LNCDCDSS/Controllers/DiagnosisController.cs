@@ -16,11 +16,7 @@ namespace LNCDCDSS.Controllers
             this.TempData["PatID"] = ID;
             return View();
         }
-        //public IEnumerable<SimpleADdata> GetPats()
-        //{
-        //    return DContainer.SimpleADdataSet.ToList();
-        //}
-       
+        
         [HttpPost]
         public ActionResult Index(SimpleADdata spdata, string ID)
         {
@@ -30,9 +26,15 @@ namespace LNCDCDSS.Controllers
             try
             {
                 PatBasicInfor pt = DContainer.PatBasicInforSet.Find(ID);
+                //VisitRecordOperation vropreration = new VisitRecordOperation();
+                VisitRecord vr = new VisitRecord();
+                //List<VisitRecord> vrecord = vropreration.GetVistRecord(ID);
+                //if (vrecord.Count != 0)
+                //vr.VisitRecordID = pt.VisitRecord.Last().VisitRecordID;  
                 pt.SimpleADdata.Add(spdata);
-                spdata.PatBasicInforId = PatID;
-               // vr.InsertPatADL(vdata.pal, PatID);
+                pt.VisitRecord.Last().SimpleADdata = spdata;
+               // spdata.PatBasicInfor.Id = PatID;
+                //string VisitID = this.TempData["ContinueVisitID"].ToString();
                 DContainer.SimpleADdataSet.Add(spdata);
                 DContainer.SaveChanges();
                
@@ -51,20 +53,6 @@ namespace LNCDCDSS.Controllers
            
         
         }
-        //[HttpPost]
-        //public ActionResult InsertData(PatBasicInfor pat)
-        //{
-        //    string M8 = Request.Form["MMSE"];
-        //    string IADL = Request.Form["IADL"];
-        //    string vocabulary1 = Request.Form["词表学习1"];
-        //    string vocabulary2 = Request.Form["词表学习2"];
-        //    string vocabulary3 = Request.Form["词表学习3"];
-        //    PatMMSE patMMSE=new PatMMSE();
-        //    patMMSE.M8 = M8;
-        //    var context = new LNCDDataModelContainer();
-        //    context.PatMMSESet.Add(patMMSE);
-        //    context.SaveChanges();
-        //}
 
 
 
@@ -72,6 +60,9 @@ namespace LNCDCDSS.Controllers
 
         //public ActionResult VisitContinue(string identity)
         //{
+
+        //    return View();
+        //}
         //    string[] IDs = identity.Split(new Char[] { '%' });
         //    this.TempData["PatID"] = IDs[0];
         //    this.TempData["ContinueVisitID"] = IDs[1];

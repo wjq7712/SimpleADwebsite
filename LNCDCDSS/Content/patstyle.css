@@ -249,7 +249,7 @@ input[type="submit"]:active
 
 #List li
 { 
-	background-color:#B9DCF2;
+	background-color:#D3E7F2;
     padding: 8px 10px 0 10px ;
     margin-bottom:10px;
 	width: 195px;
@@ -295,22 +295,22 @@ input[type="submit"]:active
 
 #TestResult
 {
-     padding :0px 20px 0 100px;
+     padding :0px 0px 0 60px;
      
-    width: 510px;
+    width: 566px;
     height: 264px;
     background: url(images/box1.png) no-repeat ;
     background-position: right;
 }
 #test
 {
-    padding-top:40px;
+    padding-top:46px;
     border:0;
 }
 #TestResult td
 {
     height: 25px;
-    width:155px
+    width:200px
 }
 #DiagnosisResult
 {
