@@ -33,7 +33,7 @@
 	cursor:pointer;
 	position: absolute;
 	left: -60px;
-	top: 516px;
+	top: 716px;
 }
 #mainmenu a.pre:hover{
 	background-position: -75px top;
@@ -46,15 +46,16 @@
 	height: 47px;
 	width: 25px;
 	cursor:pointer;
-	top: 516px;
+	top: 716px;
 	right: -60px;
 	position: absolute;
 	}
 #mainmenu a.next:hover{
 	background-position: -25px top;
+	ba
 	}
 #mainmenu #querybox {
-	height: 610px;
+	height: 568px;
 	width: 790px;
 	overflow: hidden;
 	position: relative;
@@ -82,7 +83,7 @@
 }
 #mainmenu .nav {
 	height: 10px;
-	margin-top: -40px;
+	margin-top: 0px;
 	width:572px;
 	margin-right: auto;
 	margin-left: auto;
@@ -118,9 +119,10 @@
          border:solid;
          border-color:White;
          width:450px;
-         height:150px;
+         height:130px;
          padding-top:19px;
          margin-left:108px;
+         margin-top:62px;
         }
         
 input[type="checkbox"]
@@ -150,14 +152,13 @@ input[type="checkbox"]
     }
   .question {text-indent:2em;}
   
-  #basicinfor
-{
-  height:205px;
-  width:790px;/**/
-  margin-top :17px;
-  display:block;
- }
- #basicinfor div.Readme{margin:8px 0 0 22px}
+ /*病人自述*/
+ #basicinfor{ height:280px;width:790px;margin-top :0px;display:block;}
+ #basicinfor div.Readme{margin:7px 0 0 28px}
+ #basicinfor div.patinfo{height:64px; margin:10px 0 0 28px;}
+ #basicinfor div.patinfo ul li{float:left; width:128px; list-style:none;margin-top:-8px;}
+ #basicinfor a{ display:block;}
+ 
 .b1,.b2,.b3,.b4,.b1b,.b2b,.b3b,.b4b,.b{display:block;overflow:hidden;}
 .b1,.b2,.b3,.b1b,.b2b,.b3b{height:1px;}
 .b2,.b3,.b4,.b2b,.b3b,.b4b,.b{border-left:1px solid #32549C;border-right:1px solid #32549C;}
@@ -165,8 +166,8 @@ input[type="checkbox"]
 .b2,.b2b{margin:0 3px;border-width:2px;}
 .b3,.b3b{margin:0 2px;}
 .b4,.b4b{height:2px;margin:0 1px;}
-.d1{background:#C1E4E1;}
-.k {height:180px; margin-left:auto;}/*决定了圆角矩形的高度*/
+.d1{background: transparent;}
+.k {height:250px; margin-left:auto;}/*决定了圆角矩形的高度*/
 .stitle{ background:rgb(209, 209, 211); font-size:18px;text-align:left;  margin-left:4px;}
 input[type="text"]
 {
@@ -184,19 +185,20 @@ input[type="text"]
  .info select{ width:60px;}
  
  
- #diagnosis {width:790px;height:615px;display:block;}
+ #diagnosis {width:790px;height:645px;display:block;}
  #diagnosis div.k {height:620px; margin-left:auto;}/*决定了圆角矩形的高度*/
+ 
+ 
      /*词表学习部分*/
  .tips{ float:left; font-size:14px; width:700px;}
   p.tips span{ float:right;font-size:14px; }    
- #VocabularyLearning table{ border-collapse: collapse; width:700px;}
-  #VocabularyLearning table, th ,td{ border:1px solid white; text-align:center; font-size:18px;}
-    #VocabularyLearning table input[type="checkbox"] { width:20px; height:23px; float:right; margin: 2px 25px 3px 4px; zoom:105%;}
+  #VocabularyLearning table{ border-collapse: collapse; width:700px;}
+  #VocabularyLearning table, th ,td{ border:1px solid white; text-align:center; font-size:18px;height:30px; line-height:33px;}
+  #VocabularyLearning table input[type="checkbox"] { width:20px; height:23px; float:right; margin: 2px 25px 3px 4px; zoom:105%;}
   /*图形记忆*/
   #PhotographicMemory table{ border-collapse: collapse; width:700px; margin-top:-16px;}
-  #PhotographicMemory table, th ,td{ border:1px solid white; text-align:center; font-size:18px;}
-  #PhotographicMemory th{ line-height:33px;}
-   #PhotographicMemory input[type=text]{ width:104px;height:28px;margin:2px 6px 1px 7px; padding:0 5px 0 5px}
+  #PhotographicMemory table, th ,td{ border:1px solid white;  line-height:33px;text-align:center; font-size:18px;margin-top:-30px;height:36px;}
+  #PhotographicMemory input[type=text]{ width:104px;height:28px;margin:2px 6px 1px 7px; padding:0 5px 0 5px}
   #PhotographicMemory select
   {
     width:120px;
@@ -205,67 +207,78 @@ input[type="text"]
     height:32px;
     border: 1px solid #98C2E2;
     background-color: White;}
-    /*IDAL*/
-    #IADL table{border-collapse: collapse; width:700px; margin-top:-16px;}
-     #IADL table th td{ line-height:33px;}
+    
+    /*IADL*/
+    #IADL  div.contentbox{ width:600px; height:300px;}
+    #IADL  table{border-collapse: collapse; width:700px; margin-top:-16px;}
+    #IADL  td{ line-height:33px;height:73px;}
+  
      /*Montreal蒙特利尔*/
     p.parttitle span{ font-size:18px; font-family :@微软雅黑; font-style:oblique;}
     div.guideline a{ font-size:20px; font-family:@华文行楷; }
     div.guideline p{  text-indent:2em; font-size:18px; font-family:@Adobe 宋体 Std L; margin:0px 3px 18px 3px;}
-    div.grade p{ text-indent:2em; font-size:18px; font-family:@Adobe 宋体 Std L; margin:18px 3px 0px 3px;  }
-    div.photo{ width:200px;height:200px;margin-left:30px;float:left;}
-    div.photo img{ width:200px;height:200px;}
+    div.grade p{ text-indent:2em; font-size:18px; font-family:@Adobe 宋体 Std L; margin:3px 3px 0px 3px;  }
+    div.photo{ width:244px;height:244px;margin-left:30px;float:left;}
+    div.photo img{ width:244px;height:244px;}
     div.grade p span{ font-style:oblique; color:Blue;}
     div.gradebox{display:block;border:2px solid ; border-color:White; height:175px; width:400px;margin-left:150px; }
     div.gradebox input[type="checkbox"]{zoom:105%;}
     /*以上是公用部分*/
     #mtl0 div.grade{width:400px;height:200px;float:left;}  
-    #mtl0 div.gradebox { display:block;border:2px solid ; border-color:White; height:120px; width:400px; margin:225px 135px;}
-    #mtl0 div.gradebox a { float:right; margin-top:44px; font-size:26px;}
+    #mtl0 div.gradebox { display:block;border:2px solid ; border-color:White; height:95px; width:344px; margin:207px 310px;}
+    #mtl0 div.gradebox a { float:right; margin-top:26px; font-size:26px;}
     #mtl0 div.gradebox input[type="checkbox"]{ float:right; line-height:88px; margin-left:79px; width:24px; height:24px; }
     #mtl1 div.grade ul{float: left;display: block;height: 100px;width: 660px;}
     
-    #mtl1 div.grade{width:600px;height:200px;float:left;}
+    #mtl1 div.grade{width:600px;height:165px;float:left;}
     #mtl1 div.grade li{ font-size: 18px;line-height: 25px;position: relative;margin-left:78px;margin-right:23px;}
-    #mtl1 div.gradebox{ display:block;border:2px solid ; border-color:White; height:120px; width:300px; margin:247px 263px;}
-    #mtl1 div.photo{ width:200px;height:200px;margin-left:30px;float:left}
-    #mtl1 div.photo img{ width:200px;height:200px;}
+    #mtl1 div.gradebox{ display:block;border:2px solid ; border-color:White; height:92px; width:300px; margin:247px 326px;}
+    #mtl1 div.photo{ width:244px;height:244px;margin-left:30px;float:left}
+    #mtl1 div.photo img{ width:235px;height:235px;}
     #mtl1 div.gradebox input[type="checkbox"]{ float:right; line-height:88px; margin-top:0px;margin-left:41px; width:24px; height:24px; }
-    #mtl1 div.gradebox a{margin-top:40px;font-size:24px;float:right;margin-right:-50px;}
+    #mtl1 div.gradebox a{margin-top:33px;font-size:24px;float:right;margin-right:-50px;}
     
     #mtl2 div.grade ul{ float: left;display: block;height: 100px;width: 750px;}
     #mtl2 div.grade li{ font-size: 18px;line-height: 25px; width:567px;position:relative;margin-left:78px;margin-right:23px;}
-    #mtl2 div.gradebox{margin-top:150px;margin-left:150px;}
+    #mtl2 div.gradebox{margin-top:150px;margin-left:150px;height:133px;}
     #mtl2 div.gradebox ul{float: left;display: block;height: 100px;width: 300px}
-    #mtl2 div.gradebox li{font-size: 18px;line-height: 25px;position: relative;margin-left:78px;margin-right:23px;width:280px; margin-top:24px;}
+    #mtl2 div.gradebox li{font-size: 18px;line-height: 25px;position: relative;margin-left:78px;margin-right:23px;width:280px; margin-top:12px; list-style:none;}
    
     #mtl3 div.grade ul{ float: left;display: block;height: 100px;width: 750px;}
     #mtl3 div.grade li{ font-size: 18px;line-height: 25px; width:567px;position:relative;margin-left:40px;margin-right:23px;}
     #mtl3 div.grade img{ width:647px;height:150px;}
-    #mtl3 div.gradebox{margin-top:10px;margin-left:150px;}
+    #mtl3 div.gradebox{margin-top:10px;margin-left:150px;height:133px;}
     #mtl3 div.gradebox ul{float: left;display: block;height: 100px;width: 300px}
-    #mtl3 div.gradebox li{font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:24px;}
+    #mtl3 div.gradebox li{ list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:12px;}
     
     
     #mtl4 div.guideline a { font-size:19px;}
-    #mtl4 div.gradebox{margin-top:20px;}
-    #mtl4 div.gradebox li{font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:35px;}
+    #mtl4 div.gradebox{margin-top:46px;height:100px;}
+    #mtl4 div.gradebox li{list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:15px;}
     #mtl5 div.gradebox{width:569px;height:69px;margin:40px 59px;}
-    #mtl6 div.gradebox li{font-size: 18px;line-height: 25px;position: relative;margin-left:58px;margin-right:23px;width:330px; margin-top:24px;}
+    #mtl5 div.gradebox p{margin-top:20px;}
+    #mtl6 div.gradebox{height:133px;margin-top:40px;}
+    #mtl6 div.gradebox li{list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:48px;margin-right:23px;width:330px; margin-top:12px;}
     /*辅助诊断*/
-    #AuxiliaryDiagnosis{margin-top:30px;}
-    #AuxiliaryDiagnosis .k{height:645px;width:790px;}
+    #AuxiliaryDiagnosis{margin-top:0px;}
+    #AuxiliaryDiagnosis .k{height:690px;width:790px;}
     div.resultlayout{ width:100%;height:45%;float:left;margin-right:16px;}
-    div.sysDiagnosis{ width:45%;float:left;margin-left:45px;}
-    div.docDiagnosis{width:45%;float:left;}
-    div.resultlayout input[type="text"]{ width:60px;margin:15px 5px 1px 1px;}
+    div.resultlayout p{margin:25px 10px -18px 43px;; font-weight:bold;}
+    
+    div.sysDiagnosis{ width:80%;float:left;margin-left:45px;}
+    div.docDiagnosis{width:80%;float:left;margin-left:45px;}
+    div.resultlayout input[type="text"]{ width:60px;margin:15px 5px 1px 1px;border:0;background:transparent;}
     div.resultlayout ul{ list-style:none; }
-    div.resultlayout li{ float:left; }
-    div.sysDiagnosis input[type="text"]{ width:400px;height:150px; }
-    div.docDiagnosis input[type="text"]{ width:400px;height:150px;}
+    div.resultlayout li{ float:left; width:238px; margin:0 0 0 3px;}
+    div.resultlayout li.scoreLayout{ float:left;width:267px;margin:0 0 0 0px;  }
+    div.sysDiagnosis input[type="text"]{  width:260px;margin:15px 5px 1px 1px;border:0;background:transparent;}
+    div.docDiagnosis input[type="text"]{ width:400px;height:36px;}
     input[type="submit"]{margin:28px 69px 0 603px; height: 37px;
 	float: left;
 	width :138px;
     background: url(images/normal-button.png) no-repeat ;
     text-align:center;
     border:0;}
+    div.step{ width:150px;height:75px;}
+    div.step img{width:333px;height:75px;margin-left:-99px;}
+    

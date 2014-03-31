@@ -299,10 +299,38 @@ namespace LNCDCDSS.Models
             visit.Reverse();
             return visit;
         }
+
+        public List<string> LastSpdata(string PatID)
+        {
+            PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
+            var vr=pt.VisitRecord.First();
+            List<string> lastspdata = new List<string>();
+             var sp= pt.SimpleADdata.Last();
+             lastspdata.Add(sp.SAD1);
+             lastspdata.Add(sp.SAD2);
+             lastspdata.Add(sp.SAD3);
+             lastspdata.Add(sp.SAD4);
+             lastspdata.Add(sp.SAD5);
+             lastspdata.Add(sp.SAD61);
+             lastspdata.Add(sp.SAD62);
+             lastspdata.Add(sp.SAD63);
+             lastspdata.Add(sp.SAD7);
+             lastspdata.Add(sp.SAD8);
+             lastspdata.Add(sp.SAD9);
+             lastspdata.Add(sp.SAD10);
+             lastspdata.Add(sp.SAD11);
+             lastspdata.Add(sp.SAD12);
+             lastspdata.Add(sp.SAD13);
+             lastspdata.Add(pt.Name);
+             lastspdata.Add(pt.Sex);
+             lastspdata.Add(pt.Age);
+             lastspdata.Add(pt.Phone);
+             lastspdata.Add(vr.OutpatientID);
+             return lastspdata;
+        }
+
         public void AddNewRecord(string PatID)
         {
-
-
             PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
 
             VisitRecord vr = new VisitRecord();

@@ -164,6 +164,9 @@
     <Content Include="Content\fontface.css" />
     <Content Include="Content\fordiagnosis.css" />
     <Content Include="Content\icon.css" />
+    <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\2.png" />
+    <Content Include="Content\images\3.png" />
     <Content Include="Content\images\arrows.png" />
     <Content Include="Content\images\bg2.png" />
     <Content Include="Content\images\bg_1.jpg" />
@@ -184,6 +187,15 @@
     <Content Include="Content\images\lrgimg6.jpg" />
     <Content Include="Content\images\nav.png" />
     <Content Include="Content\images\tabs_icons.png" />
+    <Content Include="Content\images\title1-1.png" />
+    <Content Include="Content\images\title1-4.png" />
+    <Content Include="Content\images\title1.png" />
+    <Content Include="Content\images\title2-2.png" />
+    <Content Include="Content\images\title2-4.png" />
+    <Content Include="Content\images\title2.png" />
+    <Content Include="Content\images\title3-3.png" />
+    <Content Include="Content\images\title3-4.png" />
+    <Content Include="Content\images\title3.png" />
     <Content Include="Content\images\wait.gif" />
     <Content Include="Content\images\foot-2.png" />
     <Content Include="Content\images\head.png" />

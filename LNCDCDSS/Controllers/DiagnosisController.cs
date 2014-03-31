@@ -6,8 +6,12 @@ using System.Web.Mvc;
 using LNCDCDSS.Models;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+
 namespace LNCDCDSS.Controllers
 {
+    public class hzz {
+        public string hzz1 { get; set; }
+    }
     public class DiagnosisController : Controller
     {
          LNCDDataModelContainer DContainer = new LNCDDataModelContainer();
@@ -20,21 +24,14 @@ namespace LNCDCDSS.Controllers
         [HttpPost]
         public ActionResult Index(SimpleADdata spdata, string ID)
         {
-            //VisitRecordOperation vr = new VisitRecordOperation();
-          //  VisitData vdata = new VisitData();
+            
             string PatID = this.TempData["PatID"].ToString();
             try
             {
                 PatBasicInfor pt = DContainer.PatBasicInforSet.Find(ID);
-                //VisitRecordOperation vropreration = new VisitRecordOperation();
                 VisitRecord vr = new VisitRecord();
-                //List<VisitRecord> vrecord = vropreration.GetVistRecord(ID);
-                //if (vrecord.Count != 0)
-                //vr.VisitRecordID = pt.VisitRecord.Last().VisitRecordID;  
                 pt.SimpleADdata.Add(spdata);
                 pt.VisitRecord.Last().SimpleADdata = spdata;
-               // spdata.PatBasicInfor.Id = PatID;
-                //string VisitID = this.TempData["ContinueVisitID"].ToString();
                 DContainer.SimpleADdataSet.Add(spdata);
                 DContainer.SaveChanges();
                
@@ -50,11 +47,16 @@ namespace LNCDCDSS.Controllers
                 }
             }
             return RedirectToAction("Index", "EnterPatInfor");
-           
-        
         }
-
-
+        public ActionResult Predata()
+        {
+            VisitRecordOperation vro = new VisitRecordOperation();
+            string PatID = this.TempData["PatID"].ToString();
+            var lastlist = vro.LastSpdata(PatID);
+           
+           // List<int> a = new List<int> {1,2,3 };
+            return Json(lastlist, JsonRequestBehavior.AllowGet);
+        }
 
 
 

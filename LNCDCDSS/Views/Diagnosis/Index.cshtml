@@ -42,20 +42,58 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.easyui.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.tabs.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/question_menu.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '@Url.Action("Predata","Diagnosis")',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var label = document.getElementById('lastScore_1').innerHTML = data[2];
+                    var label = document.getElementById('lastScore_2').innerHTML = data[3];
+                    var label = document.getElementById('lastScore_3').innerHTML = data[4];
+                    var label = document.getElementById('lastScore_4').innerHTML = data[5];
+                    var label = document.getElementById('lastScore_5').innerHTML = data[6];
+                    var label = document.getElementById('lastScore_6').innerHTML = data[7];
+                    var label = document.getElementById('patinfo_name').innerHTML = data[15];
+                    var label = document.getElementById('patinfo_sex').innerHTML = data[16];
+                    var label = document.getElementById('patinfo_age').innerHTML = data[17];
+                    var label = document.getElementById('patinfo_PID').innerHTML = data[19];
+                    var label = document.getElementById('patinfo_phone').innerHTML = data[18];
+                }
+            });
+
+        });
+    </script>
 </head>
 <body>
     <div style="margin: 0 0;">
     </div>
         <div title="认知检查" style="height: 31px; padding: 20px">
             <div id="mainmenu">
+            <div class="step">
+            <img src="../../Content/images/title1-4.png" alt="连线"/></div>
              <div title="病人自述" id="basicinfor">
                 <b class="b1"></b>
                 <b class="b2 d1"></b>
                 <b class="b3 d1"></b>
                 <b class="b4 d1"></b>
                 <div class="b d1 k">
-                    <a class="stitle">病人自述</a>
-                    <div class="Readme"> <textarea cols="80" rows="6"></textarea></div>
+                    <div class="patinfo">
+                    <a>当前病人：</a>
+                    <ul>
+                    <li><span>姓名：</span><label id="patinfo_name"></label></li>
+                    <li><span>性别：</span><label id="patinfo_sex"></label></li>
+                    <li><span>年龄：</span><label id="patinfo_age"></label></li>
+                    <li><span>门诊号：</span><label id="patinfo_PID"></label></li>
+                    <li><span>手机：</span><label id="patinfo_phone"></label></li>
+                    </ul>
+                    </div>
+                  
+                    <div class="Readme"> 
+                       <a>病情简述：</a>
+                    <textarea cols="80" rows="6"></textarea></div>
                  
               </div>
               <b class="b4b d1"></b>
@@ -65,20 +103,21 @@
               </div>
 
              @*认知诊断*@
+             <div class="step"><img src="../../Content/images/title2-4.png" alt="连线"/></div>
            <div title="认知检查" id="diagnosis">
              <b class="b1"></b>
              <b class="b2 d1"></b>
              <b class="b3 d1"></b>
              <b class="b4 d1"></b>
                 <div class="b d1 k">
-                <a class="stitle">认知检查</a>
+               @* <a class="stitle">认知检查</a>*@
                 <a class="pre" style="display: block;"></a>
                 <div id="querybox">
                     <div class="menubox">
                         <ul class="qeslist">
                             <li>
                                 <p class="parttitle">
-                                    第一题</p>
+                                    1、MMSE-</p>
                             </li>
                             <li><a class="guide">指导语 </a></li>
                             <li>
@@ -94,12 +133,13 @@
                         <ul class="qeslist" id="VocabularyLearning">
                             <li>
                                 <p class="parttitle">
-                                    第二题<span>--词表学习</span></p>
+                                    2、词表学习<span></span></p>
                             </li>
                             <li>
                                 <p class="tips">
-                                    C2A:第一次 Score:<span >上一次得分（X）分</span></p>
+                                    C2A:第一次 Score:<span >上一次得分：<label id="lastScore_1" ></label></span></p>
                             </li>
+                            @*<li><p onclick="test()" >hzz</p> </li>*@
                             <li id="time1">
                                 <table  >
                                     <tr>
@@ -170,7 +210,7 @@
                             </li>
                             <li >
                                 <p class="tips">
-                                   C2B:第二次 Score: <span>上一次得分（X）分</span></p>
+                                   C2B:第二次 Score: <span>上一次得分：<label id="lastScore_2" ></label></span></p>
                             </li>
                             <li id="time2">
                                 <table>
@@ -242,7 +282,7 @@
                             </li>
                             <li>
                                 <p class="tips">
-                                    C2C:第三次 Score:<span>上一次得分（X）分</span></p>
+                                    C2C:第三次 Score:<span>上一次得分：<label id="lastScore_3" ></label></span></p>
                             </li>
                             <li id="time3">
                                 <table>
@@ -316,7 +356,8 @@
                         <ul class="qeslist" id="PhotographicMemory">
                             <li>
                                 <p class="parttitle">
-                                    第三题<span>--图形记忆</span></p>
+                                    3、图形记忆
+                                  <span></span></p>
                             </li>
                             <li>
                                 <table border="1">
@@ -441,10 +482,13 @@
                                             上一次得分
                                         </th>
                                         <td>
+                                        <label id="lastScore_4" ></label>
                                         </td>
                                         <td>
+                                        <label id="lastScore_5" ></label>
                                         </td>
                                         <td>
+                                        <label id="lastScore_6" ></label>
                                         </td>
                                     </tr>
                                 </table>
@@ -453,11 +497,11 @@
                         <ul class="qeslist" id="IADL">
                             <li>
                                  <p class="parttitle">
-                                    第四题<span>--IADL</span></p>
+                                    4、IADL</p>
                             </li>
                             <li >
-                                <div class="IADL">
-                                    <table id="iadl" border="0">
+                                <div class="contentbox">
+                                    <table >
                                         <tr>
                                             <td>
                                                 A:自己发搭公车
@@ -525,7 +569,7 @@
                         <ul class="qeslist"id="mtl0">
                             <li>
                                 <p class="parttitle">
-                                   第五题 <span>--视空间与执行能力</span></p>
+                                   5、Moca-连线</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -547,7 +591,7 @@
                         <ul class="qeslist"id="mtl1">
                             <li>
                                 <p class="parttitle" >
-                                    第六题<span>--视空间与执行能力</span></p>
+                                     6、Moca-复制立方体</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -578,7 +622,7 @@
                         <ul class="qeslist" id="mtl2">
                             <li>
                                 <p class="parttitle">
-                                    第七题<span>--视空间与执行能力</span></p>
+                                    7、Moca-画钟表</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -607,7 +651,7 @@
                         <ul class="qeslist" id="mtl3">
                             <li>
                                 <p class="parttitle">
-                                    第八题<span>--命名</span></p>
+                                    8、Moca-命名</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -632,7 +676,7 @@
                         <ul class="qeslist" id="mtl4">
                             <li>
                                 <p class="parttitle">
-                                    第九题<span>--注意</span></p>
+                                    9、Moca-注意1</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -659,7 +703,7 @@
                         <ul class="qeslist" id="mtl5">
                             <li>
                                 <p class="parttitle">
-                                    第十题<span>--注意</span></p>
+                                     10、Moca-注意2</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -680,7 +724,7 @@
                         <ul class="qeslist" id="mtl6">
                             <li>
                                 <p class="parttitle">
-                                    第十一题<span>--注意</span></p>
+                                    11、Moca-注意3</span></p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -692,12 +736,12 @@
                             <li>
                                 <div class="grade">
                                     <p>
-                                       <span>评分：</span> 本条目总分3分。全部记错记0分，一个正确给1分，两到三个正确给2分，四到五个正确给3分。从100开始计算正确的减数，每个减数都单独评定，也就是说，如果患者减错了一次，而从这一个减数开始后续的减7都正确，则后续的正确减数都要给分。例如，如果患者给出的回答是93-85-78-71-64，只有85是错误的，而其他结果的正确，因此给3分。</p>
-                                    <div class="gradebox">
+                                       <span>评分：</span> 本条目总分3分。全部记错记0分，一个正确给1分，2-3个正确给2分，4-5个正确给3分。从100开始计算正确的减数，每个减数都单独评定，也就是说，如果患者减错了一次，而从这一个减数开始后续的减7都正确，则后续的正确减数都要给分。例如，如果患者给出的回答是93-85-78-71-64，只有85是错误的，而其他结果的正确，因此给3分。</p>
+                                    <div class="gradebox" id="calculate">
                                         <ul>
-                                        <li>1分<input id="calculate1" type="checkbox" name="calculate" /></li>
-                                        <li>2分<input id="calculate2" type="checkbox" name="calculate" /></li>
-                                        <li>3分<input id="calculate3" type="checkbox" name="calculate" /></li>
+                                        <li>1分<input id="calculate1" type="checkbox" class="calculation" /></li>
+                                        <li>2分<input id="calculate2" type="checkbox"  class="calculation" /></li>
+                                        <li>3分<input id="calculate3" type="checkbox" class="calculation" /></li>
                                         </ul>
                                    </div>
                                 </div>
@@ -707,7 +751,7 @@
                 </div>
                 <a class="next" style="display: block;"></a>
                 <div class="nav">
-                    <a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a><a class></a>
+                    <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a>
                 </div>
           </div>
               <b class="b4b d1"></b>
@@ -715,7 +759,7 @@
               <b class="b2b d1"></b>
               <b class="b1b"></b>
         </div>
-       
+           <div class="step"><img src="../../Content/images/title3-4.png" alt="连线"/></div>
            <div title="辅助诊断" id="AuxiliaryDiagnosis">
             @model LNCDCDSS.Models.SimpleADdata
         @using (Html.BeginForm())
@@ -725,35 +769,34 @@
                 <b class="b3 d1"></b>
                 <b class="b4 d1"></b>
                 <div class="b d1 k">
-                    <a class="stitle">辅助诊断</a>
+                    @*<a class="stitle">辅助诊断</a>*@
             <div class="resultlayout">
+            <p>量表得分</p>
             <ul>
-             <li><span>折纸得分：</span>@Html.TextBoxFor(model => model.SAD1, new { disable = "disable", @readonly = "readonly" }) </li>
-             <li><span>IADL得分：</span>@Html.TextBoxFor(model => model.SAD2, new { disable = "disable", @readonly = "readonly" })</li>
-             <li><span>命名得分：</span>@Html.TextBoxFor(model => model.SAD10, new { disable = "disable", @readonly = "readonly" })</li> 
-            <li><span>注意1得分：</span>@Html.TextBoxFor(model => model.SAD11, new { disable = "disable", @readonly = "readonly" })</li> 
-            <li><span>注意2得分：</span>@Html.TextBoxFor(model => model.SAD12, new { disable = "disable", @readonly = "readonly" })</li> 
-            <li><span>注意3得分：</span>@Html.TextBoxFor(model => model.SAD13, new { disable = "disable", @readonly = "readonly" })</li> 
+             <li><span>折纸得分：</span>@Html.TextBoxFor(model => model.SAD1, new { disable = "disable", @readonly = "readonly" })</li>
+             <li><span>Moca注意1得分：</span>@Html.TextBoxFor(model => model.SAD11, new { disable = "disable", @readonly = "readonly" })</li>  
              <li><span>词表学习1得分：</span>@Html.TextBoxFor(model => model.SAD3, new { disable = "disable", @readonly = "readonly" })</li>
-              <li><span>词表学习2得分：</span>@Html.TextBoxFor(model => model.SAD4, new { disable = "disable", @readonly = "readonly" })</li>
-               <li><span>词表学习3得分：</span>@Html.TextBoxFor(model => model.SAD5, new { disable = "disable", @readonly = "readonly" })</li>
-                <li><span>C3A图形复制得分：</span>@Html.TextBoxFor(model => model.SAD61, new { disable = "disable", @readonly = "readonly" })</li>
-                <li><span>C3B即刻回忆得分：</span>@Html.TextBoxFor(model => model.SAD62, new { disable = "disable", @readonly = "readonly" })</li>
-                <li><span>C3C延迟回忆得分：</span>@Html.TextBoxFor(model => model.SAD63, new { disable = "disable", @readonly = "readonly" })</li>                   
-                    <li><span>视空间与执行能力1得分：</span>@Html.TextBoxFor(model => model.SAD7, new { disable = "disable", @readonly = "readonly" })</li> 
-                     <li><span>视空间与执行能力2得分：</span>@Html.TextBoxFor(model => model.SAD8, new { disable = "disable", @readonly = "readonly" })</li> 
-                       <li><span>视空间与执行能力3得分：</span>@Html.TextBoxFor(model => model.SAD9, new { disable = "disable", @readonly = "readonly" })</li> 
-                           
-                          
+             <li><span>Moca命名得分：</span>@Html.TextBoxFor(model => model.SAD10, new { disable = "disable", @readonly = "readonly" })</li>           
+            <li><span>Moca注意2得分：</span>@Html.TextBoxFor(model => model.SAD12, new { disable = "disable", @readonly = "readonly" })</li> 
+             <li><span>词表学习2得分：</span>@Html.TextBoxFor(model => model.SAD4, new { disable = "disable", @readonly = "readonly" })</li>
+             <li><span>IADL得分：</span>@Html.TextBoxFor(model => model.SAD2, new { disable = "disable", @readonly = "readonly" })</li>           
+            <li><span>Moca注意3得分：</span>@Html.TextBoxFor(model => model.SAD13, new { disable = "disable", @readonly = "readonly" })</li> 
+              <li><span>词表学习3得分：</span>@Html.TextBoxFor(model => model.SAD5, new { disable = "disable", @readonly = "readonly" })</li>
+                <li ><span>C3A图形复制得分：</span>@Html.TextBoxFor(model => model.SAD61, new { disable = "disable", @readonly = "readonly" })</li>
+                  <li><span>C3B即刻回忆得分：</span>@Html.TextBoxFor(model => model.SAD62, new { disable = "disable", @readonly = "readonly" })</li>                                                    
+                      <li ><span>C3C延迟回忆得分：</span>@Html.TextBoxFor(model => model.SAD63, new { disable = "disable", @readonly = "readonly" })</li>
+                       <li><span>Moca连线得分：</span>@Html.TextBoxFor(model => model.SAD7, new { disable = "disable", @readonly = "readonly" })</li> 
+                       <li ><span>Moca画钟表得分：</span>@Html.TextBoxFor(model => model.SAD9, new { disable = "disable", @readonly = "readonly" })</li> 
+                        <li class="scoreLayout"><span>Moca复制立方体得分：</span>@Html.TextBoxFor(model => model.SAD8, new { disable = "disable", @readonly = "readonly" })</li>       
                        </ul>
             </div>
             <div class="sysDiagnosis">
             <p>系统建议：</p> 
-             @Html.TextAreaFor(Model => Model.SysDia, new { @rows = 7, @cols = 35 })
+             @Html.TextBoxFor(Model => Model.SysDia, new { disable = "disable", @readonly = "readonly" })
          </div>
             <div class="docDiagnosis">
              <p>医生诊断结果：</p> 
-             @Html.TextAreaFor(Model => Model.DocDia, new { @rows = 7, @cols =35 })
+             @Html.TextAreaFor(Model => Model.DocDia, new { @rows = 7, @cols =75 })
              
             </div>
            <input id="save" type="submit" value="保存并提交"/>
@@ -765,93 +808,7 @@
               <b class="b1b"></b>
         }
         </div>
-          
-    <script type="text/javascript">
-        $(function () {
-            var tabs = $('#tt').tabs().tabs('tabs');
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].panel('options').tab.unbind().bind('mouseenter', { index: i }, function (e) {
-                    $('#tt').tabs('select', e.data.index);
-                    var mmseval = ($("input[name='step']:checked").length);
-                    $("#SAD1").attr("value", mmseval);
-                    //词表学习
-                    var vl1 = $("#time1 input:checked").length;
-                    $("#SAD3").attr("value", vl1);
-                    var vl2 = $("#time2 input:checked").length;
-                    $("#SAD4").attr("value", vl2);
-                    var vl3 = $("#time3 input:checked").length;
-                    $("#SAD5").attr("value", vl3);
-                    //图形记忆
-                    var pmall1 = 0;
-                    var pmall2 = 0;
-                    var pmall3 = 0;
-                    $.each($('.C3A select option:selected'), function () {
-                        pm = $(this).text();
-                        if (pm == "")
-                        { pm = "0"; }
-                        pmint = parseInt(pm);
-                        pmall1 += pmint;
-                    });
-                    $("#PM1").attr("value", pmall1);
-                    $("#SAD61").attr("value", pmall1);
-                    $.each($('.C3B select option:selected'), function () {
-                        pm = $(this).text();
-                        if (pm == "")
-                        { pm = "0"; }
-                        pmint = parseInt(pm);
-                        pmall2 += pmint;
-                    });
-                    $("#PM2").attr("value", pmall2);
-                    $("#SAD62").attr("value", pmall2);
-                    $.each($('.C3C select option:selected'), function () {
-                        pm = $(this).text();
-                        if (pm == "")
-                        { pm = "0"; }
-                        pmint = parseInt(pm);
-                        pmall3 += pmint;
-                    });
-                    $("#PM3").attr("value", pmall3);
-                    $("#SAD63").attr("value", pmall3);
-
-                    //IADL
-                    var IADL = 0;
-                    var count = 0;
-                    $.each($('#iadl select option:selected'), function () {
-                        pm = $(this).val();
-                        count = parseInt(pm);
-                        IADL += count;
-                    });
-                    $("#SAD2").attr("value", IADL);
-
-                    //视空间与执行能力、注意、命名等量表的结果
-                    if ($("#mt1").prop("checked"))
-                    { $("#SAD7").attr("value", "1"); }
-                    else $("#SAD7").attr("value", "0");
-                    if ($("#mt2").prop("checked"))
-                    { $("#SAD8").attr("value", "1"); }
-                    else $("#SAD8").attr("value", "0");
-                    var mt3 = ($("input[name='clock']:checked").length);
-                    $("#SAD9").attr("value", mt3);
-                    var mt4 = ($("input[name='animal']:checked").length);
-                    $("#SAD10").attr("value", mt4);
-                    var mt5 = ($("input[name='columns']:checked").length);
-                    $("#SAD11").attr("value", mt5);
-                    if ($("#mt6").prop("checked"))
-                    { $("#SAD12").attr("value", "1"); }
-                    else $("#SAD12").attr("value", "0");
-                    //只能单选
-                    var mt7 = 0;
-                    if ($("#calculate1").prop("checked"))
-                    { mt7 = 1; }
-                    else if ($("#calculate2").prop("checked"))
-                    { mt7 = 2; }
-                    else if ($("#calculate3").prop("checked"))
-                    { mt7 = 3; }
-                    else { mt7 = 0; }
-                    $("#SAD13").attr("value", mt7);
-                });
-            }
-        });
+        </div>
+        </div>        
   
-    </script>
 </body>

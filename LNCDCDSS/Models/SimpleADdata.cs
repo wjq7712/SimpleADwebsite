@@ -33,7 +33,7 @@ namespace LNCDCDSS.Models
         public string DocDia { get; set; }
         public string SysDia { get; set; }
     
-        public virtual PatBasicInfor PatBasicInfor { get; set; }
-        public virtual VisitRecord VisitRecord { get; set; }
+        public  PatBasicInfor PatBasicInfor { get; set; }
+        public  VisitRecord VisitRecord { get; set; }
     }
 }
