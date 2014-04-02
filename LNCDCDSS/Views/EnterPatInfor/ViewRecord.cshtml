@@ -50,8 +50,8 @@
                      <td>
                     </td>
                     
-                @*</tr>
-                <tr>
+               </tr>
+                @* <tr>
                     <td>
                     </td>
                     <td>
@@ -124,7 +124,7 @@
                     success: function (data) {
                         // Successful requests get here
                         // Update the page elements
-                        debugger;
+                      
                         var resultlist = data[0].Contetntext.split(";");
                         var datatable = document.getElementById("test");
 
@@ -216,7 +216,6 @@
                     start = start + 1;
                 }
                 // do something with the page variable
-
             }
         })
     });

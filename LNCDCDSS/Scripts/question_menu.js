@@ -1,6 +1,5 @@
 
 $(document).ready(function () {
-    
     $("#mainmenu").find(".pre").hide(); //初始化为第一版
     var page = 1; //初始化当前的版面为1
     var $show = $("#mainmenu").find(".menubox"); //找到图片展示区域
@@ -59,13 +58,39 @@ $(document).ready(function () {
         var vl3 = $("#time3 input:checked").length;
         $("#SAD5").attr("value", vl3);
 
-        //图形记忆 遍历整个列
+        //图形记忆 为空则将页面跳回该题视图
         var A1 = $("#C3A").val();
-        $("#SAD61").attr("value", A1);
+        if (A1 == "") {
+            $("#AuxiliaryDiagnosis li:eq(9)").css("background-color", "yellow");
+            $index = 2
+            page = $index + 1;
+            nav();
+            $show.animate({ left: -($width_box * $index) }, "normal");
+            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
+        } else { $("#SAD61").attr("value", A1); $("#AuxiliaryDiagnosis li:eq(9)").css("background-color", "transparent"); }
+
         var A2 = $("#C3B").val();
-        $("#SAD62").attr("value", A2);
+        if (A2 == "") {
+            $("#AuxiliaryDiagnosis li:eq(10)").css("background-color", "yellow");
+            $index = 2
+            page = $index + 1;
+            nav();
+            $show.animate({ left: -($width_box * $index) }, "normal");
+            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
+        } else { $("#SAD62").attr("value", A2); $("#AuxiliaryDiagnosis li:eq(10)").css("background-color", "transparent"); }
+
+        
+
         var A3 = $("#C3C").val();
-        $("#SAD63").attr("value", A3);
+        if (A3 == "") {
+            $("#AuxiliaryDiagnosis li:eq(11)").css("background-color", "yellow");
+            $index = 2
+            page = $index + 1;
+            nav();
+            $show.animate({ left: -($width_box * $index) }, "normal");
+            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
+        } else { $("#SAD63").attr("value", A3) ; $("#AuxiliaryDiagnosis li:eq(11)").css("background-color", "transparent"); }
+       
 
         //IADL
         var IADL = 0;
@@ -155,5 +180,6 @@ $(document).ready(function () {
             }
         })
     })
+
 
 })

@@ -66,6 +66,7 @@ namespace LNCDCDSS.Controllers
 
         }
 
+
         public ActionResult Query()
         {
             string user= HttpContext.Request.Cookies["username"].Value.ToString();

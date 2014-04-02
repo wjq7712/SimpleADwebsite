@@ -5,18 +5,16 @@ using System.Web;
 using System.Web.Mvc;
 using LNCDCDSS.Models;
 using System.Data.Entity.Validation;
+using LNCDCDSS.Filters;
 using System.Diagnostics;
 
 namespace LNCDCDSS.Controllers
 {
-    public class hzz {
-        public string hzz1 { get; set; }
-    }
-    public class DiagnosisController : Controller
-    {
+       public class DiagnosisController : Controller
+       {
          LNCDDataModelContainer DContainer = new LNCDDataModelContainer();
         public ActionResult Index(string ID)
-        {
+        {      
             this.TempData["PatID"] = ID;
             return View();
         }
@@ -25,12 +23,20 @@ namespace LNCDCDSS.Controllers
         public ActionResult Index(SimpleADdata spdata, string ID)
         {
             
-            string PatID = this.TempData["PatID"].ToString();
+            //string PatID = this.TempData["PatID"].ToString();
             try
             {
+                string Readme = Request.Form["病情自述"];
                 PatBasicInfor pt = DContainer.PatBasicInforSet.Find(ID);
                 VisitRecord vr = new VisitRecord();
+                //if (string.IsNullOrEmpty(spdata.SAD61) || string.IsNullOrEmpty(spdata.SAD62) || string.IsNullOrEmpty(spdata.SAD63))
+                //{
+                //    ModelState.AddModelError("", "请确认所有量表都已经完成");
+                //    return View();
+                //}
                 pt.SimpleADdata.Add(spdata);
+                pt.VisitRecord.Last().RecordNote = Readme;
+                pt.VisitRecord.Last().DiagnosisiResult = spdata.DocDia;
                 pt.VisitRecord.Last().SimpleADdata = spdata;
                 DContainer.SimpleADdataSet.Add(spdata);
                 DContainer.SaveChanges();
@@ -48,6 +54,7 @@ namespace LNCDCDSS.Controllers
             }
             return RedirectToAction("Index", "EnterPatInfor");
         }
+
         public ActionResult Predata()
         {
             VisitRecordOperation vro = new VisitRecordOperation();
