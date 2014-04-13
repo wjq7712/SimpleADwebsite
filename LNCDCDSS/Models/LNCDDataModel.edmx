@@ -377,8 +377,8 @@
     <Property Name="SAD63" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SAD12" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SAD13" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DocDia" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SysDia" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SAD14" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="patID" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PatBasicInfor_Id" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="VisitRecord_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -975,9 +975,9 @@
           <NavigationProperty Name="PatBasicInfor" Relationship="LNCDDataModel.SimpleADdataPatBasicInfor" FromRole="SimpleADdata" ToRole="PatBasicInfor" />
           <Property Type="String" Name="SAD12" Nullable="false" />
           <Property Type="String" Name="SAD13" Nullable="false" />
-          <Property Type="String" Name="DocDia" Nullable="true" />
-          <Property Type="String" Name="SysDia" Nullable="false" />
+          <Property Type="String" Name="SAD14" Nullable="false" />
           <NavigationProperty Name="VisitRecord" Relationship="LNCDDataModel.VisitRecordSimpleADdata" FromRole="SimpleADdata" ToRole="VisitRecord" />
+          <Property Type="String" Name="patID" Nullable="false" />
         </EntityType>
         <Association Name="SimpleADdataPatBasicInfor">
           <End Type="LNCDDataModel.SimpleADdata" Role="SimpleADdata" Multiplicity="*" />
@@ -1390,8 +1390,8 @@
           <ScalarProperty Name="SAD63" ColumnName="SAD63" />
           <ScalarProperty Name="SAD12" ColumnName="SAD12" />
           <ScalarProperty Name="SAD13" ColumnName="SAD13" />
-          <ScalarProperty Name="DocDia" ColumnName="DocDia" />
-          <ScalarProperty Name="SysDia" ColumnName="SysDia" />
+          <ScalarProperty Name="SAD14" ColumnName="SAD14" />
+          <ScalarProperty Name="patID" ColumnName="patID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1509,12 +1509,12 @@
           <ConnectorPoint PointX="4.5937475" PointY="9.75" />
         </AssociationConnector>
         <AssociationConnector Association="LNCDDataModel.VisitRecordPatMMSE">
-          <ConnectorPoint PointX="5.125" PointY="7.3969730631510409" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="7.39697306315104" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="7.3969730631510409" />
-          <ConnectorPoint PointX="9.9166666666666661" PointY="7.39697306315104" />
-          <ConnectorPoint PointX="10.083333333333334" PointY="7.3969730631510409" />
-          <ConnectorPoint PointX="10.25" PointY="7.3969730631510409" />
+          <ConnectorPoint PointX="5.125" PointY="7.4129665490913377" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="7.4129665490913368" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="7.4129665490913377" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="7.4129665490913368" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="7.4129665490913377" />
+          <ConnectorPoint PointX="10.25" PointY="7.4129665490913377" />
         </AssociationConnector>
         <AssociationConnector Association="LNCDDataModel.PatBasicInforPatDisease">
           <ConnectorPoint PointX="5.25" PointY="2.6571048990885413" />
@@ -1530,8 +1530,8 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="LNCDDataModel.PatLabExam" Width="1.5" PointX="6.875" PointY="9.625" Height="7.3185839843750031" />
         <AssociationConnector Association="LNCDDataModel.VisitRecordPatLabExam" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.125" PointY="7.1376961263020817" />
-          <ConnectorPoint PointX="7.875" PointY="7.1376961263020817" />
+          <ConnectorPoint PointX="5.125" PointY="7.1119488990020727" />
+          <ConnectorPoint PointX="7.875" PointY="7.1119488990020727" />
           <ConnectorPoint PointX="7.875" PointY="9.625" />
         </AssociationConnector>
         <EntityTypeShape EntityType="LNCDDataModel.PatRecentDrug" Width="1.5" PointX="5.875" PointY="7.5" Height="1.9700325520833335" />
@@ -1550,17 +1550,17 @@
           <ConnectorPoint PointX="5.25" PointY="0.84375" />
           <ConnectorPoint PointX="8.375" PointY="0.84375" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="LNCDDataModel.SimpleADdata" Width="1.5" PointX="12" PointY="3.25" Height="4.8353279622395835" />
+        <EntityTypeShape EntityType="LNCDDataModel.SimpleADdata" Width="1.5" PointX="12" PointY="3.25" Height="4.8353279622395835" IsExpanded="true" />
         <AssociationConnector Association="LNCDDataModel.SimpleADdataPatBasicInfor">
           <ConnectorPoint PointX="12.75" PointY="3.25" />
           <ConnectorPoint PointX="12.75" PointY="0.65625000000000011" />
           <ConnectorPoint PointX="5.25" PointY="0.65625000000000011" />
         </AssociationConnector>
         <AssociationConnector Association="LNCDDataModel.VisitRecordSimpleADdata">
-          <ConnectorPoint PointX="5.125" PointY="7.2673345947265613" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="7.26733459472656" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="7.2673345947265613" />
-          <ConnectorPoint PointX="10" PointY="7.2673345947265613" />
+          <ConnectorPoint PointX="5.125" PointY="7.2624577240467048" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="7.2624577240467039" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="7.2624577240467048" />
+          <ConnectorPoint PointX="10" PointY="7.2624577240467048" />
           <ConnectorPoint PointX="10" PointY="9.3142097981770817" />
           <ConnectorPoint PointX="12.75" PointY="9.3142097981770817" />
           <ConnectorPoint PointX="12.75" PointY="8.0853279622395835" />

@@ -305,27 +305,56 @@ namespace LNCDCDSS.Models
             PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
             var vr=pt.VisitRecord.First();
             List<string> lastspdata = new List<string>();
-             var sp= pt.SimpleADdata.Last();
-             lastspdata.Add(sp.SAD1);
-             lastspdata.Add(sp.SAD2);
-             lastspdata.Add(sp.SAD3);
-             lastspdata.Add(sp.SAD4);
-             lastspdata.Add(sp.SAD5);
-             lastspdata.Add(sp.SAD61);
-             lastspdata.Add(sp.SAD62);
-             lastspdata.Add(sp.SAD63);
-             lastspdata.Add(sp.SAD7);
-             lastspdata.Add(sp.SAD8);
-             lastspdata.Add(sp.SAD9);
-             lastspdata.Add(sp.SAD10);
-             lastspdata.Add(sp.SAD11);
-             lastspdata.Add(sp.SAD12);
-             lastspdata.Add(sp.SAD13);
-             lastspdata.Add(pt.Name);
-             lastspdata.Add(pt.Sex);
-             lastspdata.Add(pt.Age);
-             lastspdata.Add(pt.Phone);
-             lastspdata.Add(vr.OutpatientID);
+           
+           
+            if (pt.SimpleADdata.Count == 0)
+            { 
+                SimpleADdata sp = new SimpleADdata();
+                sp.SAD1 = "";
+                sp.SAD10 = "";
+                sp.SAD11 = "";
+                sp.SAD12 = "";
+                sp.SAD13 = "";
+                sp.SAD14 = "";
+                sp.SAD2 = "";
+                sp.SAD3 = "";
+                sp.SAD4 = "";
+                sp.SAD5 = "";
+                sp.SAD61 = "";
+                sp.SAD62 = "";
+                sp.SAD63 = "";
+                sp.SAD7 = "";
+                sp.SAD8 = "";
+                sp.SAD9 = "";
+                sp.patID = PatID;
+                pt.SimpleADdata.Add(sp);
+                pt.VisitRecord.Last().SimpleADdata = sp;
+                context.SimpleADdataSet.Add(sp);             
+                context.SaveChanges();
+             }  
+            var spl = pt.SimpleADdata.Last();
+                lastspdata.Add(spl.SAD1);
+                lastspdata.Add(spl.SAD2);
+                lastspdata.Add(spl.SAD3);
+                lastspdata.Add(spl.SAD4);
+                lastspdata.Add(spl.SAD5);
+                lastspdata.Add(spl.SAD61);
+                lastspdata.Add(spl.SAD62);
+                lastspdata.Add(spl.SAD63);
+                lastspdata.Add(spl.SAD7);
+                lastspdata.Add(spl.SAD8);
+                lastspdata.Add(spl.SAD9);
+                lastspdata.Add(spl.SAD10);
+                lastspdata.Add(spl.SAD11);
+                lastspdata.Add(spl.SAD12);
+                lastspdata.Add(spl.SAD13);
+                lastspdata.Add(spl.SAD14);
+                lastspdata.Add(pt.Name);
+                lastspdata.Add(pt.Sex);
+                lastspdata.Add(pt.Age);
+                lastspdata.Add(pt.Phone);
+                lastspdata.Add(vr.OutpatientID);
+                lastspdata.Add(spl.patID);
              return lastspdata;
         }
 

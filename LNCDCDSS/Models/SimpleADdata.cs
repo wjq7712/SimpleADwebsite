@@ -30,10 +30,10 @@ namespace LNCDCDSS.Models
         public string SAD63 { get; set; }
         public string SAD12 { get; set; }
         public string SAD13 { get; set; }
-        public string DocDia { get; set; }
-        public string SysDia { get; set; }
+        public string SAD14 { get; set; }
+        public string patID { get; set; }
     
-        public  PatBasicInfor PatBasicInfor { get; set; }
-        public  VisitRecord VisitRecord { get; set; }
+        public virtual PatBasicInfor PatBasicInfor { get; set; }
+        public virtual VisitRecord VisitRecord { get; set; }
     }
 }

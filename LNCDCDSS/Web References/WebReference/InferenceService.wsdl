@@ -143,10 +143,10 @@
   </wsdl:binding>
   <wsdl:service name="InferenceService">
     <wsdl:port name="InferenceServiceSoap" binding="tns:InferenceServiceSoap">
-      <soap:address location="http://192.168.3.9/InferenceWebservice/InferenceService.asmx" />
+      <soap:address location="http://115.28.42.235/InferenceService/InferenceService.asmx" />
     </wsdl:port>
     <wsdl:port name="InferenceServiceSoap12" binding="tns:InferenceServiceSoap12">
-      <soap12:address location="http://192.168.3.9/InferenceWebservice/InferenceService.asmx" />
+      <soap12:address location="http://115.28.42.235/InferenceService/InferenceService.asmx />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

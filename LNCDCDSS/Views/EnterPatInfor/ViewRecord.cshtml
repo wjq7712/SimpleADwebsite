@@ -164,6 +164,8 @@
     $(function () {
         $("#diagnosis").click(function () {
             window.location.href = '@Url.Action("GoToDiagnosis", "EnterPatInfor", new { id = ViewBag.patId }, null)';
+            var div = document.createElement('DIV');
+            
         })
 
     });

@@ -30,14 +30,14 @@
         new SelectListItem { Text="0", Value="不知道/不适用"},
         }, "Text", "Value");
 }
-<head>
-    <meta charset="UTF-8">
+
     <title>Hover Tabs - jQuery EasyUI Demo</title>
 @*    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/easyui.css")"/>*@
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/icon.css")"/>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/demo.css")"/>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/question_menu.css")"/>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.easyui.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.tabs.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/question_menu.js")"></script>
@@ -54,20 +54,60 @@
                     var label = document.getElementById('lastScore_4').innerHTML = data[5];
                     var label = document.getElementById('lastScore_5').innerHTML = data[6];
                     var label = document.getElementById('lastScore_6').innerHTML = data[7];
-                    var label = document.getElementById('patinfo_name').innerHTML = data[15];
-                    var label = document.getElementById('patinfo_sex').innerHTML = data[16];
-                    var label = document.getElementById('patinfo_age').innerHTML = data[17];
-                    var label = document.getElementById('patinfo_PID').innerHTML = data[19];
-                    var label = document.getElementById('patinfo_phone').innerHTML = data[18];
+                    var label = document.getElementById('patinfo_name').innerHTML = data[16];
+                    var label = document.getElementById('patinfo_sex').innerHTML = data[17];
+                    var label = document.getElementById('patinfo_age').innerHTML = data[18];
+                    var label = document.getElementById('patinfo_PID').innerHTML = data[20];
+                    var label = document.getElementById('patinfo_phone').innerHTML = data[19];
+                    var div = document.createElement("DIV");
+                    div.setAttribute("id", "Patient_Id");
+                    div.innerHTML = data[21];
+                    var parentdiv = document.getElementById('diagnosis');
+                    parentdiv.appendChild(div);
+                    div.style.display = 'none';
+
                 }
             });
 
         });
     </script>
-</head>
-<body>
+    <script type="text/javascript">
+        debugger;
+        $('#add_diagnosis_result').ajaxForm(function (data) {
+            document.getElementById('sysdiagnosis').innerHTML = data;
+        }
+        )
+
+//        $('#add_diagnosis_result').submit(function () {
+//            $.ajax({
+//                url: this.action,
+//                type: this.method,
+//                data: $(this).serialize(),
+//                success: function (data) {
+//                    alert('hzz');
+//                }
+//            });
+//            return false;
+//        });
+
+
+//        function test(form) {
+//            var data1 = form.form;
+//            $.ajax({
+//                url: data1.action,
+//                type: data1.method,
+//                data: $(data1).serialize(),
+//                success: function (data) {
+//                    alert('hzz');
+//                }
+//            });
+//        }
+    </script>
+
+
     <div style="margin: 0 0;">
     </div>
+      
         <div title="认知检查" style="height: 31px; padding: 20px">
             <div id="mainmenu">
             
@@ -86,13 +126,13 @@
                     <li><span>性别：</span><label id="patinfo_sex"></label></li>
                     <li><span>年龄：</span><label id="patinfo_age"></label></li>
                     <li><span>门诊号：</span><label id="patinfo_PID"></label></li>
-                    <li><span>手机：</span><label id="patinfo_phone"></label></li>
+                    <li class="phone"><span>手机：</span><label id="patinfo_phone"></label></li>
                     </ul>
                     </div>
                   
                     <div class="Readme"> 
                        <a>病情简述：</a>
-                       <textarea name="病情自述" rows="6" cols="75" ></textarea>                    
+                       <textarea name="病情自述" id="Patient_Abr" rows="6" cols="75" ></textarea>                    
               </div></div>
               <b class="b4b d1"></b>
               <b class="b3b d1"></b>
@@ -348,6 +388,79 @@
                                         </td>
                                         <td>
                                             <input type="checkbox" name="" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li>
+                                <p class="tips">
+                                    C2D:第一次 Score:<span >上一次得分：<label id="lastScore_D" ></label></span></p>
+                            </li>
+                            @*<li><p onclick="test()" >hzz</p> </li>*@
+                            <li id="time4">
+                                <table  >
+                                    <tr>
+                                        <th>
+                                            声音
+                                        </th>
+                                        <th>
+                                            上学
+                                        </th>
+                                        <th>
+                                            财产
+                                        </th>
+                                        <th>
+                                            形状
+                                        </th>
+                                        <th>
+                                            天气
+                                        </th>
+                                        <th>
+                                            游戏
+                                        </th>
+                                        <th>
+                                            服务
+                                        </th>
+                                        <th>
+                                            道理
+                                        </th>
+                                        <th>
+                                            消息
+                                        </th>
+                                        <th>
+                                            力量
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="time4" />
                                         </td>
                                     </tr>
                                 </table>
@@ -763,19 +876,20 @@
             
            <div class="step"><img src="../../Content/images/title3-4.png" alt="连线"/></div>
            <div title="辅助诊断" id="AuxiliaryDiagnosis">
-            @model LNCDCDSS.Models.SimpleADdata
-        @using (Html.BeginForm())
-        {
+            
                 <b class="b1"></b>
                 <b class="b2 d1"></b>
                 <b class="b3 d1"></b>
                 <b class="b4 d1"></b>
                 <div class="b d1 k">
                     @*<a class="stitle">辅助诊断</a>*@
+         @model LNCDCDSS.Models.SimpleADdata
+        @using (Html.BeginForm("Index", "Diagnosis", FormMethod.Post, new { id = "add_diagnosis_result" }))
+        {
             <div class="resultlayout">
             <p>量表得分</p>
             <ul>
-             <li><span>折纸得分：</span>@Html.TextBoxFor(model => model.SAD1, new { disable = "disable", @readonly = "readonly" })</li>
+             <li><span>折纸得分：</span>@Html.TextBoxFor(model => model.SAD1, new { disable = "disable", name = "SAD1", @readonly = "readonly" })</li>
              <li><span>Moca注意1得分：</span>@Html.TextBoxFor(model => model.SAD11, new { disable = "disable", @readonly = "readonly" })</li>  
              <li><span>词表学习1得分：</span>@Html.TextBoxFor(model => model.SAD3, new { disable = "disable", @readonly = "readonly" })</li>
              <li><span>Moca命名得分：</span>@Html.TextBoxFor(model => model.SAD10, new { disable = "disable", @readonly = "readonly" })</li>           
@@ -789,30 +903,106 @@
                       <li ><span>C3C延迟回忆得分：</span>@Html.TextBoxFor(model => model.SAD63, new { disable = "disable", @readonly = "readonly" })</li>
                        <li><span>Moca连线得分：</span>@Html.TextBoxFor(model => model.SAD7, new { disable = "disable", @readonly = "readonly" })</li> 
                        <li ><span>Moca画钟表得分：</span>@Html.TextBoxFor(model => model.SAD9, new { disable = "disable", @readonly = "readonly" })</li> 
-                        <li class="scoreLayout"><span>Moca复制立方体得分：</span>@Html.TextBoxFor(model => model.SAD8, new { disable = "disable", @readonly = "readonly" })</li>       
+                        <li class="scoreLayout"><span>Moca复制立方体得分：</span>@Html.TextBoxFor(model => model.SAD8, new { disable = "disable", @readonly = "readonly" })</li>     
+                        <li><span>词表学习4得分：</span>@Html.TextBoxFor(model => model.SAD14, new { disable = "disable", @readonly = "readonly" })</li>  
                        </ul>
-            </div>
-            <div><span class="error" id="login_msg">@Html.ValidationSummary()</span></div>
+      
+               </div> <input id="diag" type="submit" value="系统启动诊断"/>
+        }
+      
+          @using (Ajax.BeginForm("Save", new AjaxOptions { UpdateTargetId = "sysDiagnosis", HttpMethod = "POST", OnSuccess = "" }))
+          {
+           
 
             <div class="sysDiagnosis">
             <p>系统建议：</p> 
-             @Html.TextBoxFor(Model => Model.DocDia, new { disable = "disable", @readonly = "readonly" })
+            <div><span class="error" id="login_msg">@Html.ValidationSummary()</span></div>
+             <textarea name="系统诊断"id="sysdiagnosis" rows="1" cols="75"></textarea>
          </div>
             <div class="docDiagnosis">
              <p>医生诊断结果：</p> 
-             @Html.TextAreaFor(Model => Model.SysDia, new { @rows = 7, @cols = 75 })
-             
+              <textarea name="医生诊断" id="docdiagnosis" rows="7" cols="75"></textarea>   
             </div>
-           <input id="save" type="submit" value="保存并提交"/>
+          <input id="save" type="button" onclick="sumbit_diagnosis()" value="保存并提交"/> 
+          }
         </div>
             
               <b class="b4b d1"></b>
               <b class="b3b d1"></b>
               <b class="b2b d1"></b>
               <b class="b1b"></b>
-      }
+        
         </div>
             
         </div>
-        </div>        
-</body>
+        </div>  
+        <script type="text/javascript">
+            function sumbit_diagnosis() {
+                var dia = document.getElementById('docdiagnosis').value;
+                var Abr = document.getElementById('Patient_Abr').value;
+               var div=  document.getElementById('Patient_Id');
+                  document.getElementById('Patient_Id').style.display="";
+                var patID=document.getElementById('Patient_Id').innerHTML;
+                  document.getElementById('Patient_Id').style.display="none";
+
+             $.ajax({
+                 url: '@Url.Action("Save", "Diagnosis")',
+                 type: "POST",
+                 dataType: 'json',
+                 data: { "dia": dia, "Abr": Abr,"ID":patID },
+                 success: function (data) {
+                     if (data.OK) { 
+                     $(".demo").html("本次问诊信息保存成功！");
+                            var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'");
+                             }
+                    
+                 }
+             })
+            
+            }
+        </script>    
+  @*   <script type="text/javascript">
+         $('#add_diagnosis_result').submit(function () {
+             $.ajax({
+                 url: this.action,
+                 type: this.method,
+                 data: $(this).serialize(),
+                 success: function (data) {
+                     alert('hzz');
+                 }
+             });
+         });
+
+     
+     </script>*@
+@*<script type="text/javascript">
+
+    $(function () {
+        debugger;
+
+        $(".resultlayout input[type='submit']").click(function () {
+            $.ajax({
+                url: '@Url.Action("Index", "Diagnosis")',
+                type: "POST",
+                dataType: 'json',
+                success: function (data) {
+                    if (data.OK) {
+                        document.getElementById('login_msg').innerHTML = data.Message.toString();
+                    }
+                }
+            })
+        })
+    })
+
+
+//    $("#save").click(function () {  
+//    $.ajax({
+//                        url: '@Url.Action("Save", "Diagnosis")',
+//                        type: "POST",
+//                        data: '@Model',
+//                        success: function (data) {
+//                        if (data.OK) {
+//                          $(".demo").html("本次问诊信息保存成功！");
+//                            var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 3000);
+//    })
+</script>*@

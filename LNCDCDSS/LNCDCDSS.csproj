@@ -271,6 +271,7 @@
     <Content Include="Models\LNCDDataModel.edmx.sql" />
     <Content Include="Models\newLNCDDataModel.edmx.sql" />
     <Content Include="Models\SimpleADDataModel.edmx.sql" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
@@ -279,6 +280,7 @@
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.jqpagination.js" />
     <Content Include="Scripts\jquery.jqpagination.min.js" />
     <Content Include="Scripts\jquery_ques.js" />
@@ -404,7 +406,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>33778</DevelopmentServerPort>
+          <DevelopmentServerPort>16251</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:33778/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

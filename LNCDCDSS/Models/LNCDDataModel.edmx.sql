@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/27/2014 09:26:12
+-- Date Created: 04/11/2014 09:24:44
 -- Generated from EDMX file: E:\可变动程序(77)\Web\LNCDCDSS\LNCDCDSS\Models\LNCDDataModel.edmx
 -- --------------------------------------------------
 
@@ -408,8 +408,8 @@ CREATE TABLE [dbo].[SimpleADdataSet] (
     [SAD63] nvarchar(max)  NOT NULL,
     [SAD12] nvarchar(max)  NOT NULL,
     [SAD13] nvarchar(max)  NOT NULL,
-    [DocDia] nvarchar(max)  NULL,
-    [SysDia] nvarchar(max)  NOT NULL,
+    [SAD14] nvarchar(max)  NOT NULL,
+    [patID] nvarchar(max)  NOT NULL,
     [PatBasicInfor_Id] nvarchar(255)  NOT NULL,
     [VisitRecord_Id] int  NOT NULL
 );

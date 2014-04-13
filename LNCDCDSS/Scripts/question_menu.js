@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     $("#mainmenu").find(".pre").hide(); //初始化为第一版
     var page = 1; //初始化当前的版面为1
@@ -47,7 +46,7 @@ $(document).ready(function () {
         return false;
     })
     //当鼠标进入辅助诊断部分 将前面的认知检查结果显示在table里
-    $("#AuxiliaryDiagnosis").mouseenter(function () {
+    $("#diagnosis").mouseleave(function () {
         var mmseval = ($("input[name='step']:checked").length);
         $("#SAD1").attr("value", mmseval);
         //词表学习
@@ -57,6 +56,8 @@ $(document).ready(function () {
         $("#SAD4").attr("value", vl2);
         var vl3 = $("#time3 input:checked").length;
         $("#SAD5").attr("value", vl3);
+        var vl4 = $("#time4 input:checked").length;
+        $("#SAD14").attr("value", vl4);
 
         //图形记忆 为空则将页面跳回该题视图
         var A1 = $("#C3A").val();
@@ -79,7 +80,7 @@ $(document).ready(function () {
             $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
         } else { $("#SAD62").attr("value", A2); $("#AuxiliaryDiagnosis li:eq(10)").css("background-color", "transparent"); }
 
-        
+
 
         var A3 = $("#C3C").val();
         if (A3 == "") {
@@ -89,8 +90,8 @@ $(document).ready(function () {
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
             $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
-        } else { $("#SAD63").attr("value", A3) ; $("#AuxiliaryDiagnosis li:eq(11)").css("background-color", "transparent"); }
-       
+        } else { $("#SAD63").attr("value", A3); $("#AuxiliaryDiagnosis li:eq(11)").css("background-color", "transparent"); }
+
 
         //IADL
         var IADL = 0;
@@ -128,7 +129,23 @@ $(document).ready(function () {
         { mt7 = 3; }
         else { mt7 = 0; }
         $("#SAD13").attr("value", mt7);
-    })
+    });
+
+ 
+//    //启动诊断
+//    $("#AuxiliaryDiagnosis").mouseenter(function () {
+//        $.ajax({
+//            url: '/Diagnosis/CDSSdiagnosis',
+//            type: 'GET',
+//            //            data: '@Model',
+//            dataType: 'json',
+//            async: false,
+//            cache: false,
+//            success: function (data) {
+//                var label = document.getElementById('sysdiagnosis').innerHTML = data[18];
+//            }
+//        });
+//    })
 
     //dropdownlist的内容变化更新各个总分
     $('.C3A select').change(function () {
@@ -180,6 +197,4 @@ $(document).ready(function () {
             }
         })
     })
-
-
 })
