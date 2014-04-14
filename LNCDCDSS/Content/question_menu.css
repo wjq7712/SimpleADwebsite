@@ -70,7 +70,7 @@
 #mainmenu .menubox ul {
 	float: left;
 	display: block;
-	height: 459px;
+	height: 160px;
 	width: 750px;
 }
 #mainmenu .menubox li {
@@ -157,9 +157,9 @@ input[type="checkbox"]
  /*病人自述*/
  #basicinfor{ height:280px;width:790px;margin-top :0px;display:block;}
  #basicinfor div.Readme{margin:7px 0 0 28px}
- #basicinfor div.patinfo{height:64px; margin:10px 0 0 28px;}
- #basicinfor div.patinfo ul li{float:left; width:130px; list-style:none;margin-top:-8px; font-family:"微软雅黑";}
- #basicinfor div.patinfo ul li.phone{width:177px; }
+ #basicinfor div.patinfo{height:87px; margin:10px 0 0 28px;}
+ #basicinfor div.patinfo ul li{float:left; width:210px; list-style:none;margin-top:-7px; padding-bottom:9px;font-family:"微软雅黑";}
+ #basicinfor div.patinfo ul li.long{width:210px; }
  #basicinfor a{ display:block; font-family:"微软雅黑";}
  
 .b1,.b2,.b3,.b4,.b1b,.b2b,.b3b,.b4b,.b{display:block;overflow:hidden;}
@@ -294,4 +294,4 @@ input[type="text"]
     border:0;}
     div.step{ width:150px;height:75px;}
     div.step img{width:333px;height:75px;margin-left:-99px;}
-    
+    #mainmenu div.menubox li.lasttime_score{ list-style:none; float:right;font-size:16px; font-family:"仿宋";margin-top:-20px;margin-right:45px;}

@@ -62,35 +62,44 @@ $(document).ready(function () {
         //图形记忆 为空则将页面跳回该题视图
         var A1 = $("#C3A").val();
         if (A1 == "") {
-            $("#AuxiliaryDiagnosis li:eq(4)").css("color", "yellow");
+            A1 = 0;
+            //            $("#AuxiliaryDiagnosis li:eq(4)").css("color", "yellow");
             $index = 2
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
             $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
-        } else { $("#SAD61").attr("value", A1); $("#AuxiliaryDiagnosis li:eq(4)").css("color", "black"); }
+        }
+        $("#SAD61").attr("value", A1);
+        //        } else { $("#SAD61").attr("value", A1); $("#AuxiliaryDiagnosis li:eq(4)").css("color", "black"); }
 
         var A2 = $("#C3B").val();
         if (A2 == "") {
-            $("#AuxiliaryDiagnosis li:eq(7)").css("color", "yellow");
+            A2 = 0;
+            //            $("#AuxiliaryDiagnosis li:eq(7)").css("color", "yellow");
             $index = 2
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
             $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
-        } else { $("#SAD62").attr("value", A2); $("#AuxiliaryDiagnosis li:eq(7)").css("color", "black"); }
+        }
+        $("#SAD62").attr("value", A2);
+        //        } else { $("#SAD62").attr("value", A2); $("#AuxiliaryDiagnosis li:eq(7)").css("color", "black"); }
 
 
 
         var A3 = $("#C3C").val();
         if (A3 == "") {
-            $("#AuxiliaryDiagnosis li:eq(10)").css("color", "yellow");
+            A3 = 0;
+            //            $("#AuxiliaryDiagnosis li:eq(10)").css("color", "yellow");
             $index = 2
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
             $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
-        } else { $("#SAD63").attr("value", A3); $("#AuxiliaryDiagnosis li:eq(10)").css("color", "black"); }
+        }
+         $("#SAD63").attr("value", A3);
+        //        } else { $("#SAD63").attr("value", A3); $("#AuxiliaryDiagnosis li:eq(10)").css("color", "black"); }
 
 
         //IADL
@@ -131,21 +140,21 @@ $(document).ready(function () {
         $("#SAD13").attr("value", mt7);
     });
 
- 
-//    //启动诊断
-//    $("#AuxiliaryDiagnosis").mouseenter(function () {
-//        $.ajax({
-//            url: '/Diagnosis/CDSSdiagnosis',
-//            type: 'GET',
-//            //            data: '@Model',
-//            dataType: 'json',
-//            async: false,
-//            cache: false,
-//            success: function (data) {
-//                var label = document.getElementById('sysdiagnosis').innerHTML = data[18];
-//            }
-//        });
-//    })
+
+    //    //启动诊断
+    //    $("#AuxiliaryDiagnosis").mouseenter(function () {
+    //        $.ajax({
+    //            url: '/Diagnosis/CDSSdiagnosis',
+    //            type: 'GET',
+    //            //            data: '@Model',
+    //            dataType: 'json',
+    //            async: false,
+    //            cache: false,
+    //            success: function (data) {
+    //                var label = document.getElementById('sysdiagnosis').innerHTML = data[18];
+    //            }
+    //        });
+    //    })
 
     //dropdownlist的内容变化更新各个总分
     $('.C3A select').change(function () {

@@ -48,6 +48,8 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
+                    var label = document.getElementById('lastScore_MMSE').innerHTML = data[0];
+                    var label = document.getElementById('lastScore_IADL').innerHTML = data[1];
                     var label = document.getElementById('lastScore_1').innerHTML = data[2];
                     var label = document.getElementById('lastScore_2').innerHTML = data[3];
                     var label = document.getElementById('lastScore_3').innerHTML = data[4];
@@ -55,11 +57,31 @@
                     var label = document.getElementById('lastScore_5').innerHTML = data[6];
                     var label = document.getElementById('lastScore_6').innerHTML = data[7];
                     var label = document.getElementById('lastScore_D').innerHTML = data[15];
-                    var label = document.getElementById('patinfo_name').innerHTML = data[16];
+                    var label = document.getElementById('lastScore_ml0').innerHTML = data[8];
+                    var label = document.getElementById('lastScore_ml1').innerHTML = data[9];
+                    var label = document.getElementById('lastScore_ml2').innerHTML = data[10];
+                    var label = document.getElementById('lastScore_ml3').innerHTML = data[11];
+                    var label = document.getElementById('lastScore_ml4').innerHTML = data[12];
+                    var label = document.getElementById('lastScore_ml5').innerHTML = data[13];
+                    var label = document.getElementById('lastScore_ml6').innerHTML = data[14];
+                    if (data[16].length > 4) {
+                        var name = data[16].substring(0, 4);
+                    } else { name=data[16];}
+                    var label = document.getElementById('patinfo_name').innerHTML = name;
                     var label = document.getElementById('patinfo_sex').innerHTML = data[17];
-                    var label = document.getElementById('patinfo_age').innerHTML = data[18];
-                    var label = document.getElementById('patinfo_PID').innerHTML = data[20];
-                    var label = document.getElementById('patinfo_phone').innerHTML = data[19];
+                    if (data[18].length >2) {
+                        var age = data[18].substring(0, 2);
+                    } else { age = data[18]; }
+                    var label = document.getElementById('patinfo_age').innerHTML = age;
+                    if (data[20].length > 4) {
+                        var PID = data[20].substring(0, 10);
+                    } else { PID = data[20]; }
+                    var label = document.getElementById('patinfo_PID').innerHTML =PID;
+                    if (data[19].length >11) {
+                        var phone = data[19].substring(0, 11);
+                    } else { phone=data[19];}
+                    var label = document.getElementById('patinfo_phone').innerHTML = phone;
+
                     var div = document.createElement("DIV");
                     div.setAttribute("id", "Patient_Id");
                     div.innerHTML = data[21];
@@ -125,14 +147,14 @@
                     <li><span>姓名：</span><label id="patinfo_name"></label></li>
                     <li><span>性别：</span><label id="patinfo_sex"></label></li>
                     <li><span>年龄：</span><label id="patinfo_age"></label></li>
-                    <li><span>门诊号：</span><label id="patinfo_PID"></label></li>
-                    <li class="phone"><span>手机：</span><label id="patinfo_phone"></label></li>
+                    <li class="long"><span>门诊号：</span><label id="patinfo_PID"></label></li>
+                    <li class="long"><span>手机：</span><label id="patinfo_phone"></label></li>
                     </ul>
                     </div>
                   
                     <div class="Readme"> 
                        <a>病情简述：</a>
-                       <textarea name="病情自述" id="Patient_Abr" rows="6" cols="75" ></textarea>                    
+                       <textarea name="病情自述" id="Patient_Abr" rows="5" cols="75" ></textarea>                    
               </div></div>
               <b class="b4b d1"></b>
               <b class="b3b d1"></b>
@@ -159,6 +181,7 @@
                                 <p class="parttitle">
                                     1、MMSE--M8</p>
                             </li>
+                             <li class="lasttime_score">上一次得分:<label id="lastScore_MMSE" ></label></li>
                             <li><a class="guide">指导语：</a></li>
                             <li>
                                 <p class="question">
@@ -169,6 +192,7 @@
                                   <span>双手对折<input id="step2" type="checkbox" name="step" /></span> 
                                   <span>放到左腿上<input id="step3" type="checkbox" name="step" /></span>
                             </li>
+                           
                         </ul>
                         <ul class="qeslist" id="VocabularyLearning">
                             <li class="worddisplay">
@@ -394,7 +418,7 @@
                             </li>
                             <li>
                                 <p class="tips">
-                                    C2D:第一次 Score:<span >上一次得分：<label id="lastScore_D" ></label></span></p>
+                                    C2D:第四次 Score:<span >上一次得分：<label id="lastScore_D" ></label></span></p>
                             </li>
                             @*<li><p onclick="test()" >hzz</p> </li>*@
                             <li id="time4">
@@ -612,6 +636,7 @@
                                  <p class="parttitle">
                                     4、IADL</p>
                             </li>
+                            <li class="lasttime_score">上一次得分：<label id="lastScore_IADL" ></label> </li>
                             <li >
                                 <div class="contentbox">
                                     <table >
@@ -678,12 +703,13 @@
                                     </table>
                                 </div>
                             </li>
+                            
                         </ul>
                         <ul class="qeslist"id="mtl0">
                             <li>
                                 <p class="parttitle">
                                    5、MoCA--连线</p>
-                            </li>
+                            </li> <li class="lasttime_score">上一次得分：<label id="lastScore_ml0" ></label> </li>
                             <li>
                                 <div class="guideline">
                                     <a>指导语：</a>
@@ -698,14 +724,13 @@
                                   <div class="gradebox">
                                         <a>连线<span><input id="mt1" type="checkbox" name="" /></span></a></div>
                             </li>
-                            @*         <li><span><input type="button" name="preqes" /></span><input type="button" name ="nextqes" /></li>
-*@
+                          
                         </ul>
                         <ul class="qeslist"id="mtl1">
                             <li>
                                 <p class="parttitle" >
                                      6、MoCA--复制立方体</p>
-                            </li>
+                            </li><li class="lasttime_score">上一次得分：<label id="lastScore_ml1" ></label></li>
                             <li>
                                 <div class="guideline">
                                     <a>指导语：</a>
@@ -731,12 +756,13 @@
                                    
                                         <a>复制立方体<span><input id="mt2"type="checkbox" name="" /></span></a></div>
                             </li>
+                            
                         </ul>
                         <ul class="qeslist" id="mtl2">
                             <li>
                                 <p class="parttitle">
                                     7、MoCA--画钟表</p>
-                            </li>
+                            </li><li class="lasttime_score">上一次得分：<label id="lastScore_ml2" ></label></li>
                             <li>
                                 <div class="guideline">
                                     <a>指导语：</a>
@@ -760,12 +786,13 @@
                                     </div>
                                 </div>
                             </li>
+                            
                         </ul>
                         <ul class="qeslist" id="mtl3">
                             <li>
                                 <p class="parttitle">
                                     8、MoCA--命名</p>
-                            </li>
+                            </li> <li class="lasttime_score">上一次得分：<label id="lastScore_ml3" ></label></li>
                             <li>
                                 <div class="guideline">
                                     <a>指导语：</a>
@@ -785,12 +812,13 @@
                                     </div>
                                 </div>
                             </li>
+                           
                         </ul>
                         <ul class="qeslist" id="mtl4">
                             <li>
                                 <p class="parttitle">
                                     9、MoCA--注意1</p>
-                            </li>
+                            </li> <li class="lasttime_score">上一次得分：<label id="lastScore_ml4" ></label></li>
                             <li>
                                 <div class="guideline">
                                     <a>（一）数字顺背广度 指导语：</a>
@@ -811,13 +839,15 @@
                                                 type="checkbox" name="columns" /></li></ul>
                                     </div>
                                 </div>
-                            </li>
+                                
+                            </li> 
+                           
                         </ul>
                         <ul class="qeslist" id="mtl5">
                             <li>
                                 <p class="parttitle">
                                      10、MoCA--注意2</p>
-                            </li>
+                            </li><li class="lasttime_score">上一次得分：<label id="lastScore_ml5" ></label></li>
                             <li>
                                 <div class="guideline">
                                     <a>指导语：</a>
@@ -832,13 +862,15 @@
                                     <div class="gradebox">
                                       <p><span>  5213 9411 8062 1519 4511 1905 112</span><input id="mt6" type="checkbox" name="" /></p></div>
                                 </div>
+
                             </li>
+                            
                         </ul>
                         <ul class="qeslist" id="mtl6">
                             <li>
                                 <p class="parttitle">
                                     11、MoCA--注意3</p>
-                            </li>
+                            </li><li class="lasttime_score">上一次得分：<label id="lastScore_ml6" ></label></li>
                             <li>
                                 <div class="guideline">
                                     <a>指导语：</a>
@@ -859,6 +891,7 @@
                                    </div>
                                 </div>
                             </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -892,7 +925,7 @@
              <li><span>MMSE-M8得分=</span>@Html.TextBoxFor(model => model.SAD1, new { disable = "disable", name = "SAD1", @readonly = "readonly" })</li>             
              <li><span>词表学习1得分=</span>@Html.TextBoxFor(model => model.SAD3, new { disable = "disable", @readonly = "readonly" })</li>
 
-              <li><span>Moca注意1得分=</span>@Html.TextBoxFor(model => model.SAD11, new { disable = "disable", @readonly = "readonly" })</li>          
+              <li><span>MoCA注意1得分=</span>@Html.TextBoxFor(model => model.SAD11, new { disable = "disable", @readonly = "readonly" })</li>          
              <li ><span>C3A图形复制得分=</span>@Html.TextBoxFor(model => model.SAD61, new { disable = "disable", @readonly = "readonly" })</li>
              <li><span>词表学习2得分=</span>@Html.TextBoxFor(model => model.SAD4, new { disable = "disable", @readonly = "readonly" })</li> 
 
