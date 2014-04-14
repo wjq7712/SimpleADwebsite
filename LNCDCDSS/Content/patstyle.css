@@ -302,6 +302,7 @@ input[type="submit"]:active
 {
     padding-top:46px;
     border:0;
+    margin-left:30px;
 }
 #TestResult td
 {
@@ -315,7 +316,7 @@ input[type="submit"]:active
     height: 92px;
     background: url(images/box2.png) no-repeat ;
     background-position: right;
-    text-align: center;
+    text-align: left;
     
 }
 #RecordNote

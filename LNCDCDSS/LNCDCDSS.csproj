@@ -213,9 +213,9 @@
     <Content Include="Content\images\wbox\wbox.png" />
     <Content Include="Content\images\wbox\wbox2.gif" />
     <Content Include="Content\images\命名.PNG" />
+    <Content Include="Content\images\彩色连线.png" />
     <Content Include="Content\images\立方体.gif" />
     <Content Include="Content\images\立方体彩色.PNG" />
-    <Content Include="Content\images\连线彩色.PNG" />
     <Content Include="Content\jqpagination.css" />
     <Content Include="Content\Loginstyle.css" />
     <Content Include="Content\patstyle.css" />

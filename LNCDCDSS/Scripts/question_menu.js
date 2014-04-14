@@ -46,7 +46,7 @@ $(document).ready(function () {
         return false;
     })
     //当鼠标进入辅助诊断部分 将前面的认知检查结果显示在table里
-    $("#diagnosis").mouseleave(function () {
+    $("#AuxiliaryDiagnosis").mouseenter(function () {
         var mmseval = ($("input[name='step']:checked").length);
         $("#SAD1").attr("value", mmseval);
         //词表学习
@@ -62,41 +62,41 @@ $(document).ready(function () {
         //图形记忆 为空则将页面跳回该题视图
         var A1 = $("#C3A").val();
         if (A1 == "") {
-            $("#AuxiliaryDiagnosis li:eq(9)").css("background-color", "yellow");
+            $("#AuxiliaryDiagnosis li:eq(4)").css("color", "yellow");
             $index = 2
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
             $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
-        } else { $("#SAD61").attr("value", A1); $("#AuxiliaryDiagnosis li:eq(9)").css("background-color", "transparent"); }
+        } else { $("#SAD61").attr("value", A1); $("#AuxiliaryDiagnosis li:eq(4)").css("color", "black"); }
 
         var A2 = $("#C3B").val();
         if (A2 == "") {
-            $("#AuxiliaryDiagnosis li:eq(10)").css("background-color", "yellow");
+            $("#AuxiliaryDiagnosis li:eq(7)").css("color", "yellow");
             $index = 2
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
             $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
-        } else { $("#SAD62").attr("value", A2); $("#AuxiliaryDiagnosis li:eq(10)").css("background-color", "transparent"); }
+        } else { $("#SAD62").attr("value", A2); $("#AuxiliaryDiagnosis li:eq(7)").css("color", "black"); }
 
 
 
         var A3 = $("#C3C").val();
         if (A3 == "") {
-            $("#AuxiliaryDiagnosis li:eq(11)").css("background-color", "yellow");
+            $("#AuxiliaryDiagnosis li:eq(10)").css("color", "yellow");
             $index = 2
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
             $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
-        } else { $("#SAD63").attr("value", A3); $("#AuxiliaryDiagnosis li:eq(11)").css("background-color", "transparent"); }
+        } else { $("#SAD63").attr("value", A3); $("#AuxiliaryDiagnosis li:eq(10)").css("color", "black"); }
 
 
         //IADL
         var IADL = 0;
         var count = 0;
-        $.each($('#iadl select option:selected'), function () {
+        $.each($('#IADL select option:selected'), function () {
             pm = $(this).val();
             count = parseInt(pm);
             IADL += count;

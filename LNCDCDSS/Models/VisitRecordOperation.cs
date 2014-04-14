@@ -153,39 +153,42 @@ namespace LNCDCDSS.Models
                 string test = "";
                 if (vd.SimpleADdata != null)
                 {
-                    test += "折纸=" + vd.SimpleADdata.SAD1;
+                    test += "MMSE-M8=" + vd.SimpleADdata.SAD1;
                     test += ";IADL=" + vd.SimpleADdata.SAD2;
-                    test += ";命名=" + vd.SimpleADdata.SAD10;
-                    test += ";注意1=" + vd.SimpleADdata.SAD11;
-                    test += ";注意2=" + vd.SimpleADdata.SAD12;
-                    test += ";注意3=" + vd.SimpleADdata.SAD13;
                     test += ";词表学习1=" + vd.SimpleADdata.SAD3;
-                    test += ";词表学习2=" + vd.SimpleADdata.SAD4;
-                    test += ";词表学习3=" + vd.SimpleADdata.SAD5;
+                    test += ";MoCA注意1=" + vd.SimpleADdata.SAD11;
                     test += ";C3A图形复制=" + vd.SimpleADdata.SAD61;
+                    test += ";词表学习2=" + vd.SimpleADdata.SAD4;
+                    test += ";MoCA注意2=" + vd.SimpleADdata.SAD12;
                     test += ";C3B即刻回忆=" + vd.SimpleADdata.SAD62;
+                    test += ";词表学习3=" + vd.SimpleADdata.SAD5;
+                    test += ";MoCA注意3=" + vd.SimpleADdata.SAD13;                   
                     test += ";C3C延迟回忆=" + vd.SimpleADdata.SAD63;
-                    test += ";视空间与执行能力1=" + vd.SimpleADdata.SAD7;
-                    test += ";视空间与执行能力2=" + vd.SimpleADdata.SAD8;
-                    test += ";视空间与执行能力3=" + vd.SimpleADdata.SAD9;
+                    test += ";词表学习4=" + vd.SimpleADdata.SAD14;
+                    test += ";MoCA命名=" + vd.SimpleADdata.SAD10;
+                    test += ";MoCA连线=" + vd.SimpleADdata.SAD7;
+                    test += ";MoCA画钟表=" + vd.SimpleADdata.SAD9;
+                    test += ";MoCA复制立方体=" + vd.SimpleADdata.SAD8;
+                    
                 }
                 else
                 {
-                    test += "折纸=";
+                    test += "MMSE-M8=";
                     test += ";IADL=";
-                    test += ";命名=" ;
-                    test += ";注意1=";
-                    test += ";注意2=";
-                    test += ";注意3=";
-                    test += ";词表学习1=" ;
-                    test += ";词表学习2=";
-                    test += ";词表学习3=";
+                    test += ";词表学习1=";
+                    test += ";MoCA注意1=" ;
                     test += ";C3A图形复制=";
+                    test += ";词表学习2=" ;
+                    test += ";MoCA注意2=";
                     test += ";C3B即刻回忆=";
-                    test += ";C3C延迟回忆=" ;
-                    test += ";视空间与执行能力1=" ;
-                    test += ";视空间与执行能力2=";
-                    test += ";视空间与执行能力3=";
+                    test += ";词表学习3=";
+                    test += ";MoCA注意3=";                   
+                    test += ";C3C延迟回忆=";
+                    test += ";词表学习4=" ;
+                    test += ";MoCA命名=";
+                    test += ";MoCA连线=";
+                    test += ";MoCA画钟表=";
+                    test += ";MoCA复制立方体=";
                 }
                 conttext.Add(test);
                 conttext.Add(vd.RecordNote);

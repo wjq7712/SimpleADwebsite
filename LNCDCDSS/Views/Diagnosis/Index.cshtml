@@ -54,6 +54,7 @@
                     var label = document.getElementById('lastScore_4').innerHTML = data[5];
                     var label = document.getElementById('lastScore_5').innerHTML = data[6];
                     var label = document.getElementById('lastScore_6').innerHTML = data[7];
+                    var label = document.getElementById('lastScore_D').innerHTML = data[15];
                     var label = document.getElementById('patinfo_name').innerHTML = data[16];
                     var label = document.getElementById('patinfo_sex').innerHTML = data[17];
                     var label = document.getElementById('patinfo_age').innerHTML = data[18];
@@ -72,7 +73,6 @@
         });
     </script>
     <script type="text/javascript">
-        debugger;
         $('#add_diagnosis_result').ajaxForm(function (data) {
             document.getElementById('sysdiagnosis').innerHTML = data;
         }
@@ -157,12 +157,12 @@
                         <ul class="qeslist">
                             <li>
                                 <p class="parttitle">
-                                    1、MMSE-</p>
+                                    1、MMSE--M8</p>
                             </li>
-                            <li><a class="guide">指导语 </a></li>
+                            <li><a class="guide">指导语：</a></li>
                             <li>
                                 <p class="question">
-                                    现在我给您一张纸，请您用右手拿起这张纸，用双手把它对折，然后放到您的左腿上。（不要重复说明，也不要示范）</p>
+                                    “现在我给您一张纸，请您用右手拿起这张纸，用双手把它对折，然后放到您的左腿上”。（不要重复说明，也不要示范）</p>
                             </li>
                             <li class="score">
                                   <span>右手拿起这张纸<input id ="step1" type="checkbox" name="step" /></span> 
@@ -171,11 +171,11 @@
                             </li>
                         </ul>
                         <ul class="qeslist" id="VocabularyLearning">
-                            <li>
+                            <li class="worddisplay">
                                 <p class="parttitle">
                                     2、词表学习<span></span></p>
                             </li>
-                            <li>
+                            <li  class="worddisplay">
                                 <p class="tips">
                                     C2A:第一次 Score:<span >上一次得分：<label id="lastScore_1" ></label></span></p>
                             </li>
@@ -248,11 +248,11 @@
                                     </tr>
                                 </table>
                             </li>
-                            <li >
+                            <li class="worddisplay">
                                 <p class="tips">
                                    C2B:第二次 Score: <span>上一次得分：<label id="lastScore_2" ></label></span></p>
                             </li>
-                            <li id="time2">
+                            <li id="time2" class="worddisplay">
                                 <table>
                                     <tr>
                                         <th>
@@ -320,7 +320,7 @@
                                     </tr>
                                 </table>
                             </li>
-                            <li>
+                            <li  class="worddisplay">
                                 <p class="tips">
                                     C2C:第三次 Score:<span>上一次得分：<label id="lastScore_3" ></label></span></p>
                             </li>
@@ -682,7 +682,7 @@
                         <ul class="qeslist"id="mtl0">
                             <li>
                                 <p class="parttitle">
-                                   5、Moca-连线</p>
+                                   5、MoCA--连线</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -704,13 +704,13 @@
                         <ul class="qeslist"id="mtl1">
                             <li>
                                 <p class="parttitle" >
-                                     6、Moca-复制立方体</p>
+                                     6、MoCA--复制立方体</p>
                             </li>
                             <li>
                                 <div class="guideline">
-                                    <a>指导语（检查者指着立方体）：</a>
+                                    <a>指导语：</a>
                                     <p>
-                                        “请您按照这幅图下面的空白处在画一遍，并尽可能精确”。</p>
+                                       （检查者指着立方体）“请您按照这幅图下面的空白处在画一遍，并尽可能精确”。</p>
                                 </div>
                                 <div class="grade">
                                     <p>
@@ -735,7 +735,7 @@
                         <ul class="qeslist" id="mtl2">
                             <li>
                                 <p class="parttitle">
-                                    7、Moca-画钟表</p>
+                                    7、MoCA--画钟表</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -764,7 +764,7 @@
                         <ul class="qeslist" id="mtl3">
                             <li>
                                 <p class="parttitle">
-                                    8、Moca-命名</p>
+                                    8、MoCA--命名</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -789,14 +789,14 @@
                         <ul class="qeslist" id="mtl4">
                             <li>
                                 <p class="parttitle">
-                                    9、Moca-注意1</p>
+                                    9、MoCA--注意1</p>
                             </li>
                             <li>
                                 <div class="guideline">
-                                    <a>（一）数字顺背广度：指导语：</a>
+                                    <a>（一）数字顺背广度 指导语：</a>
                                     <p>
                                         “下面我说一些数字，您仔细听，当我说完事您就跟着照样背出来”。按照每秒钟1个的速度读出这5个数字。</p>
-                                    <a>（二）数字倒背广度：指导语：</a>
+                                    <a>（二）数字倒背广度 指导语：</a>
                                     <p>
                                         “下面我再说一些数字，您仔细听，但是当我说完时您必须按照袁术倒着背出来”。按照每秒钟1个数字的速度读出这3个数字。</p>
                                 </div>
@@ -816,7 +816,7 @@
                         <ul class="qeslist" id="mtl5">
                             <li>
                                 <p class="parttitle">
-                                     10、Moca-注意2</p>
+                                     10、MoCA--注意2</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -837,7 +837,7 @@
                         <ul class="qeslist" id="mtl6">
                             <li>
                                 <p class="parttitle">
-                                    11、Moca-注意3</p>
+                                    11、MoCA--注意3</p>
                             </li>
                             <li>
                                 <div class="guideline">
@@ -887,24 +887,27 @@
         @using (Html.BeginForm("Index", "Diagnosis", FormMethod.Post, new { id = "add_diagnosis_result" }))
         {
             <div class="resultlayout">
-            <p>量表得分</p>
-            <ul>
-             <li><span>折纸得分：</span>@Html.TextBoxFor(model => model.SAD1, new { disable = "disable", name = "SAD1", @readonly = "readonly" })</li>
-             <li><span>Moca注意1得分：</span>@Html.TextBoxFor(model => model.SAD11, new { disable = "disable", @readonly = "readonly" })</li>  
-             <li><span>词表学习1得分：</span>@Html.TextBoxFor(model => model.SAD3, new { disable = "disable", @readonly = "readonly" })</li>
-             <li><span>Moca命名得分：</span>@Html.TextBoxFor(model => model.SAD10, new { disable = "disable", @readonly = "readonly" })</li>           
-             <li><span>Moca注意2得分：</span>@Html.TextBoxFor(model => model.SAD12, new { disable = "disable", @readonly = "readonly" })</li> 
-             <li><span>词表学习2得分：</span>@Html.TextBoxFor(model => model.SAD4, new { disable = "disable", @readonly = "readonly" })</li>
-             <li><span>IADL得分：</span>@Html.TextBoxFor(model => model.SAD2, new { disable = "disable", @readonly = "readonly" })</li>           
-             <li><span>Moca注意3得分：</span>@Html.TextBoxFor(model => model.SAD13, new { disable = "disable", @readonly = "readonly" })</li> 
-              <li><span>词表学习3得分：</span>@Html.TextBoxFor(model => model.SAD5, new { disable = "disable", @readonly = "readonly" })</li>
-                <li ><span>C3A图形复制得分：</span>@Html.TextBoxFor(model => model.SAD61, new { disable = "disable", @readonly = "readonly" })</li>
-                  <li><span>C3B即刻回忆得分：</span>@Html.TextBoxFor(model => model.SAD62, new { disable = "disable", @readonly = "readonly" })</li>                                                    
-                      <li ><span>C3C延迟回忆得分：</span>@Html.TextBoxFor(model => model.SAD63, new { disable = "disable", @readonly = "readonly" })</li>
-                       <li><span>Moca连线得分：</span>@Html.TextBoxFor(model => model.SAD7, new { disable = "disable", @readonly = "readonly" })</li> 
-                       <li ><span>Moca画钟表得分：</span>@Html.TextBoxFor(model => model.SAD9, new { disable = "disable", @readonly = "readonly" })</li> 
-                        <li class="scoreLayout"><span>Moca复制立方体得分：</span>@Html.TextBoxFor(model => model.SAD8, new { disable = "disable", @readonly = "readonly" })</li>     
-                        <li><span>词表学习4得分：</span>@Html.TextBoxFor(model => model.SAD14, new { disable = "disable", @readonly = "readonly" })</li>  
+            <p>量表得分如下：</p>
+            <ul> <li><span>IADL得分=</span>@Html.TextBoxFor(model => model.SAD2, new { disable = "disable", @readonly = "readonly" })</li> 
+             <li><span>MMSE-M8得分=</span>@Html.TextBoxFor(model => model.SAD1, new { disable = "disable", name = "SAD1", @readonly = "readonly" })</li>             
+             <li><span>词表学习1得分=</span>@Html.TextBoxFor(model => model.SAD3, new { disable = "disable", @readonly = "readonly" })</li>
+
+              <li><span>Moca注意1得分=</span>@Html.TextBoxFor(model => model.SAD11, new { disable = "disable", @readonly = "readonly" })</li>          
+             <li ><span>C3A图形复制得分=</span>@Html.TextBoxFor(model => model.SAD61, new { disable = "disable", @readonly = "readonly" })</li>
+             <li><span>词表学习2得分=</span>@Html.TextBoxFor(model => model.SAD4, new { disable = "disable", @readonly = "readonly" })</li> 
+
+              <li><span>MoCA注意2得分=</span>@Html.TextBoxFor(model => model.SAD12, new { disable = "disable", @readonly = "readonly" })</li>  
+               <li><span>C3B即刻回忆得分=</span>@Html.TextBoxFor(model => model.SAD62, new { disable = "disable", @readonly = "readonly" })</li>   
+               <li><span>词表学习3得分=</span>@Html.TextBoxFor(model => model.SAD5, new { disable = "disable", @readonly = "readonly" })</li>
+                             
+             <li><span>MoCA注意3得分=</span>@Html.TextBoxFor(model => model.SAD13, new { disable = "disable", @readonly = "readonly" })</li> 
+               <li ><span>C3C延迟回忆得分=</span>@Html.TextBoxFor(model => model.SAD63, new { disable = "disable", @readonly = "readonly" })</li>
+                  <li><span>词表学习4得分=</span>@Html.TextBoxFor(model => model.SAD14, new { disable = "disable", @readonly = "readonly" })</li> 
+                                                                                                      
+                       <li><span>MoCA连线得分=</span>@Html.TextBoxFor(model => model.SAD7, new { disable = "disable", @readonly = "readonly" })</li> 
+                       <li ><span>MoCA画钟表得分=</span>@Html.TextBoxFor(model => model.SAD9, new { disable = "disable", @readonly = "readonly" })</li> 
+                         <li><span>MoCA命名得分=</span>@Html.TextBoxFor(model => model.SAD10, new { disable = "disable", @readonly = "readonly" })</li> 
+                         <li class="scoreLayout"><span>MoCA复制立方体得分=</span>@Html.TextBoxFor(model => model.SAD8, new { disable = "disable", @readonly = "readonly" })</li>
                        </ul>
       
                </div> <input id="diag" type="submit" value="系统启动诊断"/>

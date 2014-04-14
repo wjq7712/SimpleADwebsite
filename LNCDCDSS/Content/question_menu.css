@@ -111,6 +111,7 @@
      display:block;
      margin-left:104px;
      line-height:38px;
+     font-family:"微软雅黑";
       }
       
     #mainmenu .menubox .score
@@ -147,17 +148,19 @@ input[type="checkbox"]
  .parttitle
 {
     text-align:center;
-    font-size:23px;
+    font-size:27px;
+    font-family:"楷体"
     }
-  .question {text-indent:2em;}
+  .question {text-indent:2em; font-family:"微软雅黑"}
+  a.guide{font-family:"微软雅黑";font-size:21px;}
   
  /*病人自述*/
  #basicinfor{ height:280px;width:790px;margin-top :0px;display:block;}
  #basicinfor div.Readme{margin:7px 0 0 28px}
  #basicinfor div.patinfo{height:64px; margin:10px 0 0 28px;}
- #basicinfor div.patinfo ul li{float:left; width:120px; list-style:none;margin-top:-8px;}
- #basicinfor div.patinfo ul li.phone{width:156px; }
- #basicinfor a{ display:block;}
+ #basicinfor div.patinfo ul li{float:left; width:130px; list-style:none;margin-top:-8px; font-family:"微软雅黑";}
+ #basicinfor div.patinfo ul li.phone{width:177px; }
+ #basicinfor a{ display:block; font-family:"微软雅黑";}
  
 .b1,.b2,.b3,.b4,.b1b,.b2b,.b3b,.b4b,.b{display:block;overflow:hidden;}
 .b1,.b2,.b3,.b1b,.b2b,.b3b{height:1px;}
@@ -191,13 +194,12 @@ input[type="text"]
  
      /*词表学习部分*/
   #VocabularyLearning li {line-height: 23px;}
- .tips{ float:left; font-size:14px; width:700px;}
-  p.tips span{ float:right;font-size:14px; }    
+ .tips{ float:left; font-size:14px; width:700px;font-family:"微软雅黑"}
+  p.tips span{ float:right;font-size:14px; font-family:"微软雅黑"} 
   #VocabularyLearning table{ border-collapse: collapse; width:700px;}
-  #VocabularyLearning table, th ,td{ border:1px solid white; text-align:center; font-size:18px;height:30px; line-height:33px;}
+  #VocabularyLearning table, th ,td{ border:1px solid white; text-align:center; font-size:18px;height:30px; line-height:33px;font-family:"微软雅黑"}
   #VocabularyLearning table input[type="checkbox"] { width:20px; height:23px; float:right; margin: 2px 25px 3px 4px; zoom:105%;}
-  /*#VocabularyLearning{line-height: 11px;}*/
-   li #time1{line-height: 11px;}
+  #VocabularyLearning li.worddisplay{ line-height:6px;}/*将每个table的说明文字占高度缩小*/
   /*图形记忆*/
   #PhotographicMemory table{ border-collapse: collapse; width:700px; margin-top:-16px;}
   #PhotographicMemory table, th ,td{ border:1px solid white;  line-height:33px;text-align:center; font-size:18px;margin-top:-30px;height:36px;}
@@ -214,14 +216,14 @@ input[type="text"]
     /*IADL*/
     #IADL  div.contentbox{ width:600px; height:300px;}
     #IADL  table{border-collapse: collapse; width:700px; margin-top:-16px;}
-    #IADL  td{ line-height:33px;height:73px;}
+    #IADL  td{ line-height:33px;height:73px;font-family:"微软雅黑"; }
   
      /*Montreal蒙特利尔*/
-    p.parttitle span{ font-size:18px; font-family :@微软雅黑; font-style:oblique;}
-    div.guideline a{ font-size:20px; font-family:@华文行楷; }
-    div.guideline p{  text-indent:2em; font-size:18px; font-family:@Adobe 宋体 Std L; margin:0px 3px 18px 3px;}
-    div.grade p{ text-indent:2em; font-size:18px; font-family:@Adobe 宋体 Std L; margin:3px 3px 0px 3px;  }
-    div.photo{ width:244px;height:244px;margin-left:30px;float:left;}
+    p.parttitle span{ font-size:18px; font-family:"微软雅黑"; font-style:oblique;}
+    div.guideline a{ font-size:20px; font-family:"微软雅黑" }
+    div.guideline p{  text-indent:2em; font-size:18px; margin:0px 3px 18px 3px;font-family:"微软雅黑"}
+    div.grade p{ text-indent:2em; font-size:18px; font-family:"仿宋"; margin:3px 3px 0px 3px;  }
+    div.photo{ width:244px;height:244px;margin-left:30px;float:left;font-family:"仿宋"}
     div.photo img{ width:244px;height:244px;}
     div.grade p span{ font-style:oblique; color:Blue;}
     div.gradebox{display:block;border:2px solid ; border-color:White; height:175px; width:400px;margin-left:150px; }
@@ -229,53 +231,55 @@ input[type="text"]
     /*以上是公用部分*/
     #mtl0 div.grade{width:400px;height:200px;float:left;}  
     #mtl0 div.gradebox { display:block;border:2px solid ; border-color:White; height:95px; width:344px; margin:207px 310px;}
-    #mtl0 div.gradebox a { float:right; margin-top:26px; font-size:26px;}
+    #mtl0 div.gradebox a { float:right; margin-top:26px; font-size:26px;font-family:"微软雅黑"}
     #mtl0 div.gradebox input[type="checkbox"]{ float:right; line-height:88px; margin-left:79px; width:24px; height:24px; }
     #mtl1 div.grade ul{float: left;display: block;height: 100px;width: 660px;}
     
     #mtl1 div.grade{width:600px;height:165px;float:left;}
-    #mtl1 div.grade li{ font-size: 18px;line-height: 25px;position: relative;margin-left:78px;margin-right:23px;}
+    #mtl1 div.grade li{ font-size: 18px;line-height: 25px;position: relative;margin-left:78px;margin-right:23px;font-family:"仿宋"}
     #mtl1 div.gradebox{ display:block;border:2px solid ; border-color:White; height:92px; width:300px; margin:247px 326px;}
     #mtl1 div.photo{ width:244px;height:244px;margin-left:30px;float:left}
     #mtl1 div.photo img{ width:235px;height:235px;}
     #mtl1 div.gradebox input[type="checkbox"]{ float:right; line-height:88px; margin-top:0px;margin-left:41px; width:24px; height:24px; }
-    #mtl1 div.gradebox a{margin-top:33px;font-size:24px;float:right;margin-right:-50px;}
+    #mtl1 div.gradebox a{margin-top:33px;font-size:24px;float:right;margin-right:-50px;font-family:"微软雅黑"}
     
     #mtl2 div.grade ul{ float: left;display: block;height: 100px;width: 750px;}
-    #mtl2 div.grade li{ font-size: 18px;line-height: 25px; width:567px;position:relative;margin-left:78px;margin-right:23px;}
+    #mtl2 div.grade li{ font-size: 18px;line-height: 25px; width:567px;position:relative;margin-left:78px;margin-right:23px;font-family:"仿宋"}
     #mtl2 div.gradebox{margin-top:150px;margin-left:150px;height:133px;}
     #mtl2 div.gradebox ul{float: left;display: block;height: 100px;width: 300px}
-    #mtl2 div.gradebox li{font-size: 18px;line-height: 25px;position: relative;margin-left:78px;margin-right:23px;width:280px; margin-top:12px; list-style:none;}
+    #mtl2 div.gradebox li{font-size: 18px;line-height: 25px;position: relative;margin-left:78px;margin-right:23px;width:280px; margin-top:12px; list-style:none;font-family:"微软雅黑"}
    
     #mtl3 div.grade ul{ float: left;display: block;height: 100px;width: 750px;}
-    #mtl3 div.grade li{ font-size: 18px;line-height: 25px; width:567px;position:relative;margin-left:40px;margin-right:23px;}
+    #mtl3 div.grade li{ font-size: 18px;line-height: 25px; width:567px;position:relative;margin-left:40px;margin-right:23px;font-family:"仿宋"}
     #mtl3 div.grade img{ width:647px;height:150px;}
     #mtl3 div.gradebox{margin-top:10px;margin-left:150px;height:133px;}
     #mtl3 div.gradebox ul{float: left;display: block;height: 100px;width: 300px}
-    #mtl3 div.gradebox li{ list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:12px;}
+    #mtl3 div.gradebox li{ list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:12px;font-family:"微软雅黑"}
     
     
-    #mtl4 div.guideline a { font-size:19px;}
+    #mtl4 div.guideline a { font-size:19px;font-family:"微软雅黑"}
     #mtl4 div.gradebox{margin-top:46px;height:100px;}
-    #mtl4 div.gradebox li{list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:15px;}
+    #mtl4 div.gradebox li{list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:15px;font-family:"微软雅黑"}
     #mtl5 div.gradebox{width:569px;height:69px;margin:40px 59px;}
     #mtl5 div.gradebox p{margin-top:20px;}
+    #mtl5 div.gradebox p span{ font-family:"微软雅黑"; font-style:normal;color:Black;}
     #mtl6 div.gradebox{height:133px;margin-top:40px;}
-    #mtl6 div.gradebox li{list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:48px;margin-right:23px;width:330px; margin-top:12px;}
+    #mtl6 div.gradebox li{list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:48px;margin-right:23px;width:330px; margin-top:12px;font-family:"微软雅黑"}
     /*辅助诊断*/
     #AuxiliaryDiagnosis{margin-top:0px;}
-    #AuxiliaryDiagnosis .k{height:690px;width:790px;}
+    #AuxiliaryDiagnosis .k{height:720px;width:790px;}
     div.resultlayout{ width:100%;height:44%;float:left;margin-right:16px;}
-    div.resultlayout p{margin:25px 10px -18px 43px; font-weight:bold;}
+    div.resultlayout p{margin:25px 10px -18px 43px; font-family:"楷体";font-size:22px;}
     
     div.sysDiagnosis{ width:80%;float:left;margin-left:45px;}
     div.docDiagnosis{width:80%;float:left;margin-left:45px;}
     div.resultlayout input[type="text"]{ width:60px;margin:15px 5px 1px 1px;border:0;background:transparent;}
-    div.resultlayout ul{ list-style:none; }
+    div.resultlayout ul{ list-style:none;font-family:"微软雅黑" }
     div.resultlayout li{ float:left; width:238px; margin:0 0 0 3px;}
-    div.resultlayout li.scoreLayout{ float:left;width:267px;margin:0 0 0 0px;  }
+    div.resultlayout li.scoreLayout{ float:left;width:272px;margin:0 0 0 0px;  }
     div.sysDiagnosis textarea{  width:650px;margin:0px 5px 1px 1px;border:0;background:transparent;}
-    div.docDiagnosis textarea{}
+    div.sysDiagnosis p{ font-family:"楷体";font-size:22px;}
+    div.docDiagnosis p{font-family:"楷体";font-size:22px;}
     input[type="submit"]{margin:9px 69px 0 603px; height: 37px;
 	float: left;
 	width :138px;

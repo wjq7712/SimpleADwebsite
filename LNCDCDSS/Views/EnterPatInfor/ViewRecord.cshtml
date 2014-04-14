@@ -51,14 +51,15 @@
                     </td>
                     
                </tr>
-                @* <tr>
+                 <tr>
                     <td>
                     </td>
                     <td>
-                    &nsbp
+                    </td>
+                    <td>
                     </td>
                    
-                </tr>*@
+                </tr>
             </table>
         </div>
         <h2 class="title">
@@ -128,7 +129,7 @@
                         var resultlist = data[0].Contetntext.split(";");
                         var datatable = document.getElementById("test");
 
-                        for (var count = 0; count <15; count++) {
+                        for (var count = 0; count <16; count++) {
                             var i = Math.floor(count / 3);
                             var j = count % 3;
                             datatable.rows[i].cells[j].innerText = resultlist[count];
