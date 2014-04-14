@@ -116,7 +116,7 @@
       
     #mainmenu .menubox .score
     {
-         border:solid;
+         border:1px solid;
          border-color:White;
          width:450px;
          height:130px;
