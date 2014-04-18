@@ -30,7 +30,7 @@ namespace LNCDCDSS.Controllers
                 string docDia = dia;
                 PatBasicInfor pt = DContainer.PatBasicInforSet.Find(ID); 
                 pt.VisitRecord.Last().RecordNote = Readme;//病人自述
-                pt.VisitRecord.Last().DiagnosisiResult = docDia;
+                pt.VisitRecord.Last().DiagnosisiResult = docDia;//医生诊断结果，这段代码相当于update历史数据
                 DContainer.SaveChanges();
 
             }
@@ -43,8 +43,7 @@ namespace LNCDCDSS.Controllers
                         Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
                     }
                 }
-            }
-           
+            }          
             return this.Json(new { OK = true, Message = "保存成功" });
         }
 
@@ -104,9 +103,6 @@ namespace LNCDCDSS.Controllers
                   strResult = "患者认知功能正常";
               else if ("Abnormal" == strResult)
                   strResult = "患者认知功能异常，具体类型待定，请结合病史";
-              //else if ("Normal" == strResult)
-              //    strResult = "正常";
-              string Readme = Request.Form["病情自述"];
               pt.VisitRecord.Last().CDSSDiagnosis = strResult+"              相似度:" + (dProbalily * 100).ToString("0.00") + "%" ;
                 DContainer.SaveChanges();
             }

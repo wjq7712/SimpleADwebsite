@@ -260,9 +260,9 @@ input[type="text"]
     #mtl4 div.guideline a { font-size:19px;font-family:"微软雅黑"}
     #mtl4 div.gradebox{margin-top:46px;height:100px;}
     #mtl4 div.gradebox li{list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:35px;margin-right:23px;width:376px; margin-top:15px;font-family:"微软雅黑"}
-    #mtl5 div.gradebox{width:569px;height:69px;margin:40px 59px;}
+    #mtl5 div.gradebox{width:569px;height:65px;margin:40px 59px;}
     #mtl5 div.gradebox p{margin-top:20px;}
-    #mtl5 div.gradebox p span{ font-family:"微软雅黑"; font-style:normal;color:Black;}
+    #mtl5 div.gradebox p span{ font-family:"微软雅黑"; font-style:normal;color:Black;margin-left:42px;}
     #mtl6 div.gradebox{height:133px;margin-top:40px;}
     #mtl6 div.gradebox li{list-style:none;font-size: 18px;line-height: 25px;position: relative;margin-left:48px;margin-right:23px;width:330px; margin-top:12px;font-family:"微软雅黑"}
     /*辅助诊断*/

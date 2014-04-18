@@ -96,7 +96,12 @@
     </script>
     <script type="text/javascript">
         $('#add_diagnosis_result').ajaxForm(function (data) {
+
             document.getElementById('sysdiagnosis').innerHTML = data;
+            var result = $("#sysdiagnosis").val();
+            if (result == "患者认知功能异常，具体类型待定，请结合病史    相似度：100.00%") {
+                $("#sysdiagnosis").css("color", "red");
+            } else { $("#sysdiagnosis").css("color", "black"); }
         }
         )
 
@@ -154,7 +159,7 @@
                   
                     <div class="Readme"> 
                        <a>病情简述：</a>
-                       <textarea name="病情自述" id="Patient_Abr" rows="5" cols="75" ></textarea>                    
+                       <textarea name="病情自述" id="Patient_Abr" rows="5" cols="78" ></textarea>                    
               </div></div>
               <b class="b4b d1"></b>
               <b class="b3b d1"></b>
