@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="LNCDCDSS_WebReference_InferenceService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://115.28.42.235/InferenceService/InferenceService.asmx</Value>
+      <Value Profile="(Default)">http://115.28.42.235/LNCDwebservices/InferenceService.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

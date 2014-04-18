@@ -277,7 +277,7 @@ input[type="text"]
     div.resultlayout ul{ list-style:none;font-family:"微软雅黑" }
     div.resultlayout li{ float:left; width:238px; margin:0 0 0 3px;}
     div.resultlayout li.scoreLayout{ float:left;width:272px;margin:0 0 0 0px;  }
-    div.sysDiagnosis textarea{  width:650px;margin:0px 5px 1px 1px;border:0;background:transparent;}
+    div.sysDiagnosis textarea{  width:692px;margin:0px 5px 1px 1px;border:0;background:transparent;}
     div.sysDiagnosis p{ font-family:"楷体";font-size:22px;}
     div.docDiagnosis p{font-family:"楷体";font-size:22px;}
     input[type="submit"]{margin:9px 69px 0 603px; height: 37px;

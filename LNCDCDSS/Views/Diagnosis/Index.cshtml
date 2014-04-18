@@ -972,73 +972,28 @@
             
         </div>
         </div>  
-        <script type="text/javascript">
-            function sumbit_diagnosis() {
-                var dia = document.getElementById('docdiagnosis').value;
-                var Abr = document.getElementById('Patient_Abr').value;
-               var div=  document.getElementById('Patient_Id');
-                  document.getElementById('Patient_Id').style.display="";
-                var patID=document.getElementById('Patient_Id').innerHTML;
-                  document.getElementById('Patient_Id').style.display="none";
+<script type="text/javascript">
+    function sumbit_diagnosis() {
+        var dia = document.getElementById('docdiagnosis').value;
+        var Abr = document.getElementById('Patient_Abr').value;
+        var div =  document.getElementById('Patient_Id');
+            document.getElementById('Patient_Id').style.display="";
+        var patID=document.getElementById('Patient_Id').innerHTML;
+            document.getElementById('Patient_Id').style.display="none";
 
-             $.ajax({
-                 url: '@Url.Action("Save", "Diagnosis")',
-                 type: "POST",
-                 dataType: 'json',
-                 data: { "dia": dia, "Abr": Abr,"ID":patID },
-                 success: function (data) {
-                     if (data.OK) { 
-                     $(".demo").html("本次问诊信息保存成功！");
-                            var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'");
-                             }
+        $.ajax({
+            url: '@Url.Action("Save", "Diagnosis")',
+            type: "POST",
+            dataType: 'json',
+            data: { "dia": dia, "Abr": Abr,"ID":patID },
+            success: function (data) {
+                if (data.OK) { 
+                $(".demo").html("本次问诊信息保存成功！");
+                    var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'");
+                        }
                     
-                 }
-             })
-            
             }
-        </script>    
-  @*   <script type="text/javascript">
-         $('#add_diagnosis_result').submit(function () {
-             $.ajax({
-                 url: this.action,
-                 type: this.method,
-                 data: $(this).serialize(),
-                 success: function (data) {
-                     alert('hzz');
-                 }
-             });
-         });
-
-     
-     </script>*@
-@*<script type="text/javascript">
-
-    $(function () {
-        debugger;
-
-        $(".resultlayout input[type='submit']").click(function () {
-            $.ajax({
-                url: '@Url.Action("Index", "Diagnosis")',
-                type: "POST",
-                dataType: 'json',
-                success: function (data) {
-                    if (data.OK) {
-                        document.getElementById('login_msg').innerHTML = data.Message.toString();
-                    }
-                }
-            })
         })
-    })
-
-
-//    $("#save").click(function () {  
-//    $.ajax({
-//                        url: '@Url.Action("Save", "Diagnosis")',
-//                        type: "POST",
-//                        data: '@Model',
-//                        success: function (data) {
-//                        if (data.OK) {
-//                          $(".demo").html("本次问诊信息保存成功！");
-//                            var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 3000);
-//    })
-</script>*@
+            
+    }
+</script>    

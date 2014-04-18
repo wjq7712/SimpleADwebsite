@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://115.28.42.235/InferenceService/InferenceService.asmx?disco" filename="InferenceService.disco" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://115.28.42.235/InferenceService/InferenceService.asmx?wsdl" filename="InferenceService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://115.28.42.235/LNCDwebservices/InferenceService.asmx?disco" filename="InferenceService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://115.28.42.235/LNCDwebservices/InferenceService.asmx?wsdl" filename="InferenceService.wsdl" />
   </Results>
 </DiscoveryClientResultsFile>

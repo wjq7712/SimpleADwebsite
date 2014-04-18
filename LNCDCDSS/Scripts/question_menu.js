@@ -59,7 +59,7 @@ $(document).ready(function () {
         var vl4 = $("#time4 input:checked").length;
         $("#SAD14").attr("value", vl4);
 
-        //图形记忆 为空则将页面跳回该题视图
+        //图形记忆 为空则将页面跳回该题视图 分数记为0
         var A1 = $("#C3A").val();
         if (A1 == "") {
             A1 = 0;

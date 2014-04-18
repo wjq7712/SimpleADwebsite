@@ -26,7 +26,7 @@ namespace LNCDCDSS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://115.28.42.235/InferenceService/InferenceService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://115.28.42.235/LNCDwebservices/InferenceService.asmx")]
         public string LNCDCDSS_WebReference_InferenceService {
             get {
                 return ((string)(this["LNCDCDSS_WebReference_InferenceService"]));

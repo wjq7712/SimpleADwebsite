@@ -296,11 +296,11 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Content Include="Scripts\question_menu.js" />
     <Content Include="Views\Diagnosis\VisitContinue.cshtml" />
     <None Include="Scripts\jquery-1.10.2.min.map" />
-    <None Include="Web References\WebReference\InferenceService.disco" />
     <Content Include="Scripts\shBrushJScript.js" />
     <Content Include="Scripts\shCore.js" />
     <Content Include="Scripts\shLegacy.js" />
@@ -308,6 +308,7 @@
     <Content Include="Scripts\wbox.js" />
     <Content Include="Scripts\XRegExp.js" />
     <Content Include="Scripts\zebra_datepicker.js" />
+    <None Include="Web References\WebReference\InferenceService.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -377,10 +378,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.3.9/InferenceWebservice/InferenceService.asmx">
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://115.28.42.235/LNCDwebservices/InferenceService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebReference\</RelPath>
-      <UpdateFromURL>http://192.168.3.9/InferenceWebservice/InferenceService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://115.28.42.235/LNCDwebservices/InferenceService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

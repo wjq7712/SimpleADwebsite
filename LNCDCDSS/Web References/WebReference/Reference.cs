@@ -168,63 +168,19 @@ namespace LNCDCDSS.WebReference {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ADMCI.org/")]
     public partial class InputData {
         
-        private double timeorientationField;
-        
-        private double placeorientationField;
-        
-        private double languageimmediaterecallField;
-        
-        private double attentionandcalculationField;
-        
-        private double shortmemoryField;
-        
-        private double namingobjectsField;
-        
-        private double languageretellField;
-        
         private double readingcomprehensionField;
-        
-        private double languageunderstandingField;
-        
-        private double languageexpressionField;
-        
-        private double drawgraphField;
         
         private double visualspaceandexecutiveabilityField;
         
         private double namingField;
         
-        private double memoryField;
-        
         private double attentionField;
         
-        private double languageField;
-        
-        private double animalnumberField;
-        
-        private double abstractabilityField;
-        
-        private double moCadelayrecallField;
-        
-        private double orientaionField;
-        
-        private double physicalSelfmaintenanceField;
-        
         private double grippingabilityField;
-        
-        private double word1Field;
-        
-        private double word2Field;
-        
-        private double word3Field;
         
         private double wordaverageField;
         
         private double worddelayrecallField;
-        
-        private double originalwordrecognitionField;
-        
-        private double newwordrecognizeField;
         
         private double graphcopyField;
         
@@ -232,85 +188,7 @@ namespace LNCDCDSS.WebReference {
         
         private double graphdelayrecallField;
         
-        private double lineAField;
-        
-        private double lineBField;
-        
-        private double gDSField;
-        
-        private double cDRField;
-        
         private string strResultField;
-        
-        /// <remarks/>
-        public double timeorientation {
-            get {
-                return this.timeorientationField;
-            }
-            set {
-                this.timeorientationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double placeorientation {
-            get {
-                return this.placeorientationField;
-            }
-            set {
-                this.placeorientationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double Languageimmediaterecall {
-            get {
-                return this.languageimmediaterecallField;
-            }
-            set {
-                this.languageimmediaterecallField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double Attentionandcalculation {
-            get {
-                return this.attentionandcalculationField;
-            }
-            set {
-                this.attentionandcalculationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double shortmemory {
-            get {
-                return this.shortmemoryField;
-            }
-            set {
-                this.shortmemoryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double namingobjects {
-            get {
-                return this.namingobjectsField;
-            }
-            set {
-                this.namingobjectsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double languageretell {
-            get {
-                return this.languageretellField;
-            }
-            set {
-                this.languageretellField = value;
-            }
-        }
         
         /// <remarks/>
         public double readingcomprehension {
@@ -319,36 +197,6 @@ namespace LNCDCDSS.WebReference {
             }
             set {
                 this.readingcomprehensionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double languageunderstanding {
-            get {
-                return this.languageunderstandingField;
-            }
-            set {
-                this.languageunderstandingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double languageexpression {
-            get {
-                return this.languageexpressionField;
-            }
-            set {
-                this.languageexpressionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double drawgraph {
-            get {
-                return this.drawgraphField;
-            }
-            set {
-                this.drawgraphField = value;
             }
         }
         
@@ -373,16 +221,6 @@ namespace LNCDCDSS.WebReference {
         }
         
         /// <remarks/>
-        public double memory {
-            get {
-                return this.memoryField;
-            }
-            set {
-                this.memoryField = value;
-            }
-        }
-        
-        /// <remarks/>
         public double attention {
             get {
                 return this.attentionField;
@@ -393,102 +231,12 @@ namespace LNCDCDSS.WebReference {
         }
         
         /// <remarks/>
-        public double language {
-            get {
-                return this.languageField;
-            }
-            set {
-                this.languageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double animalnumber {
-            get {
-                return this.animalnumberField;
-            }
-            set {
-                this.animalnumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double abstractability {
-            get {
-                return this.abstractabilityField;
-            }
-            set {
-                this.abstractabilityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double MoCadelayrecall {
-            get {
-                return this.moCadelayrecallField;
-            }
-            set {
-                this.moCadelayrecallField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double orientaion {
-            get {
-                return this.orientaionField;
-            }
-            set {
-                this.orientaionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double PhysicalSelfmaintenance {
-            get {
-                return this.physicalSelfmaintenanceField;
-            }
-            set {
-                this.physicalSelfmaintenanceField = value;
-            }
-        }
-        
-        /// <remarks/>
         public double grippingability {
             get {
                 return this.grippingabilityField;
             }
             set {
                 this.grippingabilityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double word1 {
-            get {
-                return this.word1Field;
-            }
-            set {
-                this.word1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double word2 {
-            get {
-                return this.word2Field;
-            }
-            set {
-                this.word2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double word3 {
-            get {
-                return this.word3Field;
-            }
-            set {
-                this.word3Field = value;
             }
         }
         
@@ -509,26 +257,6 @@ namespace LNCDCDSS.WebReference {
             }
             set {
                 this.worddelayrecallField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double originalwordrecognition {
-            get {
-                return this.originalwordrecognitionField;
-            }
-            set {
-                this.originalwordrecognitionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double Newwordrecognize {
-            get {
-                return this.newwordrecognizeField;
-            }
-            set {
-                this.newwordrecognizeField = value;
             }
         }
         
@@ -559,46 +287,6 @@ namespace LNCDCDSS.WebReference {
             }
             set {
                 this.graphdelayrecallField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double lineA {
-            get {
-                return this.lineAField;
-            }
-            set {
-                this.lineAField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double lineB {
-            get {
-                return this.lineBField;
-            }
-            set {
-                this.lineBField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double GDS {
-            get {
-                return this.gDSField;
-            }
-            set {
-                this.gDSField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double CDR {
-            get {
-                return this.cDRField;
-            }
-            set {
-                this.cDRField = value;
             }
         }
         

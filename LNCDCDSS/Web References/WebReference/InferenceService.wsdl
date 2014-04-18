@@ -13,42 +13,16 @@
       </s:element>
       <s:complexType name="InputData">
         <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="timeorientation" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="placeorientation" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="Languageimmediaterecall" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="Attentionandcalculation" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="shortmemory" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="namingobjects" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="languageretell" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="readingcomprehension" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="languageunderstanding" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="languageexpression" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="drawgraph" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="Visualspaceandexecutiveability" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="naming" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="memory" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="attention" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="language" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="animalnumber" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="abstractability" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="MoCadelayrecall" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="orientaion" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="PhysicalSelfmaintenance" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="grippingability" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="word1" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="word2" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="word3" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="wordaverage" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="worddelayrecall" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="originalwordrecognition" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="Newwordrecognize" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="graphcopy" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="graphimmediaterecall" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="graphdelayrecall" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="lineA" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="lineB" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="GDS" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="CDR" type="s:double" />
           <s:element minOccurs="0" maxOccurs="1" name="strResult" type="s:string" />
         </s:sequence>
       </s:complexType>
@@ -143,10 +117,10 @@
   </wsdl:binding>
   <wsdl:service name="InferenceService">
     <wsdl:port name="InferenceServiceSoap" binding="tns:InferenceServiceSoap">
-      <soap:address location="http://115.28.42.235/InferenceService/InferenceService.asmx" />
+      <soap:address location="http://115.28.42.235/LNCDwebservices/InferenceService.asmx" />
     </wsdl:port>
     <wsdl:port name="InferenceServiceSoap12" binding="tns:InferenceServiceSoap12">
-      <soap12:address location="http://115.28.42.235/InferenceService/InferenceService.asmx />
+      <soap12:address location="http://115.28.42.235/LNCDwebservices/InferenceService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
