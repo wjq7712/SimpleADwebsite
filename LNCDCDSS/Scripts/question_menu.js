@@ -64,11 +64,11 @@ $(document).ready(function () {
         if (A1 == "") {
             A1 = 0;
             //            $("#AuxiliaryDiagnosis li:eq(4)").css("color", "yellow");
-            $index = 3
-            page = $index + 1;
-            nav();
-            $show.animate({ left: -($width_box * $index) }, "normal");
-            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
+//            $index = 3
+//            page = $index + 1;
+//            nav();
+//            $show.animate({ left: -($width_box * $index) }, "normal");
+//            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
         }
         $("#SAD61").attr("value", A1);
         //        } else { $("#SAD61").attr("value", A1); $("#AuxiliaryDiagnosis li:eq(4)").css("color", "black"); }
@@ -77,11 +77,11 @@ $(document).ready(function () {
         if (A2 == "") {
             A2 = 0;
             //            $("#AuxiliaryDiagnosis li:eq(7)").css("color", "yellow");
-            $index = 3
-            page = $index + 1;
-            nav();
-            $show.animate({ left: -($width_box * $index) }, "normal");
-            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
+//            $index = 3
+//            page = $index + 1;
+//            nav();
+//            $show.animate({ left: -($width_box * $index) }, "normal");
+//            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
         }
         $("#SAD62").attr("value", A2);
         //        } else { $("#SAD62").attr("value", A2); $("#AuxiliaryDiagnosis li:eq(7)").css("color", "black"); }
@@ -92,11 +92,11 @@ $(document).ready(function () {
         if (A3 == "") {
             A3 = 0;
             //            $("#AuxiliaryDiagnosis li:eq(10)").css("color", "yellow");
-            $index = 3
-            page = $index + 1;
-            nav();
-            $show.animate({ left: -($width_box * $index) }, "normal");
-            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
+//            $index = 3
+//            page = $index + 1;
+//            nav();
+//            $show.animate({ left: -($width_box * $index) }, "normal");
+//            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
         }
          $("#SAD63").attr("value", A3);
         //        } else { $("#SAD63").attr("value", A3); $("#AuxiliaryDiagnosis li:eq(10)").css("color", "black"); }
