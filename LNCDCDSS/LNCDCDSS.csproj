@@ -178,6 +178,7 @@
     <Content Include="Content\images\calendar.png" />
     <Content Include="Content\images\click-button.png" />
     <Content Include="Content\images\Content.png" />
+    <Content Include="Content\images\Content2.png" />
     <Content Include="Content\images\login\content.gif" />
     <Content Include="Content\images\login\footer.gif" />
     <Content Include="Content\images\login\head.gif" />
@@ -186,6 +187,10 @@
     <Content Include="Content\images\lrgimg5.jpg" />
     <Content Include="Content\images\lrgimg6.jpg" />
     <Content Include="Content\images\nav.png" />
+    <Content Include="Content\images\part1.png" />
+    <Content Include="Content\images\part2.png" />
+    <Content Include="Content\images\part3.png" />
+    <Content Include="Content\images\part4.png" />
     <Content Include="Content\images\tabs_icons.png" />
     <Content Include="Content\images\title1-1.png" />
     <Content Include="Content\images\title1-4.png" />
@@ -213,6 +218,7 @@
     <Content Include="Content\images\wbox\wbox.png" />
     <Content Include="Content\images\wbox\wbox2.gif" />
     <Content Include="Content\images\命名.PNG" />
+    <Content Include="Content\images\图形记忆.png" />
     <Content Include="Content\images\彩色连线.png" />
     <Content Include="Content\images\立方体.gif" />
     <Content Include="Content\images\立方体彩色.PNG" />

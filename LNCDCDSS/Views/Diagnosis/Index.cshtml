@@ -73,7 +73,7 @@
                         var age = data[18].substring(0, 2);
                     } else { age = data[18]; }
                     var label = document.getElementById('patinfo_age').innerHTML = age;
-                    if (data[20].length > 4) {
+                    if (data[20]!=null&&data[20].length > 4) {
                         var PID = data[20].substring(0, 10);
                     } else { PID = data[20]; }
                     var label = document.getElementById('patinfo_PID').innerHTML =PID;
@@ -96,8 +96,9 @@
     </script>
     <script type="text/javascript">
         $('#add_diagnosis_result').ajaxForm(function (data) {
-
-            document.getElementById('sysdiagnosis').innerHTML = data;
+            var sysres = document.getElementById("sysdiagnosis")
+            sysres.value = data;
+//            document.getElementById('sysdiagnosis').innerHTML = data;
             var result = $("#sysdiagnosis").val();
             if (result == "患者认知功能异常，具体类型待定，请结合病史    相似度：100.00%") {
                 $("#sysdiagnosis").css("color", "red");
@@ -135,43 +136,75 @@
     <div style="margin: 0 0;">
     </div>
       
-        <div title="认知检查" style="height: 31px; padding: 20px">
+        <div style="height: 31px; padding: 20px">
             <div id="mainmenu">
             
-            <div class="step">
-            <img src="../../Content/images/title1-4.png" alt="连线"/></div>
-             <div title="病人自述" id="basicinfor">
-                <b class="b1"></b>
-                <b class="b2 d1"></b>
-                <b class="b3 d1"></b>
-                <b class="b4 d1"></b>
-                <div class="b d1 k">
-                    <div class="patinfo">
-                    <a>当前病人：</a>
-                    <ul>
-                    <li><span>姓名：</span><label id="patinfo_name"></label></li>
-                    <li><span>性别：</span><label id="patinfo_sex"></label></li>
-                    <li><span>年龄：</span><label id="patinfo_age"></label></li>
-                    <li class="long"><span>门诊号：</span><label id="patinfo_PID"></label></li>
-                    <li class="long"><span>手机：</span><label id="patinfo_phone"></label></li>
-                    </ul>
-                    </div>
+            <div class="step"><img src="../../Content/images/part1.png" alt="1"/></div>
+            <div  id="basicinfor">
+            <b class="b1"></b>
+            <b class="b2 d1"></b>
+            <b class="b3 d1"></b>
+            <b class="b4 d1"></b>
+            <div class="b d1 k">
+                <div class="patinfo">
+                <a>当前病人：</a>
+                <ul>
+                <li><span>姓名：</span><label id="patinfo_name"></label></li>
+                <li><span>性别：</span><label id="patinfo_sex"></label></li>
+                <li><span>年龄：</span><label id="patinfo_age"></label></li>
+                <li class="long"><span>门诊号：</span><label id="patinfo_PID"></label></li>
+                <li class="long"><span>手机：</span><label id="patinfo_phone"></label></li>
+                </ul>
+                </div>
                   
-                    <div class="Readme"> 
-                       <a>病情简述：</a>
-                       <textarea name="病情自述" id="Patient_Abr" rows="5" cols="78" ></textarea>                    
-              </div></div>
-              <b class="b4b d1"></b>
-              <b class="b3b d1"></b>
-              <b class="b2b d1"></b>
-              <b class="b1b"></b>
+                <div class="Readme"> 
+                    <a>病情简述：</a>
+                    <textarea name="病情自述" id="Patient_Abr" rows="5" cols="78" ></textarea>                    
+            </div></div>
+            <b class="b4b d1"></b>
+            <b class="b3b d1"></b>
+            <b class="b2b d1"></b>
+            <b class="b1b"></b>
               
-              </div>
-
-             @*认知诊断*@
-             <div class="step">
-             <img src="../../Content/images/title2-4.png" alt="连线"/></div>
-           <div  id="diagnosis">
+            </div>
+            <div class="step"><img src="../../Content/images/part2.png" alt="2"/></div>
+            <div id="secondary">
+             <b class="b1"></b>
+            <b class="b2 d1"></b>
+            <b class="b3 d1"></b>
+            <b class="b4 d1"></b>
+            <div class="b d1 k">
+          <a></a>
+            <ul>
+             <li class="cols1"><span>维生素B12：</span><input type="text" id="B12"/>pg/ml</li>
+            <li><span>叶酸：</span><input type="text" id="folacin"/>ng/ml</li>
+            <li class="cols1"><span>抗甲状腺球蛋白抗体测定：</span><input type="text" id="Anti_thyroid"/>IU/ml</li>
+            <li><span>血清游离T3测定：</span><input type="text" id="T3"/>pmol/L</li>
+            <li class="cols1"><span>抗甲状腺过氧化物酶抗体测定：</span><input type="text" id="peroxidase"/>IU/ml</li> 
+            <li><span>血清游离T4测定：</span><input type="text" id="T4"/>pmol/L</li>
+             <li class="cols1"><span>血清三碘甲腺原氨酸测定：</span><input type="text" id="triiodothyronine" />nmol/L</li>
+             <li><span>血清甲状腺素测定：</span><input type="text" id="Serum_thyroxine"/>nmol/L</li>         
+             <li class="cols1"><span>血清促甲状腺激素测定：</span><input type="text" id="TSH"/>μIU/ml</li>
+            </ul>
+             <input id="secondary_screening" type="button" onclick="secondary_screening()" value="继发性筛查"/> 
+           <textarea name="继发性筛查结果"id="secondary_screening_result" rows="2" cols="75" readonly="readonly"></textarea>
+            @*<table>
+            <tr>
+            <td>维生素B12</td><td><input type="text" id="B12"/>pg/ml</td><td>叶酸</td><td><input type="text" id="folacin"/>ng/ml</td></tr>
+            <tr><td></td> <td></td> <td></td> <td></td></tr>
+            <tr><td></td> <td></td> <td></td> <td></td></tr> 
+            <tr><td></td> <td></td> <td></td> <td></td></tr> 
+          
+            </table>*@
+            </div>
+            <b class="b4b d1"></b>
+            <b class="b3b d1"></b>
+            <b class="b2b d1"></b>
+            <b class="b1b"></b>
+            </div>
+            
+             <div class="step"><img src="../../Content/images/part3.png" alt="3"/></div>
+           <div  id="diagnosis" >
              <b class="b1"></b>
              <b class="b2 d1"></b>
              <b class="b3 d1"></b>
@@ -200,9 +233,13 @@
                            
                         </ul>
                         <ul class="qeslist" id="VocabularyLearning">
-                            <li class="worddisplay">
-                                <p class="parttitle">
-                                    2、词表学习<span></span></p>
+                               <li> <p class="parttitle">
+                                    2、词表学习</p></li>
+
+                             <li><a class="guide">指导语：</a></li>
+                            <li>
+                                <p class="question">
+                                    检查者以每秒钟1个的速度读出下面这些词，全部读完后要求患者说出记住的词组内容，以记住的词组正确数计分，共重复3次。2分钟后再次要求患者回忆并说出所记住的词组内容。</p>
                             </li>
                             <li  class="worddisplay">
                                 <p class="tips">
@@ -421,7 +458,7 @@
                                     </tr>
                                 </table>
                             </li>
-                            <li>
+                            <li class="worddisplay">
                                 <p class="tips">
                                     C2D:第四次 Score:<span >上一次得分：<label id="lastScore_D" ></label></span></p>
                             </li>
@@ -495,11 +532,22 @@
                                 </table>
                             </li>
                         </ul>
+                        <ul class="qeslist" id="PhotographicMemory_1">
+                         <li><p class="parttitle"> 3、图形记忆</p></li>
+                            <li><div class="grade"><p><span>评分:</span>如果直线上有小波浪或直线轻微上斜或下斜不应扣分。临摹和记忆测试按相同的方法记分。每个部分给予 0-2 分。</p>
+                             <ul style="list-style-type: decimal">
+                             <li>形态正确且布局合理的记2 分；</li> 
+                             <li>形态正确但布局较差(即位置错位)、布局合理但形态有错（如右下菱形画成正方形) 的均记1分；</li>                            
+                             <li>布局差且形态错误、没有画或无法辨认等均记0分。</li></ul></div></li> 
+                             <li><div><img src="../../Content/images/图形记忆.png" alt="图形记忆" />
+                             </div></li></ul>
+
                         <ul class="qeslist" id="PhotographicMemory">
-                            <li>
+                            <li> 
+                           
                                 <p class="parttitle">
-                                    3、图形记忆
-                                  <span></span></p>
+                                    3、图形记忆(续)
+                              </p>
                             </li>
                             <li>
                                 <table border="1">
@@ -902,7 +950,7 @@
                 </div>
                 <a class="next" style="display: block;"></a>
                 <div class="nav">
-                    <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a>
+                    <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a>
                 </div>
                  </div>
               <b class="b4b d1"></b>
@@ -912,15 +960,14 @@
             </div>
             
             
-           <div class="step"><img src="../../Content/images/title3-4.png" alt="连线"/></div>
-           <div title="辅助诊断" id="AuxiliaryDiagnosis">
+           <div class="step"><img src="../../Content/images/part4.png" alt="4"/></div>
+           <div id="AuxiliaryDiagnosis">
             
                 <b class="b1"></b>
                 <b class="b2 d1"></b>
                 <b class="b3 d1"></b>
                 <b class="b4 d1"></b>
                 <div class="b d1 k">
-                    @*<a class="stitle">辅助诊断</a>*@
          @model LNCDCDSS.Models.SimpleADdata
         @using (Html.BeginForm("Index", "Diagnosis", FormMethod.Post, new { id = "add_diagnosis_result" }))
         {
@@ -958,7 +1005,7 @@
             <div class="sysDiagnosis">
             <p>系统建议：</p> 
             <div><span class="error" id="login_msg">@Html.ValidationSummary()</span></div>
-             <textarea name="系统诊断"id="sysdiagnosis" rows="1" cols="75"></textarea>
+             <textarea name="系统诊断"id="sysdiagnosis" rows="1" cols="75"readonly="readonly"></textarea>
          </div>
             <div class="docDiagnosis">
              <p>医生诊断结果：</p> 
@@ -995,10 +1042,38 @@
                 if (data.OK) { 
                 $(".demo").html("本次问诊信息保存成功！");
                     var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'");
-                        }
-                    
+                        }                   
             }
-        })
-            
+        })            
+    }
+
+
+    function secondary_screening(){
+     var B12=parseFloat($("#B12").val());
+     var folacin=parseFloat($("#folacin").val());
+     var Anti_thyroid=parseFloat($("#Anti_thyroid").val());
+     var T3=parseFloat($("#T3").val());
+     var peroxidase=parseFloat($("#peroxidase").val());
+     var T4=parseFloat($("#T4").val());
+     var triiodothyronine=parseFloat($("#triiodothyronine").val());
+     var Serum_thyroxine=parseFloat($("#Serum_thyroxine").val());
+     var TSH=parseFloat($("#TSH").val());
+     if (folacin<5||folacin>14.4||B12<187||B12>1059||Anti_thyroid<0||Anti_thyroid>115||T3<2.76||T3>6.3||peroxidase<0||peroxidase>34||T4<10.42||T4>24.32||triiodothyronine<1.01||triiodothyronine>2.95||Serum_thyroxine<55.34||Serum_thyroxine>160.88||TSH<0.35||TSH>5.5)
+     {
+          var res="筛查结果：患者为继发性老年痴呆，请跳过认知检查，在辅助诊断保存并退出";    
+          var sysres=document.getElementById("sysdiagnosis")
+          sysres.value="继发性老年痴呆";
+         $("#diagnosis div.k").css("background-color","gray");
+         $("#querybox :input").attr("disabled",true);
+    } 
+    else{
+         res="筛查结果：患者为原发性老年痴呆，请进行认知检查"; 
+         $("#diagnosis div.k").css("background-color","transparent");
+         $("#querybox :input").attr("disabled",false);
+         var sysres=document.getElementById("sysdiagnosis")
+         sysres.value="";
+     }
+    var textarea=document.getElementById("secondary_screening_result");
+    textarea.value=res;  
     }
 </script>    

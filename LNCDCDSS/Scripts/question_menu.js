@@ -64,7 +64,7 @@ $(document).ready(function () {
         if (A1 == "") {
             A1 = 0;
             //            $("#AuxiliaryDiagnosis li:eq(4)").css("color", "yellow");
-            $index = 2
+            $index = 3
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
@@ -77,7 +77,7 @@ $(document).ready(function () {
         if (A2 == "") {
             A2 = 0;
             //            $("#AuxiliaryDiagnosis li:eq(7)").css("color", "yellow");
-            $index = 2
+            $index = 3
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");
@@ -92,7 +92,7 @@ $(document).ready(function () {
         if (A3 == "") {
             A3 = 0;
             //            $("#AuxiliaryDiagnosis li:eq(10)").css("color", "yellow");
-            $index = 2
+            $index = 3
             page = $index + 1;
             nav();
             $show.animate({ left: -($width_box * $index) }, "normal");

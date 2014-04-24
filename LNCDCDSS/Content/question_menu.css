@@ -33,7 +33,7 @@
 	cursor:pointer;
 	position: absolute;
 	left: -60px;
-	top: 716px;
+	top: 1115px;
 }
 #mainmenu a.pre:hover{
 	background-position: -75px top;
@@ -46,7 +46,7 @@
 	height: 47px;
 	width: 25px;
 	cursor:pointer;
-	top: 716px;
+	top: 1115px;
 	right: -60px;
 	position: absolute;
 	}
@@ -62,7 +62,7 @@
 }
 
 #mainmenu .menubox{ 
-	width: 8690px;
+	width: 9480px;
 	position: absolute;
 	left: 0px;
 	top: -19px;
@@ -83,7 +83,7 @@
 #mainmenu .nav {
 	height: 10px;
 	margin-top: 0px;
-	width:572px;
+	width:627px;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -155,7 +155,7 @@ input[type="checkbox"]
   a.guide{font-family:"微软雅黑";font-size:21px;}
   
  /*病人自述*/
- #basicinfor{ height:280px;width:790px;margin-top :0px;display:block;}
+ #basicinfor{ height:266px;width:790px;margin-top :0px;display:block;}
  #basicinfor div.Readme{margin:7px 0 0 28px}
  #basicinfor div.patinfo{height:87px; margin:10px 0 0 28px;}
  #basicinfor div.patinfo ul li{float:left; width:210px; list-style:none;margin-top:-7px; padding-bottom:9px;font-family:"微软雅黑";}
@@ -170,7 +170,7 @@ input[type="checkbox"]
 .b3,.b3b{margin:0 2px;}
 .b4,.b4b{height:2px;margin:0 1px;}
 .d1{background: transparent;}
-.k {height:250px; margin-left:auto;}/*决定了圆角矩形的高度*/
+.k {height:260px; margin-left:auto;}/*决定了圆角矩形的高度*/
 .stitle{ background:rgb(209, 209, 211); font-size:18px;text-align:left;  margin-left:4px;}
 input[type="text"]
 {
@@ -187,9 +187,25 @@ input[type="text"]
  .info ul li{ float:left; padding:3px 20px 0 0; }
  .info select{ width:60px;}
  
- 
+ /*继发筛查*/
+ #secondary div.k {height:325px; margin-left:auto;}
+ #secondary div.k li{list-style:none;float:left;width:310px; margin-bottom:15px;}
+  #secondary div.k li.cols1{list-style:none;float:left;width:400px;}
+   #secondary div.k input[type="text"]{ width:60px; height:23px; margin:2px 5px 0px 0px;padding:0 5px 0 5px;}
+   #secondary div.k li span{width:162px;font-family:"微软雅黑"; display:inline-block;}
+  #secondary div.k li.cols1 span{width:252px;font-family:"微软雅黑"; display:inline-block;}
+  #secondary_screening{ margin:-49px 69px 0 594px; height: 37px;
+	float: left;
+	width :138px;
+    background: url(images/normal-button.png) no-repeat ;
+    text-align:center;
+    border:0;}
+  #secondary_screening:hover{background: url(images/hover-button.png) no-repeat ;}
+  #secondary_screening:active{background: url(images/click-button.png) no-repeat ;}
+  #secondary textarea{  width:692px;margin-left:40px;border:0;background:transparent; font-family:"微软雅黑"; color:Red;}
+ /*认知检查的量表诊断*/
  #diagnosis {width:790px;height:645px;display:block;}
- #diagnosis div.k {height:620px; margin-left:auto;}/*决定了圆角矩形的高度*/
+ #diagnosis div.k {height:632px; margin-left:auto;}/*决定了圆角矩形的高度*/
  
  
      /*词表学习部分*/
@@ -197,12 +213,19 @@ input[type="text"]
  .tips{ float:left; font-size:14px; width:700px;font-family:"微软雅黑"}
   p.tips span{ float:right;font-size:14px; font-family:"微软雅黑"} 
   #VocabularyLearning table{ border-collapse: collapse; width:700px;}
-  #VocabularyLearning table, th ,td{ border:1px solid white; text-align:center; font-size:18px;height:30px; line-height:33px;font-family:"微软雅黑"}
+  #VocabularyLearning table, th ,td{ border:1px solid white; text-align:center; font-size:18px;height:23px; line-height:28px;font-family:"微软雅黑"}
   #VocabularyLearning table input[type="checkbox"] { width:20px; height:23px; float:right; margin: 2px 25px 3px 4px; zoom:105%;}
   #VocabularyLearning li.worddisplay{ line-height:6px;}/*将每个table的说明文字占高度缩小*/
+  #VocabularyLearning a.guide{font-size:19px;}
+  #VocabularyLearning p.question{font-size:17px;margin-top:0px;}
+  #VocabularyLearning p.parttitle{margin-bottom:1px;}
+  
   /*图形记忆*/
+  #PhotographicMemory_1 div.grade li{ font-size: 18px;line-height: 25px;position: relative;margin-left:78px;margin-right:23px;font-family:"仿宋"}
+  #PhotographicMemory_1 img{width:365px;height:186px;margin-left:140px;}
+  
   #PhotographicMemory table{ border-collapse: collapse; width:700px; margin-top:-16px;}
-  #PhotographicMemory table, th ,td{ border:1px solid white;  line-height:33px;text-align:center; font-size:18px;margin-top:-30px;height:36px;}
+  #PhotographicMemory table, th ,td{ line-height:28px;text-align:center; font-size:18px;margin-top:-30px;height:23px;}
   #PhotographicMemory input[type=text]{ width:104px;height:28px;margin:2px 6px 1px 7px; padding:0 5px 0 5px}
   #PhotographicMemory select
   {
@@ -280,18 +303,33 @@ input[type="text"]
     div.sysDiagnosis textarea{  width:692px;margin:0px 5px 1px 1px;border:0;background:transparent;}
     div.sysDiagnosis p{ font-family:"楷体";font-size:22px;}
     div.docDiagnosis p{font-family:"楷体";font-size:22px;}
-    input[type="submit"]{margin:9px 69px 0 603px; height: 37px;
-	float: left;
-	width :138px;
-    background: url(images/normal-button.png) no-repeat ;
-    text-align:center;
-    border:0;}
-    #save{ margin:9px 69px 0 603px; height: 37px;
-	float: left;
-	width :138px;
-    background: url(images/normal-button.png) no-repeat ;
-    text-align:center;
-    border:0;}
+    input[type="submit"]
+    {
+       margin:9px 69px 0 603px; height: 37px;
+	   float: left;
+	   width  :138px;
+       background: url(images/normal-button.png) no-repeat ;
+       text-align:center;
+       border:0;}
+     input[type="submit"]:hover
+     {
+     background: url(images/hover-button.png) no-repeat ;
+     }
+     input[type="submit"]:active
+     {
+     background: url(images/click-button.png) no-repeat ;
+      }
+    #save 
+    {
+        margin:9px 69px 0 603px; 
+        height: 37px;
+	    float: left;
+	    width :138px;
+        background: url(images/normal-button.png) no-repeat ;
+        text-align:center;
+        border:0;}
+     #save:hover{background: url(images/hover-button.png) no-repeat ;}
+     #save:active{background: url(images/click-button.png) no-repeat ;}
     div.step{ width:150px;height:75px;}
-    div.step img{width:333px;height:75px;margin-left:-99px;}
+    div.step img{width:350px;height:86px;margin-left:-99px;}
     #mainmenu div.menubox li.lasttime_score{ list-style:none; float:right;font-size:16px; font-family:"仿宋";margin-top:-20px;margin-right:45px;}
