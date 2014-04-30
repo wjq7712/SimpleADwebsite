@@ -203,6 +203,13 @@ input[type="text"]
   #secondary_screening:hover{background: url(images/hover-button.png) no-repeat ;}
   #secondary_screening:active{background: url(images/click-button.png) no-repeat ;}
   #secondary textarea{  width:692px;margin-left:40px;border:0;background:transparent; font-family:"微软雅黑"; color:Red;}
+   #secondary div.k input[type="checkbox"]{zoom:105%;float:left;margin-right:6px;}
+   #secondary div.k li.course span{width:310px;}
+   #secondary div.k li.course{width:375px;}
+   #secondary div.k li p{color:Red;
+text-align:center;
+font-size: 18px;
+padding-top:7px;}
  /*认知检查的量表诊断*/
  #diagnosis {width:790px;height:645px;display:block;}
  #diagnosis div.k {height:632px; margin-left:auto;}/*决定了圆角矩形的高度*/

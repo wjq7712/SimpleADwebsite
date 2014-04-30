@@ -97,12 +97,18 @@
     <script type="text/javascript">
         $('#add_diagnosis_result').ajaxForm(function (data) {
             var sysres = document.getElementById("sysdiagnosis")
-            sysres.value = data;
-//            document.getElementById('sysdiagnosis').innerHTML = data;
-            var result = $("#sysdiagnosis").val();
-            if (result == "患者认知功能异常，具体类型待定，请结合病史    相似度：100.00%") {
-                $("#sysdiagnosis").css("color", "red");
-            } else { $("#sysdiagnosis").css("color", "black"); }
+            if ($("#course_disease1").prop("checked")) {
+                $("#course_span").css("color", "black");
+                sysres.value = data;
+                var result = $("#sysdiagnosis").val();
+                if (result == "患者认知功能异常，具体类型待定，请结合病史    相似度：100.00%") {
+                    $("#sysdiagnosis").css("color", "red");
+                } else { $("#sysdiagnosis").css("color", "black"); }
+            } else {
+                sysres.value = "不符合隐袭起病逐渐加重的病程特点，无法诊断AD";
+                $("#course_span").css("color", "red");
+
+            }
         }
         )
 
@@ -159,7 +165,7 @@
                   
                 <div class="Readme"> 
                     <a>病情简述：</a>
-                    <textarea name="病情自述" id="Patient_Abr" rows="5" cols="78" ></textarea>                    
+                    <textarea name="病情自述" id="Patient_Abr" rows="5" style="width:95%;margin-left:1%" ></textarea>                    
             </div></div>
             <b class="b4b d1"></b>
             <b class="b3b d1"></b>
@@ -176,7 +182,9 @@
             <div class="b d1 k">
           <a></a>
             <ul>
-             <li class="cols1"><span>维生素B12：</span><input type="text" id="B12"/>pg/ml</li>
+             <li><input type="checkbox" id="course_disease1"/><span id="course_span">隐匿起病，逐渐加重</span></li>
+            <li class="course"><input  type="checkbox" id="course_disease2"/><span>影像学检查排除大面积梗死或其他病灶</span></li>          
+            <li class="cols1"><span>维生素B12：</span><input type="text" id="B12"/>pg/ml</li>
             <li><span>叶酸：</span><input type="text" id="folacin"/>ng/ml</li>
             <li class="cols1"><span>抗甲状腺球蛋白抗体测定：</span><input type="text" id="Anti_thyroid"/>IU/ml</li>
             <li><span>血清游离T3测定：</span><input type="text" id="T3"/>pmol/L</li>
@@ -188,29 +196,22 @@
             </ul>
              <input id="secondary_screening" type="button" onclick="secondary_screening()" value="继发性筛查"/> 
            <textarea name="继发性筛查结果"id="secondary_screening_result" rows="2" cols="75" readonly="readonly"></textarea>
-            @*<table>
-            <tr>
-            <td>维生素B12</td><td><input type="text" id="B12"/>pg/ml</td><td>叶酸</td><td><input type="text" id="folacin"/>ng/ml</td></tr>
-            <tr><td></td> <td></td> <td></td> <td></td></tr>
-            <tr><td></td> <td></td> <td></td> <td></td></tr> 
-            <tr><td></td> <td></td> <td></td> <td></td></tr> 
-          
-            </table>*@
             </div>
             <b class="b4b d1"></b>
             <b class="b3b d1"></b>
             <b class="b2b d1"></b>
             <b class="b1b"></b>
             </div>
-            
-             <div class="step"><img src="../../Content/images/part3.png" alt="3"/></div>
+
+              @* 认知检查*@
+            <div class="step"><img src="../../Content/images/part3.png" alt="3"/></div>
            <div  id="diagnosis" >
              <b class="b1"></b>
              <b class="b2 d1"></b>
              <b class="b3 d1"></b>
              <b class="b4 d1"></b>
                 <div class="b d1 k">
-               @* <a class="stitle">认知检查</a>*@
+             
                 <a class="pre" style="display: block;"></a>
                 <div id="querybox">
                     <div class="menubox">
@@ -1005,11 +1006,11 @@
             <div class="sysDiagnosis">
             <p>系统建议：</p> 
             <div><span class="error" id="login_msg">@Html.ValidationSummary()</span></div>
-             <textarea name="系统诊断"id="sysdiagnosis" rows="1" cols="75"readonly="readonly"></textarea>
+             <textarea name="系统诊断"id="sysdiagnosis" rows="1" style="width:110%" readonly="readonly"></textarea>
          </div>
             <div class="docDiagnosis">
              <p>医生诊断结果：</p> 
-              <textarea name="医生诊断" id="docdiagnosis" rows="7" cols="75"></textarea>   
+              <textarea name="医生诊断" id="docdiagnosis" rows="7" style="width:110%;"></textarea>   
             </div>
           <input id="save" type="button" onclick="sumbit_diagnosis()" value="保存并提交"/> 
           }
@@ -1049,6 +1050,7 @@
 
 
     function secondary_screening(){
+//     var course_disease1= 
      var B12=parseFloat($("#B12").val());
      var folacin=parseFloat($("#folacin").val());
      var Anti_thyroid=parseFloat($("#Anti_thyroid").val());
@@ -1063,13 +1065,13 @@
           var res="筛查结果：患者为继发性老年痴呆，请跳过认知检查，在辅助诊断保存并退出";    
           var sysres=document.getElementById("sysdiagnosis")
           sysres.value="继发性老年痴呆";
-         $("#diagnosis div.k").css("background-color","gray");
-         $("#querybox :input").attr("disabled",true);
+//         $("#diagnosis div.k").css("background-color","gray");//让问诊框变灰暗
+//         $("#querybox :input").attr("disabled",true);//使问诊界面失效
     } 
     else{
          res="筛查结果：患者为原发性老年痴呆，请进行认知检查"; 
-         $("#diagnosis div.k").css("background-color","transparent");
-         $("#querybox :input").attr("disabled",false);
+//         $("#diagnosis div.k").css("background-color","transparent");
+//         $("#querybox :input").attr("disabled",false);
          var sysres=document.getElementById("sysdiagnosis")
          sysres.value="";
      }
