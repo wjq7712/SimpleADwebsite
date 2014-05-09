@@ -62,46 +62,24 @@ $(document).ready(function () {
         //图形记忆 为空则将页面跳回该题视图 分数记为0
         var A1 = $("#C3A").val();
         if (A1 == "") {
-            A1 = 0;
-            //            $("#AuxiliaryDiagnosis li:eq(4)").css("color", "yellow");
-//            $index = 3
-//            page = $index + 1;
-//            nav();
-//            $show.animate({ left: -($width_box * $index) }, "normal");
-//            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
+            A1 = 0; 
         }
         $("#SAD61").attr("value", A1);
-        //        } else { $("#SAD61").attr("value", A1); $("#AuxiliaryDiagnosis li:eq(4)").css("color", "black"); }
 
         var A2 = $("#C3B").val();
         if (A2 == "") {
             A2 = 0;
-            //            $("#AuxiliaryDiagnosis li:eq(7)").css("color", "yellow");
-//            $index = 3
-//            page = $index + 1;
-//            nav();
-//            $show.animate({ left: -($width_box * $index) }, "normal");
-//            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
         }
         $("#SAD62").attr("value", A2);
-        //        } else { $("#SAD62").attr("value", A2); $("#AuxiliaryDiagnosis li:eq(7)").css("color", "black"); }
 
 
 
         var A3 = $("#C3C").val();
         if (A3 == "") {
-            A3 = 0;
-            //            $("#AuxiliaryDiagnosis li:eq(10)").css("color", "yellow");
-//            $index = 3
-//            page = $index + 1;
-//            nav();
-//            $show.animate({ left: -($width_box * $index) }, "normal");
-//            $(".nav a:eq(2)").addClass("now").siblings("a").removeClass("now");
+            A3 = 0; 
         }
          $("#SAD63").attr("value", A3);
-        //        } else { $("#SAD63").attr("value", A3); $("#AuxiliaryDiagnosis li:eq(10)").css("color", "black"); }
-
-
+        
         //IADL
         var IADL = 0;
         var count = 0;

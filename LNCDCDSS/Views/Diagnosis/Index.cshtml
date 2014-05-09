@@ -97,16 +97,18 @@
     <script type="text/javascript">
         $('#add_diagnosis_result').ajaxForm(function (data) {
             var sysres = document.getElementById("sysdiagnosis")
-            if ($("#course_disease1").prop("checked")) {
-                $("#course_span").css("color", "black");
-                sysres.value = data;
-                var result = $("#sysdiagnosis").val();
-                if (result == "患者认知功能异常，具体类型待定，请结合病史    相似度：100.00%") {
-                    $("#sysdiagnosis").css("color", "red");
-                } else { $("#sysdiagnosis").css("color", "black"); }
+            if ($("#course_disease1 input").prop("checked")) {
+                if ($("#sysdiagnosis").val() == "") {
+                    $("#course_disease1 span").css("color", "black");
+                    sysres.value = data;
+                    var result = $("#sysdiagnosis").val();
+                    if (result == "患者认知功能异常，具体类型待定，请结合病史    相似度：100.00%") {
+                        $("#sysdiagnosis").css("color", "red");
+                    } else { $("#sysdiagnosis").css("color", "black"); }
+                } else { sysres.value="患者可能为继发性认知障碍，请进行进一步检查" }
             } else {
-                sysres.value = "不符合隐袭起病逐渐加重的病程特点，无法诊断AD";
-                $("#course_span").css("color", "red");
+                sysres.value = "不符合隐袭起病逐渐加重的病程特点，无法诊断";
+                $("#course_disease1 span").css("color", "red");
 
             }
         }
@@ -182,20 +184,20 @@
             <div class="b d1 k">
           <a></a>
             <ul>
-             <li><input type="checkbox" id="course_disease1"/><span id="course_span">隐匿起病，逐渐加重</span></li>
-            <li class="course"><input  type="checkbox" id="course_disease2"/><span>影像学检查排除大面积梗死或其他病灶</span></li>          
-            <li class="cols1"><span>维生素B12：</span><input type="text" id="B12"/>pg/ml</li>
-            <li><span>叶酸：</span><input type="text" id="folacin"/>ng/ml</li>
-            <li class="cols1"><span>抗甲状腺球蛋白抗体测定：</span><input type="text" id="Anti_thyroid"/>IU/ml</li>
-            <li><span>血清游离T3测定：</span><input type="text" id="T3"/>pmol/L</li>
-            <li class="cols1"><span>抗甲状腺过氧化物酶抗体测定：</span><input type="text" id="peroxidase"/>IU/ml</li> 
-            <li><span>血清游离T4测定：</span><input type="text" id="T4"/>pmol/L</li>
-             <li class="cols1"><span>血清三碘甲腺原氨酸测定：</span><input type="text" id="triiodothyronine" />nmol/L</li>
-             <li><span>血清甲状腺素测定：</span><input type="text" id="Serum_thyroxine"/>nmol/L</li>         
-             <li class="cols1"><span>血清促甲状腺激素测定：</span><input type="text" id="TSH"/>μIU/ml</li>
+             <li id="course_disease1"><input type="checkbox"/><span id="course_span">隐匿起病，逐渐加重</span></li>
+            <li class="course" id="course_disease2"><input  type="checkbox"/><span>影像学检查排除大面积梗死或其他病灶</span></li>          
+            <li class="cols1" id="B12"><span>维生素B12：</span><input type="text"/>pg/ml</li>
+            <li id="folacin"><span>叶酸：</span><input type="text"/>ng/ml</li>
+            <li class="cols1" id="Anti_thyroid"><span>抗甲状腺球蛋白抗体测定：</span><input type="text" />IU/ml</li>
+            <li id="T3"><span>血清游离T3测定：</span><input type="text" />pmol/L</li>
+            <li class="cols1"id="peroxidase"><span>抗甲状腺过氧化物酶抗体测定：</span><input type="text" />IU/ml</li> 
+            <li  id="T4"><span>血清游离T4测定：</span><input type="text"/>pmol/L</li>
+             <li class="cols1" id="triiodothyronine"><span>血清三碘甲腺原氨酸测定：</span><input type="text"  />nmol/L</li>
+             <li  id="Serum_thyroxine"><span>血清甲状腺素测定：</span><input type="text"/>nmol/L</li>         
+             <li class="cols1" id="TSH"><span>血清促甲状腺激素测定：</span><input type="text" />μIU/ml</li>
             </ul>
              <input id="secondary_screening" type="button" onclick="secondary_screening()" value="继发性筛查"/> 
-           <textarea name="继发性筛查结果"id="secondary_screening_result" rows="2" cols="75" readonly="readonly"></textarea>
+           <textarea name="继发性筛查结果"id="secondary_screening_result" rows="1" cols="75" readonly="readonly"></textarea>
             </div>
             <b class="b4b d1"></b>
             <b class="b3b d1"></b>
@@ -1048,28 +1050,68 @@
         })            
     }
 
-
     function secondary_screening(){
-//     var course_disease1= 
-     var B12=parseFloat($("#B12").val());
-     var folacin=parseFloat($("#folacin").val());
-     var Anti_thyroid=parseFloat($("#Anti_thyroid").val());
-     var T3=parseFloat($("#T3").val());
-     var peroxidase=parseFloat($("#peroxidase").val());
-     var T4=parseFloat($("#T4").val());
-     var triiodothyronine=parseFloat($("#triiodothyronine").val());
-     var Serum_thyroxine=parseFloat($("#Serum_thyroxine").val());
-     var TSH=parseFloat($("#TSH").val());
-     if (folacin<5||folacin>14.4||B12<187||B12>1059||Anti_thyroid<0||Anti_thyroid>115||T3<2.76||T3>6.3||peroxidase<0||peroxidase>34||T4<10.42||T4>24.32||triiodothyronine<1.01||triiodothyronine>2.95||Serum_thyroxine<55.34||Serum_thyroxine>160.88||TSH<0.35||TSH>5.5)
+     var strRes="筛查结果：患者为继发性认知障碍，请进行进一步检查";
+     var B12=parseFloat($("#B12 input").val());
+     var folacin=parseFloat($("#folacin input").val());
+     var Anti_thyroid=parseFloat($("#Anti_thyroid input").val());
+     var T3=parseFloat($("#T3 input").val());
+     var peroxidase=parseFloat($("#peroxidase input").val());
+     var T4=parseFloat($("#T4 input").val());
+     var triiodothyronine=parseFloat($("#triiodothyronine input").val());
+     var Serum_thyroxine=parseFloat($("#Serum_thyroxine input").val());
+     var TSH=parseFloat($("#TSH input").val());
+
+     if (!$("#course_disease1 input").prop("checked")){
+         var cd1=0;
+         $("#course_disease1 span").css("color", "red");        
+     }else{ var cd1=1;$("#course_disease1 span").css("color", "black");}
+
+     if (!$("#course_disease2 input").prop("checked")){
+         var cd2=0;
+         $("#course_disease2 span").css("color", "red");        
+     }else{ cd2=1;$("#course_disease2 span").css("color", "black");}
+
+     if (folacin<5||folacin>14.4){
+     $("#folacin input").css("color","red");
+     }else{ $("#folacin input").css("color","black");}
+
+     if (B12<187||B12>1059){
+     $("#B12 input").css("color","red");
+     }else{ $("#B12 input").css("color","black");}
+
+     if (Anti_thyroid<0||Anti_thyroid>115){
+     $("#Anti_thyroid input").css("color","red");
+     }else{ $("#Anti_thyroid input").css("color","black");}
+
+     if (T3<2.76||T3>6.3){
+     $("#T3 input").css("color","red");
+     }else{ $("#T3 input").css("color","black");}
+
+     if (T4<10.42||T4>24.32){
+     $("#T4 input").css("color","red");
+     }else{ $("#T4 input").css("color","black");}
+
+     if (triiodothyronine<1.01||triiodothyronine>2.95){
+     $("#triiodothyronine input").css("color","red");
+     }else{ $("#triiodothyronine input").css("color","black");}
+
+     if (Serum_thyroxine<55.34||Serum_thyroxine>160.88){
+     $("#Serum_thyroxine input").css("color","red");
+     }else{ $("#Serum_thyroxine input").css("color","black");}
+
+     if (TSH<0.35||TSH>5.5){
+     $("#TSH input").css("color","red");
+     }else{ $("#TSH input").css("color","black");}
+
+     if ( cd1==0||cd2==0||folacin<5||folacin>14.4||B12<187||B12>1059||Anti_thyroid<0||Anti_thyroid>115||T3<2.76||T3>6.3||peroxidase<0||peroxidase>34||T4<10.42||T4>24.32||triiodothyronine<1.01||triiodothyronine>2.95||Serum_thyroxine<55.34||Serum_thyroxine>160.88||TSH<0.35||TSH>5.5)
      {
-          var res="筛查结果：患者为继发性老年痴呆，请跳过认知检查，在辅助诊断保存并退出";    
-          var sysres=document.getElementById("sysdiagnosis")
-          sysres.value="继发性老年痴呆";
-//         $("#diagnosis div.k").css("background-color","gray");//让问诊框变灰暗
-//         $("#querybox :input").attr("disabled",true);//使问诊界面失效
+          var res=strRes;    
+          var sysres=document.getElementById("sysdiagnosis");
+          sysres.value="患者可能为继发性认知障碍，请进行进一步检查";
     } 
     else{
-         res="筛查结果：患者为原发性老年痴呆，请进行认知检查"; 
+         res="筛查结果：患者为原发性认知障碍，请进行认知检查"; 
 //         $("#diagnosis div.k").css("background-color","transparent");
 //         $("#querybox :input").attr("disabled",false);
          var sysres=document.getElementById("sysdiagnosis")
